@@ -133,6 +133,26 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 <noscript><link rel="stylesheet" id="grunion.css-css" href="https://itffilosofieinfo.github.io/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-forms/src/../dist/contact-form/css/grunion.css?ver=15.3.1" type="text/css" media="all">
 </noscript><link rel="stylesheet" id="grunion.css-css" href="https://itffilosofieinfo.github.io/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-forms/src/../dist/contact-form/css/grunion.css?ver=15.3.1" type="text/css" media="not all" data-media="all" onload="this.media=this.dataset.media; delete this.dataset.media; this.removeAttribute( 'onload' );">
+<style>
+/* Alleen op de pagina Inschrijven (page-id-194) */
+body.page-id-194 form[action^="https://formspree.io"]{
+  display:block;
+}
+
+body.page-id-194 form[action^="https://formspree.io"] label{
+  display:block;
+  margin: 0 0 14px 0;
+}
+
+body.page-id-194 form[action^="https://formspree.io"] input[type="text"],
+body.page-id-194 form[action^="https://formspree.io"] input[type="email"],
+body.page-id-194 form[action^="https://formspree.io"] input[type="tel"],
+body.page-id-194 form[action^="https://formspree.io"] select,
+body.page-id-194 form[action^="https://formspree.io"] textarea{
+  width:100%;
+  box-sizing:border-box;
+}
+</style>
 </head>
 
 <body data-rsssl="1" class="wp-singular page-template-default page page-id-194 wp-custom-logo wp-theme-shuttle wp-child-theme-shuttle-eminimal layout-sidebar-none intro-on layout-responsive header-style1">
@@ -482,3 +502,4 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 </script></body>
 
 </html>
+
