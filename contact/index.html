@@ -5,47 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact – Instituut voor Toegepaste Filosofie</title>
   <style>
-    :root{ --max: 980px; --pad: 22px; }
-    body{ font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.6; margin:0; color:#1e1e1e; }
-    header, main, footer{ max-width: var(--max); margin: 0 auto; padding: var(--pad); }
-    nav{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom: 16px; }
-    nav a{ text-decoration:none; color:#1e1e1e; padding:6px 10px; border-radius:10px; background:#f2f2f2; }
-    nav a[aria-current="page"]{ background:#1e1e1e; color:#fff; }
-    h1{ margin: 10px 0 0; }
-    .grid{ display:grid; gap:18px; grid-template-columns: 1fr; margin-top: 18px; }
-    @media (min-width: 900px){ .grid{ grid-template-columns: 1.2fr .8fr; } }
-    .card{ border:1px solid #e2e2e2; border-radius:14px; padding: 16px; background:#fff; }
-    form{ display:grid; gap:12px; }
-    label{ display:grid; gap:6px; font-weight:600; }
-    input, textarea, select, button{ font:inherit; padding:10px 12px; border-radius:10px; border:1px solid #d7d7d7; }
-    textarea{ min-height: 140px; }
-    button{ border:none; background:#1e1e1e; color:#fff; cursor:pointer; padding:12px 14px; font-weight:700; }
-    small{ color:#666; }
-    ul{ margin: 10px 0 0 18px; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; margin: 0; }
+    header, main, footer { max-width: 900px; margin: 0 auto; padding: 24px; }
+    header a { text-decoration: none; }
+    h1 { margin-top: 0; }
+    form { display: grid; gap: 14px; max-width: 520px; }
+    label { display: grid; gap: 6px; }
+    input, select, textarea, button { font: inherit; padding: 10px 12px; }
+    button { cursor: pointer; }
+    .note { margin-top: 24px; }
   </style>
 </head>
 <body>
 
 <header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/over-ons/">Over ons</a>
-    <a href="/pep/">PEP</a>
-    <a href="/advies-en-onderzoek/">Advies & onderzoek</a>
-    <a href="/inschrijven/">Inschrijven</a>
-    <a href="/contact/" aria-current="page">Contact</a>
-  </nav>
-
+  <a href="/">← Home</a>
   <h1>Contact</h1>
-  <p>Stel je vraag of stuur een bericht. We reageren meestal binnen 2 werkdagen.</p>
 </header>
 
+<main>
 <main class="grid">
 
   <section class="card">
     <h2>Bericht sturen</h2>
 
-    <form action="https://formspree.io/f/xvzppeqz" method="POST">
+    <form action="https://formspree.io/f/JE_EIGEN_CODE" method="POST">
       <label>Naam*
         <input type="text" name="naam" required>
       </label>
@@ -69,22 +53,6 @@
       <small>Door te verzenden ga je akkoord dat we je gegevens gebruiken om te reageren op je bericht.</small>
     </form>
   </section>
-
-  <aside class="card">
-    <h2>Contactgegevens</h2>
-    <p>
-      <strong>Instituut voor Toegepaste Filosofie</strong><br>
-      <a href="mailto:info@instituutvoortoegepastefilosofie.nl">info@instituutvoortoegepastefilosofie.nl</a><br>
-      <a href="tel:+31XXXXXXXXX">+31 …</a>
-    </p>
-
-    <h3>Snelle routes</h3>
-    <ul>
-      <li>Inschrijven? Ga naar <a href="/inschrijven/">Inschrijven</a></li>
-      <li>Vraag over PEP? Zet “PEP” in het onderwerp</li>
-    </ul>
-  </aside>
-
 </main>
 
 <footer>
