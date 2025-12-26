@@ -3,68 +3,92 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | Instituut voor toegepaste filosofie</title>
-  <meta name="description" content="Neem contact op met het Instituut voor toegepaste filosofie." />
-
-  <!-- Optioneel: link naar je eigen CSS (pas het pad aan als jij een ander pad gebruikt) -->
-  <!-- <link rel="stylesheet" href="/assets/style.css"> -->
-
+  <title>Contact – Instituut voor Toegepaste Filosofie</title>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;margin:0;padding:0}
-    header,main,footer{max-width:900px;margin:0 auto;padding:24px}
-    .card{border:1px solid #e5e5e5;border-radius:12px;padding:18px}
-    label{display:block;font-weight:600;margin:14px 0 6px}
-    input,textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:10px;font:inherit}
-    textarea{min-height:180px;resize:vertical}
-    button{margin-top:14px;padding:12px 16px;border:0;border-radius:10px;cursor:pointer;font-weight:700}
-    .hint{color:#555;font-size:0.95rem}
-    nav a{margin-right:12px}
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; margin: 0; }
+    header, main, footer { max-width: 900px; margin: 0 auto; padding: 24px; }
+    nav a { margin-right: 12px; text-decoration: none; }
+    h1 { margin-top: 0; }
+    .grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 860px){ .grid { grid-template-columns: 1fr 1fr; } }
+    form { display: grid; gap: 14px; }
+    label { display: grid; gap: 6px; }
+    input, textarea, button { font: inherit; padding: 10px 12px; }
+    button { cursor: pointer; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; }
+    small { color: #666; }
   </style>
 </head>
-
 <body>
-  <header>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/over-ons/">Over ons</a>
-      <a href="/pep/">PEP</a>
-      <a href="/advies-en-onderzoek/">Advies en onderzoek</a>
-      <a href="/inschrijven/">Inschrijven</a>
-      <a href="/contact/">Contact</a>
-    </nav>
-    <h1>Contact</h1>
+
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/over-ons/">Over ons</a>
+    <a href="/pep/">PEP</a>
+    <a href="/advies-en-onderzoek/">Advies & onderzoek</a>
+    <a href="/inschrijven/">Inschrijven</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <h1>Contact</h1>
+</header>
+
+<main class="grid">
+
+  <section class="card">
+    <h2>Stuur ons een bericht</h2>
+
+    <form action="https://formspree.io/f/xvzppeqz" method="POST">
+      <label>Naam*
+        <input type="text" name="naam" required>
+      </label>
+
+      <label>E-mail*
+        <input type="email" name="email" required>
+      </label>
+
+      <label>Onderwerp
+        <input type="text" name="onderwerp">
+      </label>
+
+      <label>Bericht*
+        <textarea name="bericht" rows="6" required></textarea>
+      </label>
+
+      <!-- optioneel: honeypot tegen spam -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button type="submit">Verzenden</button>
+      <small>Je ontvangt geen automatische bevestiging, maar we reageren zo snel mogelijk.</small>
+    </form>
+  </section>
+
+  <aside class="card">
+    <h2>Contactgegevens</h2>
     <p>
-      Heeft u een vraag of opmerking? Gebruik het formulier hieronder,
-      of mail direct naar <a href="mailto:info@instituutvoortoegepastefilosofie.nl">info@instituutvoortoegepastefilosofie.nl</a>.
+      <strong>Instituut voor Toegepaste Filosofie</strong><br>
+      <a href="mailto:info@instituutvoortoegepastefilosofie.nl">info@instituutvoortoegepastefilosofie.nl</a><br>
+      <a href="tel:+31XXXXXXXXX">+31 …</a>
     </p>
-  </header>
 
-  <main>
-    <div class="card">
-      <form action="https://formspree.io/f/xvzppeqz" method="POST">
-        <!-- Handig: vaste onderwerpregel in je mailbox -->
-        <input type="hidden" name="subject" value="Contactformulier – Instituut voor toegepaste filosofie" />
+    <h3>Praktisch</h3>
+    <ul>
+      <li>Reactietijd: meestal binnen 2 werkdagen</li>
+      <li>Voor inschrijvingen: gebruik de pagina <a href="/inschrijven/">Inschrijven</a></li>
+    </ul>
 
-        <!-- Optioneel: simpele honeypot tegen bots -->
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+    <!-- optioneel: locatie -->
+    <!--
+    <h3>Locatie</h3>
+    <p>Zweeloo / online</p>
+    -->
+  </aside>
 
-        <label for="name">Naam</label>
-        <input id="name" name="name" type="text" required />
+</main>
 
-        <label for="email">E-mail</label>
-        <input id="email" name="email" type="email" required />
+<footer>
+  <small>© Instituut voor Toegepaste Filosofie</small>
+</footer>
 
-        <label for="message">Vraag / opmerking</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <button type="submit">Versturen</button>
-        <p class="hint">Na verzenden kan Formspree een “thank you”-pagina tonen (instelbaar in Formspree).</p>
-      </form>
-    </div>
-  </main>
-
-  <footer>
-    <small>© Instituut voor toegepaste filosofie</small>
-  </footer>
 </body>
 </html>
