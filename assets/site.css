@@ -1,1 +1,3 @@
+/* Verbergt de WordPress/Shuttle creditregel */
+#sub-footer .copyright { display: none !important; }
 
