@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – Instituut voor Toegepaste Filosofie</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; margin: 0; }
+    header, main, footer { max-width: 900px; margin: 0 auto; padding: 24px; }
+    a { color: inherit; }
+    form { display: grid; gap: 14px; max-width: 520px; }
+    label { display: grid; gap: 6px; }
+    input, textarea, button { font: inherit; padding: 10px 12px; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">← Home</a>
+    <h1>Contact</h1>
+    <p>Stuur ons een bericht via onderstaand formulier.</p>
+  </header>
+
+  <main>
+    <form action="https://formspree.io/f/xvzppeqz" method="POST">
+      <label>
+        Naam*
+        <input type="text" name="naam" required>
+      </label>
+
+      <label>
+        E-mail*
+        <input type="email" name="email" required>
+      </label>
+
+      <label>
+        Bericht*
+        <textarea name="bericht" rows="6" required></textarea>
+      </label>
+
+      <button type="submit">Verzenden</button>
+    </form>
+
+    <p style="margin-top:24px;">
+      Of mail direct: <a href="mailto:info@instituutvoortoegepastefilosofie.nl">info@instituutvoortoegepastefilosofie.nl</a>
+    </p>
+  </main>
+
+  <footer>
+    <p style="opacity:.7;">© Instituut voor Toegepaste Filosofie</p>
+  </footer>
+</body>
+</html>
