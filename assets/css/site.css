@@ -277,4 +277,47 @@ footer p{
   gap: 6px;
   flex-wrap: wrap;
 }
+/* Subtiele hover op dienst-kaarten */
+.dienst{
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.dienst:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border-color: #d1d5db;
+}
+
+/* Linkknop iets “mee” */
+.dienst a{
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.dienst:hover a{
+  transform: translateY(-1px);
+}
+nav a{
+  padding: 10px 12px; /* iets groter klikvlak */
+}
+@media (max-width: 600px){
+  .banner img{
+    max-height: 220px;
+    object-position: center 30%;
+    filter: saturate(0.9) contrast(0.95);
+  }
+
+  .banner{
+    margin-bottom: 22px;
+  }
+}
+
+
+  main{
+    padding: 44px 20px 70px;
+  }
+
+  nav a{
+    padding: 12px 14px; /* betere touch targets */
+  }
+}
 
