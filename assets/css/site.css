@@ -60,3 +60,20 @@ h2 {
 p {
   margin-bottom: 1.4rem;
 }
+.diensten {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.dienst h3 {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .diensten {
+    grid-template-columns: 1fr;
+  }
+}
+
