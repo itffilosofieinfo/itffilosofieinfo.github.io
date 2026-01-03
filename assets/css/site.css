@@ -325,46 +325,60 @@ nav a{
     padding: 12px 14px; /* betere touch targets */
   }
 }
-.ervaringen {
-  background-color: #eaf1f6; /* zachte blauwtoon */
-  padding: 4rem 2rem;
+/* ==========================
+   Ervaringen (homepage) – in lijn met ITF stijl
+   ========================== */
+
+.ervaringen{
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px 26px;
+  margin: 44px 0 0;          /* netjes onder diensten */
 }
 
-.ervaringen h2 {
+.ervaringen h2{
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin: 0 0 2rem;
 }
 
-.ervaringen-grid {
+.ervaringen-grid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 26px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.ervaring {
-  background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 6px;
+.ervaring{
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 20px;
   font-style: italic;
 }
 
-.ervaring span {
+.ervaring span{
   display: block;
   margin-top: 1rem;
   font-style: normal;
   font-weight: 600;
 }
 
-.ervaringen-link {
+.ervaringen-link{
   text-align: center;
-  margin-top: 2.5rem;
+  margin-top: 2.2rem;
 }
-@media (max-width: 900px) {
-  .ervaringen-grid {
+
+@media (max-width: 900px){
+  .ervaringen{
+    padding: 26px 18px;
+  }
+  .ervaringen-grid{
     grid-template-columns: 1fr;
   }
+}
+
 }
 .pep-ervaringen {
   margin-top: 4rem;
