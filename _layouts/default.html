@@ -14,14 +14,22 @@
 <body>
 
 <header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/over-ons/">Over ons</a>
-    <a href="/wat-wij-doen/">Wat wij doen</a>
-    <a href="/artikelen/">Artikelen</a>
-    <a href="/contact/">Contact</a>
+  <nav class="main-nav">
+    <a class="nav-logo" href="/">
+      <img src="/assets/img/itf-logo-zalm.png"
+           alt="Instituut voor Toegepaste Filosofie">
+    </a>
+
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/over-ons/">Over ons</a>
+      <a href="/wat-wij-doen/">Wat wij doen</a>
+      <a href="/artikelen/">Artikelen</a>
+      <a href="/contact/">Contact</a>
+    </div>
   </nav>
 </header>
+
 
 <main>
   {{ content }}
