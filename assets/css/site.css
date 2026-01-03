@@ -385,6 +385,43 @@ nav a{
   margin-top: 1rem;
   font-weight: 600;
 }
+.banner {
+  position: relative;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.banner-button {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #1f2f3a;
+  padding: 0.9rem 1.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+
+  transition: background-color 0.2s ease;
+}
+
+.banner-button:hover {
+  background-color: #ffffff;
+}
+@media (max-width: 600px) {
+  .banner-button {
+    bottom: 1.5rem;
+    font-size: 0.95rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
 
 
 
