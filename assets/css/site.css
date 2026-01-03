@@ -76,4 +76,35 @@ p {
     grid-template-columns: 1fr;
   }
 }
+.contact-form {
+  margin-top: 24px;
+}
 
+.contact-form label {
+  display: block;
+  margin: 16px 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.contact-form button {
+  margin-top: 8px;
+  padding: 10px 14px;
+  font: inherit;
+  border: 1px solid #222;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  text-decoration: underline;
+}
