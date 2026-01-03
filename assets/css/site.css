@@ -117,4 +117,14 @@ p {
   border-radius: 6px;
   background: #fff;
 }
+/* Banner */
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 420px;
+  object-fit: cover;
+.banner { margin-bottom: 40px; }
+
+}
 
