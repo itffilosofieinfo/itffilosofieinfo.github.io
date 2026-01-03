@@ -469,6 +469,25 @@ nav li::marker {
 nav li::before {
   content: none !important;
 }
+/* Subtiele nadruk op PEP, zonder dat het een knop wordt */
+.nav-pep {
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-pep::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #d6e3ef; /* zachte blauwtoon, rustig */
+}
+
+.nav-pep:hover::after {
+  background: #b8d0e6; /* iets donkerder bij hover */
+}
 
 
 
