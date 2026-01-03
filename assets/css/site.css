@@ -330,16 +330,20 @@ nav a{
    ========================== */
 
 .ervaringen{
-  background: #fff;
+  /* visueel onderscheid, maar zacht */
+  background: #e6f0f8;          /* iets rijker lichtblauw dan --soft */
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 22px 20px;
-  margin: 44px 0 0;          /* netjes onder diensten */
+
+  /* meer ademruimte */
+  padding: 42px 30px;
+  margin: 88px 0 0;             /* duidelijk meer wit boven de titel */
 }
 
 .ervaringen h2{
   text-align: center;
   margin: 0 0 2rem;
+  margin-bottom: 2.8rem;
 }
 
 .ervaringen-grid{
