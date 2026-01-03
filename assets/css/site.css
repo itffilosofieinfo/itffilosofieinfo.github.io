@@ -251,10 +251,15 @@ footer p{
   width: 56px;
   height: auto;
   margin-bottom: 14px;
-   text-align: center;
   opacity: 0.9;
-   .dienst:hover .dienst-logo{
+  display: block;
+}
+
+/* Op hover iets duidelijker */
+.dienst:hover .dienst-logo{
   opacity: 1;
+}
+
 }
 
 }
@@ -384,16 +389,7 @@ nav a{
   display: block;
   margin-top: 1rem;
   font-weight: 600;
-}
 
-.banner {
-  position: relative;
-}
-
-.banner img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* rustige, herkenbare CTA op de banner */
@@ -435,59 +431,87 @@ nav a{
     font-size: 0.95rem;
   }
 }
+/* ==========================
+   NAV: geen bullets / geen markers
+   ========================== */
 
-
-.nav-pep {
-  font-weight: 600;
-  position: relative;
-}
-
-.nav-pep::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background-color: #9bb8d3; /* zachte blauwtoon */
-}
-.nav-pep:hover::after {
-  background-color: #6f97c3;
-}
-/* Zorg dat er geen automatische bullets/markers in de nav verschijnen */
-nav ul {
+nav ul{
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-nav li::marker {
-  content: "";
-}
+nav li::marker{ content: ""; }
+nav li::before{ content: none !important; }
 
-/* Als je eerder een custom bullet via ::before hebt, neutraliseer die */
-nav li::before {
-  content: none !important;
-}
-/* Subtiele nadruk op PEP, zonder dat het een knop wordt */
-.nav-pep {
+/* PEP subtiel prominenter (geen knop, geen punt) */
+.nav-pep{
   font-weight: 600;
   position: relative;
 }
 
-.nav-pep::after {
+.nav-pep::after{
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
+  left: 10px;          /* sluit aan op nav padding */
+  right: 10px;
+  bottom: 6px;         /* binnen de 'pill' hover */
   height: 2px;
-  background: #d6e3ef; /* zachte blauwtoon, rustig */
+  background: #d6e3ef; /* zachte blauwtoon */
+  opacity: 1;
+  border-radius: 2px;
 }
 
-.nav-pep:hover::after {
-  background: #b8d0e6; /* iets donkerder bij hover */
+nav a.nav-pep:hover::after{
+  background: #b8d0e6;
 }
+
+/* ==========================
+   BANNER CTA: herkenbaar als knop, rustig
+   ========================== */
+
+/* voeg positionering toe aan je bestaande banner-blok */
+.banner{
+  position: relative;
+}
+
+.banner-cta{
+  position: absolute;
+  left: 50%;
+  bottom: 2.1rem;
+  transform: translateX(-50%);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(31,35,40,0.14);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+  color: var(--text);
+}
+
+.banner-cta:hover{
+  background: rgba(255,255,255,0.98);
+}
+
+/* mobiel */
+@media (max-width: 600px){
+  .banner-cta{
+    bottom: 1.2rem;
+    padding: 0.7rem 1.1rem;
+    font-size: 0.95rem;
+  }
+}
+
+
+
 
 
 
