@@ -108,3 +108,13 @@ p {
 .contact-form button:hover {
   text-decoration: underline;
 }
+.contact-form select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+}
+
