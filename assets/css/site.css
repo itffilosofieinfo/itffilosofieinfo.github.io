@@ -330,10 +330,10 @@ nav a{
    ========================== */
 
 .ervaringen{
-  background: var(--soft);
+  background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 34px 26px;
+  padding: 22px 20px;
   margin: 44px 0 0;          /* netjes onder diensten */
 }
 
@@ -529,6 +529,29 @@ nav a.nav-pep:hover::after{
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 34px 26px;
+}
+/* Homepage: sectietitels in het midden */
+.section-soft h2,
+.ervaringen h2,
+.home-contact h2,
+main > h2 {
+  text-align: center;
+}
+/* Universele rustige button */
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover{
+  background: var(--soft2);
+  text-decoration: none;
 }
 
 
