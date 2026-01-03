@@ -523,6 +523,13 @@ nav a.nav-pep:hover::after{
     font-size: 0.95rem;
   }
 }
+.home-contact{
+  margin-top: 44px;
+  background: var(--soft2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 34px 26px;
+}
 
 
 
