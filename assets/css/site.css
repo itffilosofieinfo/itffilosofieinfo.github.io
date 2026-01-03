@@ -92,9 +92,9 @@ nav a:hover{
 
 /* Layout */
 main{
-  max-width: 1100px;
+  max-width: 1200px;      /* iets breder */
   margin: 0 auto;
-  padding: 40px 20px 70px;
+  padding: 60px 32px 90px; /* meer wit links/rechts + boven/onder */
 }
 
 /* Footer */
