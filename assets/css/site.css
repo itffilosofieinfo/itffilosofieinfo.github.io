@@ -236,5 +236,15 @@ footer p{
   .diensten{ grid-template-columns: 1fr; }
   .banner{ margin: -30px -20px 26px; }
 }
+/* Homepage logo */
+.home-logo{
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.home-logo img{
+  width: 140px;
+  height: auto;
+}
 
 
