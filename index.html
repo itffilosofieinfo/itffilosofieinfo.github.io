@@ -33,9 +33,7 @@ Wij begeleiden bij vragen die vragen om helderheid, richting en zorgvuldige afwe
 
 <div class="diensten">
   <div class="dienst">
-    <img class="dienst-logo"
-       src="/assets/img/itf-logo-lila.png"
-       alt="">
+    <img class="dienst-logo" src="/assets/img/itf-logo-lila.png" alt="">
     <h3>Persoonlijke en professionele ontwikkeling</h3>
     <p>
       Voor mensen die goed functioneren, maar voelen dat er iets schuurt.
@@ -48,9 +46,7 @@ Wij begeleiden bij vragen die vragen om helderheid, richting en zorgvuldige afwe
   </div>
 
   <div class="dienst">
-    <img class="dienst-logo"
-       src="/assets/img/itf-logo-blauw.png"
-       alt="">
+    <img class="dienst-logo" src="/assets/img/itf-logo-blauw.png" alt="">
     <h3>Advies en reflectie in organisaties</h3>
     <p>
       Organisaties schakelen ons in bij vraagstukken rond verantwoordelijkheid,
@@ -62,19 +58,20 @@ Wij begeleiden bij vragen die vragen om helderheid, richting en zorgvuldige afwe
     </p>
   </div>
 
-  <div class="dienst"><img class="dienst-logo"
-       src="/assets/img/itf-logo-zalm.png"
-       alt="">
+  <div class="dienst">
+    <img class="dienst-logo" src="/assets/img/itf-logo-zalm.png" alt="">
     <h3>Onderwijs en publieke dialoog</h3>
     <p>
       Wij verzorgen onderwijs, lezingen, masterclasses en filosofische gesprekken
       waarin denken wordt verbonden met ervaring en actuele thema’s, waaronder de relatie tussen AI en de mens.
     </p>
     <p>
-      <a href="/artikelen/">Artikelen & workshops</a>
+      <a href="/artikelen/">Artikelen &amp; workshops</a>
     </p>
   </div>
-  <section class="ervaringen">
+</div>
+
+<section class="ervaringen">
   <h2>Ervaringen met PEP</h2>
 
   <div class="ervaringen-grid">
@@ -99,5 +96,38 @@ Wij begeleiden bij vragen die vragen om helderheid, richting en zorgvuldige afwe
   </div>
 </section>
 
-</div>
+<section class="home-contact">
+  <h2>Contact</h2>
+  <p class="muted" style="max-width: 850px;">
+    Wil je kennismaken of heb je een vraag? Stuur gerust een bericht. We reageren meestal binnen enkele werkdagen.
+  </p>
 
+  <form class="contact-form" action="JOUW_FORMSPREE_ENDPOINT" method="POST">
+    <label>
+      Naam
+      <input type="text" name="name" required>
+    </label>
+
+    <label>
+      E-mail
+      <input type="email" name="email" required>
+    </label>
+
+    <label>
+      Onderwerp
+      <input type="text" name="subject">
+    </label>
+
+    <label>
+      Bericht
+      <textarea name="message" rows="6" required></textarea>
+    </label>
+
+    <button type="submit">Verstuur</button>
+  </form>
+
+  <p class="muted" style="margin-top: 1rem;">
+    Liever mailen? Dat kan ook via de contactpagina.
+    <a href="/contact/">Ga naar contact</a>
+  </p>
+</section>
