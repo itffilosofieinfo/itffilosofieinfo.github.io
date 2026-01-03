@@ -320,4 +320,47 @@ nav a{
     padding: 12px 14px; /* betere touch targets */
   }
 }
+.ervaringen {
+  background-color: #eaf1f6; /* zachte blauwtoon */
+  padding: 4rem 2rem;
+}
+
+.ervaringen h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.ervaringen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ervaring {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 6px;
+  font-style: italic;
+}
+
+.ervaring span {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.ervaringen-link {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+@media (max-width: 900px) {
+  .ervaringen-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
