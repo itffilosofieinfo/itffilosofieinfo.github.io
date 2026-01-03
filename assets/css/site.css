@@ -361,6 +361,30 @@ nav a{
     grid-template-columns: 1fr;
   }
 }
+.pep-ervaringen {
+  margin-top: 4rem;
+  max-width: 900px;
+}
+
+.pep-ervaringen h2 {
+  margin-bottom: 2.5rem;
+}
+
+.pep-ervaring {
+  margin-bottom: 3rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid #d6e3ef; /* zachte blauwtoon */
+}
+
+.pep-ervaring p {
+  margin-bottom: 1rem;
+}
+
+.pep-naam {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
 
 
 
