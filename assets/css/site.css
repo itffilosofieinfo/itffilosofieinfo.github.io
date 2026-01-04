@@ -821,6 +821,11 @@ main > h2 {
   border-radius: 12px;
   margin-bottom: 14px;
 }
+.begeleider-foto{
+  filter: saturate(0.95) contrast(0.95);
+}
+
+
 
 /* Mobiel iets lager */
 @media (max-width: 600px){
