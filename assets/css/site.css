@@ -558,6 +558,105 @@ main > h2 {
   text-decoration: none;
 }
 
+/* ==========================
+   PEP pagina – structuur & leesbaarheid
+   ========================== */
+
+.pep-hero{
+  margin-top: 1.5rem;
+}
+
+.pep-lead{
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  margin: 1.2rem 0 2rem;
+}
+
+.pep-glance{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 22px;
+  margin-bottom: 2.6rem;
+}
+
+.pep-card{
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+}
+
+.pep-card h3{
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.pep-card ul{
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.pep-card-cta p{
+  margin-bottom: 1rem;
+}
+
+/* algemene PEP secties als rustige kaders */
+.pep-section{
+  margin-top: 2.8rem;
+}
+
+.pep-box{
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 22px;
+}
+
+/* CTA kader net iets zachter */
+.pep-box-cta{
+  background: var(--soft);
+}
+
+/* FAQ blijft leesbaar maar minder massief */
+.pep-section h2{
+  margin-top: 0;
+}
+
+/* buttons (als je .btn al hebt, laat dit staan of skip) */
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.btn:hover{
+  background: var(--soft2);
+  text-decoration: none;
+}
+
+.btn-ghost{
+  background: transparent;
+}
+
+/* mobiel */
+@media (max-width: 900px){
+  .pep-glance{
+    grid-template-columns: 1fr;
+  }
+}
+.pep-quote{
+  border-left: 3px solid #d6e3ef;
+  padding-left: 1.2rem;
+  margin: 1.6rem 0;
+}
 
 
 
