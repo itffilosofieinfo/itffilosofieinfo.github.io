@@ -808,6 +808,26 @@ main > h2 {
   .cards{ grid-template-columns: 1fr; }
 }
 
+/* Begeleiders: foto in card */
+.begeleider-card{
+  overflow: hidden; /* zorgt dat afgeronde hoeken ook voor de foto gelden */
+}
+
+.begeleider-foto{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+/* Mobiel iets lager */
+@media (max-width: 600px){
+  .begeleider-foto{
+    height: 180px;
+  }
+}
 
 
 
