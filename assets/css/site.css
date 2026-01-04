@@ -1033,3 +1033,95 @@ main > h2 {
   a::after{ content: " (" attr(href) ")"; font-size: 0.85em; color: #555; }
 }
 
+/* ==========================
+   Essay leesmodus + nav
+   ========================== */
+
+/* Toggle-knop (leesmodus) */
+.read-toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+/* Leesmodus wrapper */
+.essay-page.reading .prose{
+  font-size: 19.5px;       /* groter */
+  line-height: 1.95;       /* meer lucht */
+  max-width: 78ch;         /* “boekbreedte” */
+  margin: 0 auto;
+}
+
+.essay-page.reading .essay-hero{
+  padding: 30px 26px;
+}
+
+.essay-page.reading .toc{
+  max-width: 78ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small caps kopjes in essay */
+.prose h2,
+.prose h3{
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-caps: all-small-caps;
+}
+
+.prose h2{
+  font-size: 1.55rem;
+  margin-top: 3.2rem;
+}
+
+.prose h3{
+  font-size: 1.25rem;
+}
+
+/* Extra wit boven secties (algemeen essay) */
+.prose p + h2{ margin-top: 3.4rem; }
+
+/* Volgende/Vorige blok */
+.essay-nav{
+  margin-top: 2.6rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.4rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.essay-nav a{
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 16px 16px;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.essay-nav a:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border-color: #d1d5db;
+}
+
+.essay-nav .label{
+  display: block;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.essay-nav .title{
+  display: block;
+  font-weight: 700;
+  color: var(--text);
+}
+
+@media (max-width: 900px){
+  .essay-nav{ grid-template-columns: 1fr; }
+}
