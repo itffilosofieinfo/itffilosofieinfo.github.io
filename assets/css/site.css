@@ -857,4 +857,9 @@ main > h2 {
   }
 }
 
+/* Zincafé blok: eigen sfeer */
+.zincafe{
+  background: #f6f3ee;   /* warm, rustig beige */
+  border: 1px solid #e5dfd4;
+}
 
