@@ -50,6 +50,30 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
 
   <article class="prose">
 
+<section class="essay-page">
+  <article class="essay-content">
+
+    <!-- HIER komt de afbeelding -->
+
+    <figure class="essay-hero">
+      <img 
+        src="/assets/img/sleutelen.jpg" 
+        alt="Sleutelen aan jezelf loont – wereldbeeld en identiteit"
+      >
+      <figcaption>
+        Wereldbeelden vormen hoe we onszelf en de wereld begrijpen.
+      </figcaption>
+    </figure>
+
+    <!-- daarna pas de titel -->
+
+    <h1>Sleutelen aan jezelf loont</h1>
+
+    <p class="essay-lead">
+      …
+    </p>
+
+
     <h2 id="inleiding">Inleiding</h2>
     <p class="dropcap">
       De roep om in het onderwijscurriculum aandacht te geven aan persoonsvorming klinkt luid. Te lang heeft de nadruk eenzijdig gelegen op rendement en een hoge ranking in (internationale) ranglijsten. In gesprekken met docenten en jongeren constateer ik een groeiend besef dat deze tijd om ander onderwijs vraagt.
