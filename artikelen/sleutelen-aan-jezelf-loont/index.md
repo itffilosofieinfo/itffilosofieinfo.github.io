@@ -41,7 +41,6 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
     <a href="#cognitieve-ruimtetheorie">Cognitieve ruimtetheorie</a> ·
     <a href="#je-moet-je-leven-veranderen">Je moet je leven veranderen</a> ·
     <a href="#symbolische-ruimte">De symbolische ruimte</a> ·
-    <a href="#fantasmatische-identificatie">Fantasmatische identificatie</a> ·
     <a href="#morele-ruimte">De morele ruimte</a> ·
     <a href="#kaarten">Kaarten</a> ·
     <a href="#oefenen">Oefenen</a> ·
