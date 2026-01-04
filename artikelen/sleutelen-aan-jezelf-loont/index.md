@@ -69,7 +69,6 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
     <h1>Sleutelen aan jezelf loont</h1>
 
     <p class="essay-lead">
-      …
     </p>
 
 
