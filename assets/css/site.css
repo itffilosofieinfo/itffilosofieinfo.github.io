@@ -334,6 +334,7 @@ nav a{
   background: #e6f0f8;          /* iets rijker lichtblauw dan --soft */
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  margin-top: 3.5rem;   /* was 0 */
 
   /* meer ademruimte */
   padding: 42px 30px;
@@ -341,9 +342,10 @@ nav a{
 }
 
 .ervaringen h2{
+  margin-top: 3.2rem;
   text-align: center;
   margin: 0 0 2rem;
-  margin-bottom: 2.8rem;
+  margin-bottom: 2.2rem;
 }
 
 .ervaringen-grid{
