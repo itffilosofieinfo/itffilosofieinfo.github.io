@@ -20,9 +20,19 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
     <p><em>Persoonsvorming vraagt oefening. Niet als trucje, maar als zorgvuldige zelfzorg: vertragen, oriënteren en leren handelen vanuit wat er werkelijk toe doet.</em></p>
 
     <div class="essay-actions">
-      <a class="button primary" href="/assets/pdf/sleutelen-aan-jezelf-loont.pdf">Download als PDF</a>
-      <a class="button" href="/wat-wij-doen/pep/">Lees over PEP</a>
-    </div>
+  <a class="button primary" href="/assets/pdf/sleutelen-aan-jezelf-loont.pdf">Download als PDF</a>
+
+  <button class="button" type="button" onclick="window.print()">
+    Print
+  </button>
+
+  <button class="button read-toggle" type="button" id="readToggle">
+    Leesmodus
+  </button>
+
+  <a class="button" href="/wat-wij-doen/pep/">Lees over PEP</a>
+</div>
+
   </div>
 
   <nav class="toc" aria-label="Inhoudsopgave">
@@ -137,5 +147,35 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
       <a class="button" href="/artikelen/">Terug naar artikelen</a>
     </div>
 
+<nav class="essay-nav" aria-label="Vorige en volgende artikelen">
+  <a href="/artikelen/toegepaste-filosofie/">
+    <span class="label">Vorige</span>
+    <span class="title">Wat is toegepaste filosofie?</span>
+  </a>
+
+  <a href="/artikelen/">
+    <span class="label">Volgende</span>
+    <span class="title">Terug naar overzicht</span>
+  </a>
+</nav>
+
+<script>
+  (function(){
+    const page = document.querySelector('.essay-page');
+    const btn  = document.getElementById('readToggle');
+    if(!page || !btn) return;
+
+    // optioneel: onthoud keuze
+    const saved = localStorage.getItem('itf_reading_mode');
+    if(saved === 'on') page.classList.add('reading');
+
+    btn.addEventListener('click', function(){
+      page.classList.toggle('reading');
+      localStorage.setItem('itf_reading_mode', page.classList.contains('reading') ? 'on' : 'off');
+    });
+  })();
+</script>
+
   </article>
 </section>
+
