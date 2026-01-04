@@ -1134,3 +1134,33 @@ main > h2 {
   margin-top: 56px;    /* vangnet als er ergens marges wegvallen */
   padding-top: 12px;   /* optioneel: extra lucht */
 }
+.essay-item{
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  background: #fff;
+}
+
+.essay-item:hover{
+  background: #f6f9fb;
+}
+
+.essay-thumb{
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.essay-meta h2{
+  margin: 0 0 8px 0;
+}
+
+.essay-meta p{
+  margin: 0;
+  color: #555;
+}
