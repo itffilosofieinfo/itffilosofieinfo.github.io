@@ -657,6 +657,54 @@ main > h2 {
   padding-left: 1.2rem;
   margin: 1.6rem 0;
 }
+/* Artikelen / tijdschriftstijl */
+.essay{
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.essay-header{ margin-bottom: 2.6rem; }
+.essay-subtitle{
+  font-size: 1.2rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+}
+.essay-meta{
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 1.1rem;
+}
+
+.essay-lead p{
+  font-size: 1.15rem;
+  line-height: 1.9;
+  margin-bottom: 2.2rem;
+}
+
+.essay-body p{ margin-bottom: 1.6rem; }
+
+.essay-body blockquote{
+  border-left: 3px solid #d6e3ef;
+  padding-left: 1.4rem;
+  margin: 2.2rem 0;
+  font-style: italic;
+}
+
+/* Artikelen-overzicht */
+.essay-index{ max-width: 900px; margin: 0 auto; }
+.essay-list{ margin-top: 2rem; display: grid; gap: 16px; }
+
+.essay-item{
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 18px;
+  text-decoration: none;
+}
+
+.essay-item:hover{ background: var(--soft2); text-decoration: none; }
+.essay-item h2{ margin-top: 0; }
 
 
 
