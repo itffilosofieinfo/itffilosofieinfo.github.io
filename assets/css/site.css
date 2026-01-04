@@ -767,7 +767,7 @@ main > h2 {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 20px 18px;
+  padding: 24px 18px;
 }
 .card p{ color: var(--muted); }
 .card h3{ margin-bottom: .4rem; }
