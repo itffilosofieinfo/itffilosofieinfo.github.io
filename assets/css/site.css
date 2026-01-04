@@ -834,5 +834,27 @@ main > h2 {
   }
 }
 
+/* Begeleiders: 2 kolommen */
+.begeleiders-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  margin-bottom: 2.5rem;
+}
+
+/* Visie blok gecentreerd */
+.visie-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 520px;
+  margin: 0 auto 3rem;
+}
+
+/* Mobiel */
+@media (max-width: 800px){
+  .begeleiders-grid{
+    grid-template-columns: 1fr;
+  }
+}
 
 
