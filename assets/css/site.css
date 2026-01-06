@@ -858,17 +858,34 @@ main > h2 {
 }
 
 /* Zincafé blok: eigen sfeer */
-.zincafe{
-  background: #f6f3ee;   /* warm, rustig beige */
-  border: 1px solid #e5dfd4;
+.section-soft.zincafe {
+  background-color: #4f6b3a; /* groen uit logo */
+  color: #f7f7f2;
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 12px;
 }
 
-.zincafe-logo {
-  width: auto !important;
-  max-width: 100px;
-  height: auto;
+/* Logo in zacht paneel */
+.section-soft.zincafe .zincafe-logo {
   display: block;
+  margin: 0 auto 2rem auto;
+  max-width: 160px;
+  height: auto;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
+.section-soft.zincafe .btn.btn-ghost {
+  border-color: #f7f7f2;
+  color: #f7f7f2;
+}
+
+.section-soft.zincafe .btn.btn-ghost:hover {
+  background: rgba(255,255,255,0.12);
+}
+
 
 
 /* ==========================
