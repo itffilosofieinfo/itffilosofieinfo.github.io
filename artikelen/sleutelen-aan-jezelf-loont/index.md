@@ -47,9 +47,6 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
     <a href="#literatuur">Literatuur</a>
   </nav>
 
-  <article class="prose">
-
-<section class="essay-page">
   <article class="essay-content">
 
     <!-- HIER komt de afbeelding -->
@@ -58,19 +55,10 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
       <img 
         src="/assets/img/sleutelen.jpg" 
         alt="Sleutelen aan jezelf loont – wereldbeeld en identiteit"
-      >
-      <figcaption>
-        Wereldbeelden vormen hoe we onszelf en de wereld begrijpen.
+        >
+      <figcaption>Wereldbeelden vormen hoe we onszelf en de wereld begrijpen.
       </figcaption>
     </figure>
-
-    <!-- daarna pas de titel -->
-
-    <h1>Sleutelen aan jezelf loont</h1>
-
-    <p class="essay-lead">
-    </p>
-
 
     <h2 id="inleiding">Inleiding</h2>
     <p class="dropcap">
@@ -163,6 +151,7 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
       <li>Tversky, B., “Visualizing Thought”, <em>Topics in Cognitive Science</em>, 2012.</li>
       <li>Žižek, S., <em>Event</em>, Boom, 2015.</li>
     </ol>
+    </article>
 
     <div class="essay-actions" style="margin-top: 26px;">
       <a class="button primary" href="/assets/pdf/sleutelen-aan-jezelf-loont.pdf">Download als PDF</a>
@@ -187,7 +176,6 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
     const btn  = document.getElementById('readToggle');
     if(!page || !btn) return;
 
-    // optioneel: onthoud keuze
     const saved = localStorage.getItem('itf_reading_mode');
     if(saved === 'on') page.classList.add('reading');
 
@@ -197,7 +185,5 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
     });
   })();
 </script>
-
-  </article>
 </section>
 
