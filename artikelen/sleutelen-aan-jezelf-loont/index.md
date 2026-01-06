@@ -83,7 +83,7 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
       Hoe geef je leiding aan het proces van persoonsontwikkeling en wat vraagt het van de opvoeder of trainer? Bij de beantwoording van deze vraag maak ik gebruik van het gedachtegoed van filosofen. Allereerst Charles Taylor en Jacques Lacan. Peter Sloterdijk is van belang vanwege zijn cultuuranalyse, zijn scherpe kritiek op het huidige opvoedingsklimaat en zijn oproep om te oefenen en ‘je leven te veranderen’.
     </p>
 
-    <div class="note">
+    <div class="note" id="kernidee">
       <strong>Kernidee:</strong> Filosofie wordt pas “toegepast” wanneer zij werkbaar wordt in oefening, gesprek en verandering — niet als snelle oplossing, maar als vorming van oriëntatie.
     </div>
 
@@ -95,7 +95,7 @@ description: "Persoonsvorming als geleide zelfzorg — over Taylor, Lacan, Slote
       De oefeningen die ideeën vertalen naar concrete handelingen en nieuw gedrag zijn gebaseerd op Mental Space Psychology (MSP), zoals beschreven door onderzoekers als Lakhoff &amp; Johnson, Barbara Tversky en Lucas Derks.
     </p>
 
-    <div class="pullquote">
+    <div class="pullquote" id="weten-waar-je-staat">
       <p>“Weten wie je bent, is weten waar je staat.”</p>
     </div>
 
