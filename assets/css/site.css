@@ -1191,3 +1191,6 @@ main > h2 {
   text-align: center;
   font-style: italic;
 }
+blockquote[id], .note[id], .pullquote[id] {
+  scroll-margin-top: 90px;
+}
