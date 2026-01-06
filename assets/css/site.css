@@ -863,10 +863,13 @@ main > h2 {
   border: 1px solid #e5dfd4;
 }
 
-.zincafe-logo-small {
+.zincafe-logo {
+  width: auto !important;
   max-width: 100px;
-  margin-bottom: 1rem;
+  height: auto;
+  display: block;
 }
+
 
 /* ==========================
    Essays (tijdschriftstijl)
