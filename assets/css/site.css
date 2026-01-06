@@ -862,6 +862,12 @@ main > h2 {
   background: #f6f3ee;   /* warm, rustig beige */
   border: 1px solid #e5dfd4;
 }
+
+.zincafe-logo-small {
+  max-width: 100px;
+  margin-bottom: 1rem;
+}
+
 /* ==========================
    Essays (tijdschriftstijl)
    ========================== */
