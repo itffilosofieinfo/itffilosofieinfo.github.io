@@ -886,6 +886,28 @@ main > h2 {
   background: rgba(255,255,255,0.12);
 }
 
+/* Zincafé: tekst leesbaar op groen */
+.section-soft.zincafe,
+.section-soft.zincafe h2,
+.section-soft.zincafe p,
+.section-soft.zincafe a {
+  color: #f7f7f2;
+}
+
+/* subtieler voor lopende tekst */
+.section-soft.zincafe p {
+  color: rgba(247, 247, 242, 0.92);
+}
+
+.section-soft.zincafe .btn.btn-ghost {
+  border-color: rgba(247, 247, 242, 0.85);
+  color: #f7f7f2;
+}
+
+.section-soft.zincafe .btn.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 
 
 /* ==========================
