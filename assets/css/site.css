@@ -1249,6 +1249,26 @@ blockquote[id],
     gap: 1.5rem;
   }
 
+  .essay-list-featured {
+    gap: 2rem;
+  }
+
+  .essay-card-link {
+    grid-template-columns: 1fr;
+  }
+
+  .essay-card-image {
+    height: 240px;
+  }
+
+  .essay-card-content {
+    padding: 2rem 1.8rem;
+  }
+
+  .essay-card-content h2 {
+    font-size: 1.5rem;
+  }
+
   .essay-item {
     grid-template-columns: 1fr;
   }
