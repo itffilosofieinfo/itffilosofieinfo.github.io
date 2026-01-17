@@ -261,6 +261,65 @@ footer p {
   transform: translateX(-50%) translateY(-2px);
 }
 
+
+.hero{
+  position: relative;
+  min-height: clamp(320px, 46vw, 520px);
+  display: grid;
+  align-items: end;
+  padding: clamp(24px, 4vw, 56px);
+  background-image: url("/assets/img/filosofen-banner-bw.jpg");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Donkere “leesbaarheid”-laag (subtiel, professioneel) */
+.hero__overlay{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,.62) 0%,
+      rgba(0,0,0,.38) 42%,
+      rgba(0,0,0,.10) 72%,
+      rgba(0,0,0,0) 100%);
+  pointer-events:none;
+}
+
+.hero__content{
+  position: relative;
+  max-width: 56ch;
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0,0,0,.35);
+}
+
+.hero h1{
+  margin: 0 0 .35rem 0;
+  font-size: clamp(28px, 3.2vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.hero p{
+  margin: 0;
+  font-size: clamp(16px, 1.4vw, 20px);
+  opacity: .92;
+}
+
+/* Optionele knop */
+.hero__cta{
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .7rem 1rem;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+}
+.hero__cta:hover{ border-color: rgba(255,255,255,.85); }
+}
+
 /* ===== Homepage Secties ===== */
 .home-logo {
   text-align: center;
