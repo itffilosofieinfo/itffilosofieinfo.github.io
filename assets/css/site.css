@@ -228,7 +228,7 @@ footer p {
   width: 100%;
   height: auto;
   display: block;
-  max-height: 480px;
+  max-height: 550px;
   object-fit: cover;
   opacity: 0.9;
 }
