@@ -270,20 +270,18 @@ footer p {
 
 .hero{
   position: relative;
-  min-height: clamp(320px, 46vw, 520px);
+  min-height: 420px;
+  padding: clamp(24px, 4vw, 56px);
   display: grid;
   align-items: end;
-  padding: clamp(24px, 4vw, 56px);
   overflow: hidden;
 
+  /* NIET: background: ...  (dat wist je image) */
   background-image: url("/assets/img/foto-lacan-foucault-en-sloterdijk.png");
   background-size: cover;
   background-position: center;
-
-  border-radius: var(--radius, 18px);
-  box-shadow: var(--shadow-md, 0 12px 28px rgba(0,0,0,.12));
-  margin: 2rem auto 3rem;
 }
+
 
 /* overlay voor leesbaarheid */
 .hero__overlay{
