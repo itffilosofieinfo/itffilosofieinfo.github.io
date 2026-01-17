@@ -263,11 +263,7 @@ footer p {
   transform: translateX(-50%) translateY(-2px);
 }
 */
-<section class="hero"
-  style="background-image:url('/assets/img/foto-lacan-foucault-en-sloterdijk.png');"
-  aria-label="Instituut voor Toegepaste Filosofie">
-
-
+/* ===== Hero (homepage banner) ===== */
 .hero{
   position: relative;
   min-height: 420px;
@@ -276,26 +272,26 @@ footer p {
   align-items: end;
   overflow: hidden;
 
-  /* NIET: background: ...  (dat wist je image) */
   background-image: url("/assets/img/foto-lacan-foucault-en-sloterdijk.png");
   background-size: cover;
   background-position: center;
 }
 
-
-/* overlay voor leesbaarheid */
 .hero__overlay{
-  position:absolute; inset:0;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
   background: linear-gradient(90deg,
     rgba(0,0,0,.62) 0%,
     rgba(0,0,0,.38) 42%,
     rgba(0,0,0,.10) 72%,
     rgba(0,0,0,0) 100%);
-  pointer-events:none;
 }
 
 .hero__content{
   position: relative;
+  z-index: 1;
   max-width: 56ch;
   color: #fff;
   text-shadow: 0 2px 18px rgba(0,0,0,.35);
@@ -324,20 +320,11 @@ footer p {
   text-decoration: none;
   backdrop-filter: blur(6px);
 }
-.hero__cta:hover{ border-color: rgba(255,255,255,.85); }
+
+.hero__cta:hover{
+  border-color: rgba(255,255,255,.85);
 }
 
-.hero__overlay{
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(90deg,
-    rgba(0,0,0,.62) 0%,
-    rgba(0,0,0,.38) 42%,
-    rgba(0,0,0,.10) 72%,
-    rgba(0,0,0,0) 100%);
-}
-.hero__content{ position: relative; color: #fff; }
 
 
 /* ===== Homepage Secties ===== */
@@ -378,22 +365,6 @@ main > h2 {
   margin-top: 0;
 }
 
-.hero-soft {
-  background: var(--bg-card);
-  border: 1px solid var(--line-light);
-  border-radius: var(--radius);
-  padding: 3rem 2.5rem;
-  margin: 2rem 0 4rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.hero-soft p {
-  max-width: 850px;
-  margin: 0 auto 1rem;
-  color: var(--text-light);
-  font-size: 1.1rem;
-  line-height: 1.9;
-}
 
 /* ===== Diensten Grid ===== */
 .diensten {
