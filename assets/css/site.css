@@ -295,7 +295,14 @@ footer p {
   max-width: 56ch;
   color: #fff;
   text-shadow: 0 2px 18px rgba(0,0,0,.35);
+
+  /* Optie B – glazen kaart */
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+  padding: 1.5rem 2rem;
+  border-radius: 14px;
 }
+
 
 .hero h1{
   margin: 0 0 .35rem 0;
