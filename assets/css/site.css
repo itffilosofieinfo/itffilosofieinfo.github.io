@@ -266,7 +266,7 @@ footer p {
 /* ===== Hero (homepage banner) ===== */
 .hero{
   position: relative;
-  min-height: 420px;
+  min-height: 520px;
   padding: clamp(24px, 4vw, 56px);
   display: grid;
   align-items: end;
