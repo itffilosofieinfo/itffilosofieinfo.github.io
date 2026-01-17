@@ -271,11 +271,14 @@ footer p {
   display: grid;
   align-items: end;
   padding: clamp(24px, 4vw, 56px);
-  background-image: url("/assets/img/filosofen-banner-bw.jpg");
+  overflow: hidden;
+
+  /* DIT is de ontbrekende stap */
+  background-image: url("/assets/img/foto-lacan-zizek-en-sloterdijk.png");
   background-size: cover;
   background-position: center;
-  overflow: hidden;
 }
+
 
 /* Donkere “leesbaarheid”-laag (subtiel, professioneel) */
 .hero__overlay{
