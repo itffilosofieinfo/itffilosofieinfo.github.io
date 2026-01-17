@@ -263,6 +263,9 @@ footer p {
   transform: translateX(-50%) translateY(-2px);
 }
 */
+<section class="hero"
+  style="background-image:url('/assets/img/foto-lacan-foucault-en-sloterdijk.png');"
+  aria-label="Instituut voor Toegepaste Filosofie">
 
 
 .hero{
