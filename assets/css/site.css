@@ -215,6 +215,8 @@ footer p {
 }
 
 /* ===== Banner ===== */
+/* === BANNER UITGESCHAKELD ===
+
 .banner {
   position: relative;
   margin: -3rem -2rem 4rem;
@@ -260,6 +262,7 @@ footer p {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   transform: translateX(-50%) translateY(-2px);
 }
+*/
 
 
 .hero{
@@ -318,6 +321,12 @@ footer p {
   backdrop-filter: blur(6px);
 }
 .hero__cta:hover{ border-color: rgba(255,255,255,.85); }
+}
+
+.hero{
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  margin: 2rem 0 3rem;
 }
 
 /* ===== Homepage Secties ===== */
