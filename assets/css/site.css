@@ -327,6 +327,19 @@ footer p {
 .hero__cta:hover{ border-color: rgba(255,255,255,.85); }
 }
 
+.hero__overlay{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(0,0,0,.62) 0%,
+    rgba(0,0,0,.38) 42%,
+    rgba(0,0,0,.10) 72%,
+    rgba(0,0,0,0) 100%);
+}
+.hero__content{ position: relative; color: #fff; }
+
+
 /* ===== Homepage Secties ===== */
 .home-logo {
   text-align: center;
