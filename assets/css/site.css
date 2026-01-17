@@ -276,23 +276,23 @@ footer p {
   padding: clamp(24px, 4vw, 56px);
   overflow: hidden;
 
-  /* DIT is de ontbrekende stap */
- .hero{
   background-image: url("/assets/img/foto-lacan-foucault-en-sloterdijk.png");
   background-size: cover;
   background-position: center;
+
+  border-radius: var(--radius, 18px);
+  box-shadow: var(--shadow-md, 0 12px 28px rgba(0,0,0,.12));
+  margin: 2rem auto 3rem;
 }
 
-
-/* Donkere “leesbaarheid”-laag (subtiel, professioneel) */
+/* overlay voor leesbaarheid */
 .hero__overlay{
   position:absolute; inset:0;
-  background:
-    linear-gradient(90deg,
-      rgba(0,0,0,.62) 0%,
-      rgba(0,0,0,.38) 42%,
-      rgba(0,0,0,.10) 72%,
-      rgba(0,0,0,0) 100%);
+  background: linear-gradient(90deg,
+    rgba(0,0,0,.62) 0%,
+    rgba(0,0,0,.38) 42%,
+    rgba(0,0,0,.10) 72%,
+    rgba(0,0,0,0) 100%);
   pointer-events:none;
 }
 
@@ -316,7 +316,6 @@ footer p {
   opacity: .92;
 }
 
-/* Optionele knop */
 .hero__cta{
   display: inline-block;
   margin-top: 1rem;
@@ -328,12 +327,6 @@ footer p {
   backdrop-filter: blur(6px);
 }
 .hero__cta:hover{ border-color: rgba(255,255,255,.85); }
-}
-
-.hero{
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  margin: 2rem 0 3rem;
 }
 
 /* ===== Homepage Secties ===== */
