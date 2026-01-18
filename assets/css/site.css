@@ -1,31 +1,34 @@
 /* ==========================
-   ITF — Instituut voor Toegepaste Filosofie
+   ITF – Instituut voor Toegepaste Filosofie
    Warme, intellectuele uitstraling met ruimte
    ========================== */
 
-/* ===== CSS Variabelen ===== */
+/* ===== CSS VARIABELEN =====
+   Centraal gedefinieerde kleuren en afmetingen
+   die je door de hele stylesheet kunt hergebruiken */
 :root {
-  --primary: #1e2a38;      /* Diep blauw */
-  --bg: #f4f1ec;           /* Zandkleurig beige */
-  --bg-card: #ffffff;
-  --accent: #d4a017;       /* Okergeel */
-  --text: #2d2d2d;
-  --text-light: #5a5a5a;
-  --text-muted: #888888;
-  --line: #d4cfc4;
-  --line-light: #e8e5df;
+  --primary: #1e2a38;      /* Diep blauw - hoofdkleur voor tekst en accenten */
+  --bg: #f4f1ec;           /* Zandkleurig beige - achtergrondkleur van de site */
+  --bg-card: #ffffff;      /* Wit - achtergrond voor cards en secties */
+  --accent: #d4a017;       /* Okergeel - accentkleur voor knoppen en highlights */
+  --text: #2d2d2d;         /* Donkergrijs - standaard tekstkleur */
+  --text-light: #5a5a5a;   /* Lichter grijs - voor secundaire tekst */
+  --text-muted: #888888;   /* Gedempte kleur - voor meta-informatie */
+  --line: #d4cfc4;         /* Beige lijn - voor borders en scheidingen */
+  --line-light: #e8e5df;   /* Lichtere lijn - voor subtielere scheidingen */
   
-  --radius: 12px;
-  --radius-small: 8px;
-  --radius-pill: 999px;
-  --shadow-sm: 0 2px 12px rgba(30, 42, 56, 0.08);
-  --shadow-md: 0 8px 24px rgba(30, 42, 56, 0.12);
-  --transition: 200ms ease;
+  --radius: 12px;          /* Standaard border-radius voor cards */
+  --radius-small: 8px;     /* Kleinere radius voor buttons */
+  --radius-pill: 999px;    /* Volledig ronde hoeken (pill-shape) */
+  --shadow-sm: 0 2px 12px rgba(30, 42, 56, 0.08);   /* Subtiele schaduw */
+  --shadow-md: 0 8px 24px rgba(30, 42, 56, 0.12);   /* Duidelijkere schaduw */
+  --transition: 200ms ease; /* Standaard animatieduur */
 }
 
-/* ===== Reset / Basis ===== */
+/* ===== RESET / BASIS =====
+   Basisinstellingen voor alle elementen */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Padding en border tellen mee in breedte/hoogte */
 }
 
 body {
@@ -35,20 +38,21 @@ body {
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 18px;
   line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; /* Mooiere tekstweergave op Mac */
 }
 
-/* ===== Typografie ===== */
+/* ===== TYPOGRAFIE =====
+   Lettertype en grootte voor koppen en tekst */
 h1, h2, h3, h4 {
-  font-family: 'Merriweather', Georgia, serif;
+  font-family: 'Merriweather', Georgia, serif; /* Serif font voor klassieke uitstraling */
   line-height: 1.3;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.02em; /* Iets dichter op elkaar voor strakker uiterlijk */
   color: var(--primary);
   font-weight: 700;
 }
 
 h1 { 
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive: tussen 2.5rem en 4rem */
   margin: 0 0 1.5rem;
   letter-spacing: -0.03em;
 }
@@ -81,6 +85,7 @@ p.muted {
   font-size: 0.95rem;
 }
 
+/* Links krijgen okergele onderstreping */
 a {
   color: var(--primary);
   text-decoration: underline;
@@ -100,26 +105,29 @@ strong {
   color: var(--primary);
 }
 
-/* ===== Header / Navigatie ===== */
+/* ===== HEADER / NAVIGATIE =====
+   Sticky header die bovenaan blijft plakken bij scrollen */
 header {
   position: sticky;
   top: 0;
-  background: rgba(244, 241, 236, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(244, 241, 236, 0.95); /* Semi-transparant voor glazen effect */
+  backdrop-filter: blur(10px); /* Wazig effect achter de header */
   border-bottom: 1px solid var(--line);
-  z-index: 50;
+  z-index: 50; /* Boven alle andere content */
 }
 
 nav {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.25rem 2rem;
+  padding: 0.75rem 2rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  justify-content: space-between; /* Logo links, menu rechts */
+  gap: 1rem;
+  flex-wrap: nowrap; /* Blijft op één regel */
 }
 
+/* Reset voor ul/li elements in nav */
 nav ul {
   list-style: none;
   margin: 0;
@@ -134,39 +142,51 @@ nav li::before {
   content: none !important; 
 }
 
+/* Styling voor menu links */
 nav a {
   text-decoration: none;
   color: var(--primary);
-  padding: 0.6rem 1rem;
+  padding: 0.4rem 0.7rem;
   border-radius: var(--radius-small);
   font-weight: 500;
+  font-size: 0.95rem;
   transition: background var(--transition), color var(--transition);
 }
 
 nav a:hover {
-  background: rgba(212, 160, 23, 0.1);
+  background: rgba(212, 160, 23, 0.1); /* Lichte gele achtergrond bij hover */
   color: var(--accent);
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .nav-logo img {
-  height: 52px;
+  height: 32px;
   width: auto;
   display: block;
 }
 
 .nav-links {
   display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  gap: 0.25rem;
+  flex-wrap: nowrap; /* Menu blijft op één regel */
+  overflow-x: auto; /* Horizontaal scrollen op kleine schermen */
+  -webkit-overflow-scrolling: touch; /* Soepel scrollen op iOS */
+  scrollbar-width: none; /* Verberg scrollbar in Firefox */
 }
 
-/* PEP nav item met accent */
+/* Verberg scrollbar in Chrome/Safari */
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+/* PEP nav item met accent onderstreping */
 .nav-pep {
   font-weight: 600;
   position: relative;
@@ -189,14 +209,16 @@ nav a.nav-pep:hover::after {
   opacity: 1;
 }
 
-/* ===== Layout ===== */
+/* ===== LAYOUT =====
+   Hoofdcontent container met maximale breedte */
 main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 5rem 3rem 7rem;
 }
 
-/* ===== Footer ===== */
+/* ===== FOOTER =====
+   Footer onderaan de pagina */
 footer {
   border-top: 1px solid var(--line);
   background: rgba(30, 42, 56, 0.03);
@@ -214,72 +236,25 @@ footer p {
   color: var(--text-light);
 }
 
-/* ===== Banner ===== */
-/* === BANNER UITGESCHAKELD ===
-
-.banner {
-  position: relative;
-  margin: -3rem -2rem 4rem;
-  background: var(--primary);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-}
-
-.banner img {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-height: 550px;
-  object-fit: cover;
-  opacity: 0.9;
-}
-
-.banner-cta {
-  position: absolute;
-  left: 50%;
-  bottom: 2.5rem;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  border-radius: var(--radius-pill);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
-  background: var(--bg-card);
-  border: 2px solid var(--accent);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  color: var(--primary);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.banner-cta:hover {
-  background: var(--accent);
-  color: var(--bg-card);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
-  transform: translateX(-50%) translateY(-2px);
-}
-*/
-/* ===== Hero (homepage banner) ===== */
+/* ===== HERO (homepage banner) =====
+   Grote header met achtergrondafbeelding en tekst overlay */
 .hero{
   position: relative;
-  min-height: 520px;
+  min-height: 520px; /* Voldoende hoogte om gezichten vrij te houden */
   padding: clamp(24px, 4vw, 56px);
   display: grid;
-  align-items: end;
+  align-items: end; /* Tekst onderaan positioneren */
   overflow: hidden;
   background-image: url("/assets/img/foto-lacan-foucault-en-sloterdijk.png");
   background-size: cover;
   background-position: center;
 }
 
+/* Donker gradient van links naar rechts voor leesbaarheid */
 .hero__overlay{
   position: absolute;
   inset: 0;
-  pointer-events: none;
+  pointer-events: none; /* Click events gaan door de overlay heen */
   z-index: 0;
   background: linear-gradient(90deg,
     rgba(0,0,0,.75) 0%,
@@ -288,13 +263,13 @@ footer p {
     rgba(0,0,0,0) 75%);
 }
 
+/* Content container zonder glazen achtergrond */
 .hero__content{
   position: relative;
   z-index: 1;
-  max-width: 56ch;
+  max-width: 56ch; /* Max 56 karakters breed voor leesbaarheid */
   color: #fff;
-  text-shadow: 0 2px 12px rgba(0,0,0,.8);
-  /* Geen achtergrond meer */
+  text-shadow: 0 2px 12px rgba(0,0,0,.8); /* Schaduw voor contrast */
   padding: 1.5rem 2rem;
 }
 
@@ -303,16 +278,17 @@ footer p {
   font-size: clamp(28px, 3.2vw, 52px);
   line-height: 1.05;
   letter-spacing: -0.02em;
-  color: #fff !important;
+  color: #fff !important; /* Wit geforceerd, overschrijft standaard h1 kleur */
 }
 
 .hero p{
   margin: 0;
   font-size: clamp(16px, 1.4vw, 20px);
-  color: #fff !important;
+  color: #fff !important; /* Wit geforceerd */
   opacity: .95;
 }
 
+/* Call-to-action knop in hero */
 .hero__cta{
   display: inline-block;
   margin-top: 1rem;
@@ -328,8 +304,8 @@ footer p {
   border-color: rgba(255,255,255,.85);
 }
 
-
-/* ===== Homepage Secties ===== */
+/* ===== HOMEPAGE SECTIES =====
+   Verschillende content blokken op de homepage */
 .home-logo {
   text-align: center;
   margin: 3rem 0 2rem;
@@ -340,6 +316,7 @@ footer p {
   height: auto;
 }
 
+/* Witte kaart met zachte uitstraling */
 .section-soft {
   background: var(--bg-card);
   border: 1px solid var(--line-light);
@@ -359,6 +336,7 @@ footer p {
   line-height: 1.9;
 }
 
+/* Gecentreerde koppen */
 .section-soft h2,
 .ervaringen h2,
 .home-contact h2,
@@ -367,8 +345,8 @@ main > h2 {
   margin-top: 0;
 }
 
-
-/* ===== Diensten Grid ===== */
+/* ===== DIENSTEN GRID =====
+   3-koloms grid voor diensten op homepage */
 .diensten {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -385,6 +363,7 @@ main > h2 {
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
+/* Lift-effect bij hover */
 .dienst:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
@@ -433,7 +412,8 @@ main > h2 {
   transform: translateY(-1px);
 }
 
-/* ===== Universele Buttons ===== */
+/* ===== UNIVERSELE BUTTONS =====
+   Herbruikbare button styling door de hele site */
 .btn, .button {
   display: inline-flex;
   align-items: center;
@@ -459,6 +439,7 @@ main > h2 {
   color: var(--bg-card);
 }
 
+/* Ghost variant - alleen border, geen achtergrond */
 .btn-ghost, .button-ghost {
   background: transparent;
   color: var(--primary);
@@ -482,7 +463,8 @@ main > h2 {
   border-color: var(--accent);
 }
 
-/* ===== Cards (algemeen) ===== */
+/* ===== CARDS (algemeen) =====
+   Generieke card layout voor verschillende content types */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -515,7 +497,8 @@ main > h2 {
   color: var(--primary);
 }
 
-/* ===== Ervaringen ===== */
+/* ===== ERVARINGEN =====
+   Testimonials sectie met 3-koloms grid */
 .ervaringen {
   background: var(--bg-card);
   border: 1px solid var(--line);
@@ -561,7 +544,8 @@ main > h2 {
   margin-top: 3rem;
 }
 
-/* ===== Contact Formulier ===== */
+/* ===== CONTACT FORMULIER =====
+   Formulier styling voor contactpagina */
 .home-contact {
   margin-top: 5rem;
   background: var(--bg-card);
@@ -605,7 +589,7 @@ main > h2 {
 .contact-form select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15);
+  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15); /* Gele glow bij focus */
 }
 
 .contact-form button {
@@ -630,7 +614,8 @@ main > h2 {
   box-shadow: var(--shadow-md);
 }
 
-/* ===== PEP Pagina ===== */
+/* ===== PEP PAGINA =====
+   Specifieke styling voor de PEP (Persoonlijkheid & Professionaliteit) pagina */
 .pep-hero {
   margin-top: 2rem;
 }
@@ -650,6 +635,7 @@ main > h2 {
   line-height: 1.9;
 }
 
+/* 2-koloms layout: links info, rechts CTA */
 .pep-glance {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -709,11 +695,13 @@ main > h2 {
   margin-left: 1.5rem;
 }
 
+/* Gele accent box voor belangrijke CTA's */
 .pep-box-cta {
   background: rgba(212, 160, 23, 0.05);
   border-color: var(--accent);
 }
 
+/* Quote styling met accent border */
 .pep-quote {
   border-left: 4px solid var(--accent);
   padding-left: 2rem;
@@ -750,7 +738,8 @@ main > h2 {
   color: var(--primary);
 }
 
-/* ===== Begeleiders ===== */
+/* ===== BEGELEIDERS =====
+   Team overzicht met foto's */
 .begeleiders-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -779,9 +768,10 @@ main > h2 {
   margin: 0 auto 4rem;
 }
 
-/* ===== Zincafé ===== */
+/* ===== ZINCAFÉ =====
+   Speciale styling voor Zincafé sectie met groen thema */
 .section-soft.zincafe {
-  background: linear-gradient(135deg, #4f6b3a 0%, #3d5430 100%);
+  background: linear-gradient(135deg, #4f6b3a 0%, #3d5430 100%); /* Groene gradient */
   color: #f7f7f2;
   text-align: center;
   padding: 4rem 3rem;
@@ -820,7 +810,8 @@ main > h2 {
   border-color: #f7f7f2;
 }
 
-/* ===== Essays / Artikelen ===== */
+/* ===== ESSAYS / ARTIKELEN =====
+   Overzichtspagina en detail pagina's voor essays */
 .essay-index {
   max-width: 1200px;
   margin: 0 auto;
@@ -831,7 +822,7 @@ main > h2 {
   margin: 0 auto;
 }
 
-/* Featured artikel layout (grote cards) */
+/* Featured artikel layout - grote cards met afbeelding */
 .essay-list-featured {
   display: grid;
   grid-template-columns: 1fr;
@@ -856,7 +847,7 @@ main > h2 {
 
 .essay-card-link {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 380px 1fr; /* Afbeelding links, content rechts */
   gap: 0;
   text-decoration: none;
   color: inherit;
@@ -877,7 +868,7 @@ main > h2 {
 }
 
 .essay-card:hover .essay-card-image img {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Zoom effect bij hover */
   opacity: 0.9;
 }
 
@@ -922,10 +913,10 @@ main > h2 {
 }
 
 .essay-card:hover .essay-card-cta {
-  gap: 0.8rem;
+  gap: 0.8rem; /* Pijltje beweegt bij hover */
 }
 
-/* Oude compacte lijst layout (als backup) */
+/* Compacte lijst layout (backup) */
 .essay-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -973,7 +964,8 @@ main > h2 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Essay Detail Pagina */
+/* ===== ESSAY DETAIL PAGINA =====
+   Styling voor individuele essay pagina's */
 .essay-page {
   max-width: 1000px;
   margin: 0 auto;
@@ -1051,7 +1043,8 @@ main > h2 {
   gap: 0.5rem;
 }
 
-/* Prose / Tekst styling */
+/* ===== PROSE / TEKST STYLING =====
+   Styling voor de hoofdtekst van essays */
 .prose {
   font-size: 1.1rem;
   line-height: 1.9;
@@ -1088,6 +1081,7 @@ main > h2 {
   line-height: 1.8;
 }
 
+/* Blockquote met accent border */
 .prose blockquote {
   background: var(--bg-card);
   border-left: 4px solid var(--accent);
@@ -1099,6 +1093,7 @@ main > h2 {
   box-shadow: var(--shadow-sm);
 }
 
+/* Drop cap - grote eerste letter */
 .dropcap:first-letter {
   float: left;
   font-size: 4rem;
@@ -1109,6 +1104,7 @@ main > h2 {
   color: var(--accent);
 }
 
+/* Callout box voor belangrijke info */
 .callout {
   background: rgba(212, 160, 23, 0.05);
   border: 2px solid var(--accent);
@@ -1122,6 +1118,7 @@ main > h2 {
   color: var(--text);
 }
 
+/* Pull quote - uitgelichte quote */
 .pullquote {
   background: var(--bg-card);
   border-left: 4px solid var(--accent);
@@ -1139,6 +1136,7 @@ main > h2 {
   color: var(--text-light);
 }
 
+/* Note box voor extra informatie */
 .note {
   background: var(--bg-card);
   border: 1px solid var(--line);
@@ -1149,6 +1147,7 @@ main > h2 {
   box-shadow: var(--shadow-sm);
 }
 
+/* Table of contents */
 .toc {
   border: 2px solid var(--line);
   background: var(--bg-card);
@@ -1173,6 +1172,7 @@ main > h2 {
   text-decoration: underline;
 }
 
+/* Literatuurlijst */
 .literatuur {
   margin-top: 4rem;
   padding-top: 2rem;
@@ -1185,11 +1185,12 @@ main > h2 {
   line-height: 1.8;
 }
 
-/* Leesmodus */
+/* ===== LEESMODUS =====
+   Betere leeservaring met grotere tekst en smallere kolom */
 .essay-page.reading .prose {
   font-size: 1.15rem;
   line-height: 2;
-  max-width: 70ch;
+  max-width: 70ch; /* 70 karakters breed voor optimale leesbaarheid */
   margin: 0 auto;
 }
 
@@ -1203,7 +1204,8 @@ main > h2 {
   margin-right: auto;
 }
 
-/* Essay navigatie */
+/* ===== ESSAY NAVIGATIE =====
+   Vorige/volgende knoppen tussen essays */
 .essay-nav {
   margin-top: 4rem;
   border-top: 2px solid var(--line);
@@ -1246,14 +1248,17 @@ main > h2 {
   font-size: 1.1rem;
 }
 
-/* Scroll margin voor ankers */
+/* Scroll margin voor ankers - voorkomt dat content achter sticky header verdwijnt */
 blockquote[id],
 .note[id],
 .pullquote[id] {
   scroll-margin-top: 100px;
 }
 
-/* ===== Responsive Design ===== */
+/* ===== RESPONSIVE DESIGN =====
+   Aanpassingen voor verschillende schermgroottes */
+
+/* Tablets en kleinere laptops (max 900px) */
 @media (max-width: 900px) {
   main {
     padding: 3rem 2rem 5rem;
@@ -1268,13 +1273,10 @@ blockquote[id],
     margin-bottom: 1.2rem;
   }
 
+  /* Van 3 kolommen naar 1 kolom */
   .diensten {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-  
-  .banner {
-    margin: -2rem -1.5rem 3rem;
   }
   
   .ervaringen {
@@ -1305,6 +1307,7 @@ blockquote[id],
     gap: 2rem;
   }
 
+  /* Essay cards worden gestapeld */
   .essay-card-link {
     grid-template-columns: 1fr;
   }
@@ -1342,6 +1345,7 @@ blockquote[id],
   }
 }
 
+/* Kleine tablets (max 800px) */
 @media (max-width: 800px) {
   .begeleiders-grid {
     grid-template-columns: 1fr;
@@ -1349,28 +1353,40 @@ blockquote[id],
   }
 }
 
+/* Medium breakpoint voor compacter menu (max 750px) */
+@media (max-width: 750px) {
+  nav a {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.88rem;
+  }
+  
+  .nav-logo img {
+    height: 30px;
+  }
+}
+
+/* Mobiele telefoons (max 600px) */
 @media (max-width: 600px) {
   main {
     padding: 2rem 1.5rem 4rem;
   }
 
   nav {
-    padding: 1rem 1.5rem;
+    padding: 0.6rem 1rem;
+    gap: 0.5rem;
   }
 
-  .banner img {
-    max-height: 280px;
-    object-position: center 30%;
+  .nav-logo img {
+    height: 28px; /* Extra klein op mobiel */
+  }
+
+  nav a {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.85rem;
   }
   
-  .banner {
-    margin-bottom: 2.5rem;
-  }
-  
-  .banner-cta {
-    bottom: 1.5rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
+  .nav-links {
+    gap: 0.15rem;
   }
   
   .begeleider-foto {
@@ -1394,8 +1410,10 @@ blockquote[id],
   }
 }
 
-/* ===== Print Styling ===== */
+/* ===== PRINT STYLING =====
+   Optimalisatie voor afdrukken */
 @media print {
+  /* Verberg navigatie en footer bij printen */
   header,
   nav,
   footer {
@@ -1407,6 +1425,7 @@ blockquote[id],
     max-width: none !important;
   }
   
+  /* Verberg interactieve elementen */
   .essay-actions,
   .toc {
     display: none !important;
@@ -1419,17 +1438,19 @@ blockquote[id],
     box-shadow: none;
   }
   
+  /* Print-vriendelijke links */
   a {
     text-decoration: none;
     color: #000;
   }
   
   a::after {
-    content: " (" attr(href) ")";
+    content: " (" attr(href) ")"; /* Toon URL na link */
     font-size: 0.85em;
     color: #666;
   }
 
+  /* Verwijder alle schaduwen */
   * {
     box-shadow: none !important;
   }
