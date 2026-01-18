@@ -1,42 +1,57 @@
 ---
 layout: default
-title: Contact
+title: Contact | Instituut voor Toegepaste Filosofie
+description: Neem contact op met het Instituut voor Toegepaste Filosofie voor vragen, aanmeldingen of kennismakingsgesprekken.
 ---
-<h1>Contact</h1>
 
-<p>
-Wil je kennismaken, een vraag voorleggen of je aanmelden voor PEP?
-Stuur ons een bericht. We reageren meestal binnen enkele werkdagen.
-</p>
+<main>
+  <article>
+    <h1>Contact</h1>
 
-<form action="https://formspree.io/f/xvzppeqz" method="POST" class="contact-form">
-  <label>
-    Naam*
-    <input type="text" name="naam" required autocomplete="name">
-  </label>
+    <section class="section-soft">
+      <p>
+        Wil je kennismaken, een vraag voorleggen of je aanmelden voor PEP?
+        Stuur ons een bericht. We reageren meestal binnen enkele werkdagen.
+      </p>
+    </section>
 
-  <label>
-    E-mail*
-    <input type="email" name="email" required autocomplete="email">
-  </label>
+    <section class="home-contact">
+      <h2>Stuur een bericht</h2>
 
-  <label>
-    Onderwerp
-    <input type="text" name="onderwerp" autocomplete="off">
-  </label>
+      <form action="https://formspree.io/f/xvzppeqz" method="POST" class="contact-form">
+        <label>
+          Naam*
+          <input type="text" name="naam" required autocomplete="name">
+        </label>
 
-  <label>
-    Bericht*
-    <textarea name="bericht" rows="7" required></textarea>
-  </label>
+        <label>
+          E-mail*
+          <input type="email" name="email" required autocomplete="email">
+        </label>
 
-  <!-- Handig: bron meegeven, o.a. voor PEP -->
-  <input type="hidden" name="bron" value="contactpagina">
+        <label>
+          Onderwerp
+          <input type="text" name="onderwerp" autocomplete="off">
+        </label>
 
-  <button type="submit">Verzenden</button>
-  
-</form>
+        <label>
+          Bericht*
+          <textarea name="bericht" rows="7" required></textarea>
+        </label>
 
-<p>
-Liever mailen? Dat kan ook: <a href="mailto:itf.filosofie.info@gmail.com">itf.filosofie.info@gmail.com</a>
-</p>
+        <!-- Handig: bron meegeven, o.a. voor PEP -->
+        <input type="hidden" name="bron" value="contactpagina">
+
+        <button type="submit">Verstuur bericht</button>
+      </form>
+    </section>
+
+    <section class="section-soft" style="margin-top: 3rem;">
+      <h2>Of mail direct</h2>
+      <p>
+        Je kunt ons ook direct mailen via<br>
+        <a href="mailto:itf.filosofie.info@gmail.com">itf.filosofie.info@gmail.com</a>
+      </p>
+    </section>
+  </article>
+</main>
