@@ -738,6 +738,24 @@ main > h2 {
   color: var(--primary);
 }
 
+/* Quote styling voor werkwijze pagina */
+.pep-quote footer {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  font-size: 0.95rem;
+}
+
+.pep-quote footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.pep-quote footer a:hover {
+  text-decoration: underline;
+}
+
 /* ===== BEGELEIDERS =====
    Team overzicht met foto's */
 .begeleiders-grid {
