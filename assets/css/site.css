@@ -192,7 +192,7 @@ nav a.active::after {
 }
 
 .nav-logo img {
-  height: 38px;
+  height: 48px; /* Was 38px - nu groter voor betere zichtbaarheid */
   width: auto;
   display: block;
 }
@@ -331,7 +331,7 @@ footer a:hover {
 }
 
 .home-logo img {
-  width: 170px;
+  width: 220px; /* Was 170px - nu groter */
   height: auto;
 }
 
@@ -362,42 +362,48 @@ main > h2 {
   margin-top: 0;
 }
 
-/* ===== DIENSTEN - GESTAPELD MET GRID-GEVOEL ===== */
+/* ===== DIENSTEN - 3-KOLOMS GRID ===== */
 .diensten {
-  display: block;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
   margin: 5rem auto 6rem;
-  max-width: 950px;
+  max-width: 1200px;
 }
 
 .dienst {
   border: none;
   border-top: 1px solid var(--line);
-  padding: 3.5rem 0; /* Niet overal hetzelfde */
+  padding: 2.5rem 2rem;
   background: transparent;
   transition: none;
   margin-bottom: 0;
 }
 
-.dienst:first-child {
-  padding-top: 4.5rem; /* Eerste krijgt meer ruimte */
+.dienst:first-child,
+.dienst:nth-child(2),
+.dienst:nth-child(3) {
+  padding-top: 3rem; /* Eerste rij krijgt meer ruimte */
 }
 
-.dienst:last-child {
+.dienst:last-child,
+.dienst:nth-last-child(2),
+.dienst:nth-last-child(3) {
   border-bottom: 1px solid var(--line);
-  padding-bottom: 4.5rem; /* Laatste ook */
+  padding-bottom: 3rem;
 }
 
 .dienst p {
   color: var(--text);
   line-height: 1.85;
-  max-width: 68ch;
+  max-width: 100%; /* Volle breedte binnen kolom */
 }
 
 .dienst h3 {
   color: var(--primary);
   margin-top: 0;
-  margin-bottom: 1.25rem;
-  font-size: 1.85rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem; /* Iets kleiner voor grid */
 }
 
 .dienst-logo {
@@ -607,38 +613,46 @@ main > h2 {
   line-height: 1.9;
 }
 
-/* ===== CARDS (algemeen) ===== */
+/* ===== CARDS (algemeen) - 3-KOLOMS GRID ===== */
 .cards {
-  display: block;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
   margin: 4rem auto;
-  max-width: 950px;
+  max-width: 1200px;
 }
 
 .card {
   border: none;
   border-top: 1px solid var(--line);
-  padding: 3rem 0;
+  padding: 2.5rem 2rem;
   background: transparent;
   transition: none;
 }
 
-.card:first-child {
-  padding-top: 3.75rem;
+.card:first-child,
+.card:nth-child(2),
+.card:nth-child(3) {
+  padding-top: 3rem;
 }
 
-.card:last-child {
+.card:last-child,
+.card:nth-last-child(2),
+.card:nth-last-child(3) {
   border-bottom: 1px solid var(--line);
-  padding-bottom: 3.75rem;
+  padding-bottom: 3rem;
 }
 
 .card h3 {
   margin-top: 0;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .card p {
   color: var(--text);
   line-height: 1.85;
+  max-width: 100%;
 }
 
 /* ===== BEGELEIDERS ===== */
@@ -667,6 +681,10 @@ main > h2 {
   padding: 4rem 0;
   background: transparent;
   margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
 }
 
 .begeleider:first-child {
@@ -678,21 +696,20 @@ main > h2 {
   padding-bottom: 5rem;
 }
 
-/* Foto's in kleur, groter, expressiever */
+/* Foto's LINKS, in kleur, groter, expressiever */
 .begeleider-foto {
-  width: 280px; /* Groter dan voorheen */
+  width: 280px;
   height: 280px;
   object-fit: cover;
-  margin: 0 auto 2rem;
+  margin: 0; /* Geen center margin meer */
   display: block;
-  /* GEEN grayscale filter - kleur behouden */
-  box-shadow: var(--shadow-soft); /* Subtiele schaduw voor diepte */
+  box-shadow: var(--shadow-soft);
 }
 
 .begeleider-content {
-  text-align: center;
+  text-align: left; /* Links uitgelijnd ipv center */
   max-width: 65ch;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .begeleider h3 {
@@ -1023,6 +1040,25 @@ main > h2 {
   line-height: 1.9;
 }
 
+/* ===== EXTERNE LOGO'S (bijv. Zincafé) ===== */
+/* Logo's in content die niet van ITF zijn - kleiner maken */
+.content-wrapper img[src*="zincafe"],
+.content-wrapper img[src*="logo"]:not([src*="itf"]),
+main img[alt*="Zincafé"],
+main img[alt*="zincafe"] {
+  max-width: 200px; /* Klein houden */
+  height: auto;
+  margin: 2rem auto;
+  display: block;
+}
+
+/* Als het in een section staat */
+.section-soft img[src*="zincafe"],
+.section-soft img[alt*="Zincafé"] {
+  max-width: 180px;
+  margin: 1.5rem auto;
+}
+
 /* ===== LEESMODUS ===== */
 .essay-page.reading .prose {
   font-size: 1.15rem;
@@ -1089,6 +1125,221 @@ blockquote[id],
   scroll-margin-top: 120px;
 }
 
+/* ===== FORMULIEREN ===== */
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Input fields en textareas */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-section);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: border-color var(--transition), background var(--transition);
+  margin-bottom: 1.25rem;
+}
+
+/* Focus state */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: var(--bg);
+}
+
+/* Textarea specifiek */
+textarea {
+  min-height: 150px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Select dropdown */
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232a2a2a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 3rem;
+}
+
+/* Formulier containers */
+form {
+  max-width: 650px;
+  margin: 2rem auto;
+}
+
+/* Formulier rijen (als je labels en inputs naast elkaar wilt) */
+.form-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.form-row label {
+  margin-bottom: 0;
+  padding-top: 0.85rem;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  margin-bottom: 0;
+}
+
+/* Gestapelde formulier layout (standaard) */
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  margin-bottom: 0;
+}
+
+/* Submit buttons */
+input[type="submit"],
+button[type="submit"],
+.form-submit {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.85rem 2rem;
+  background: var(--accent);
+  color: #fff;
+  border: 2px solid var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover,
+.form-submit:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* Inline formulier elementen */
+.form-inline {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.form-inline input,
+.form-inline select {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 0;
+}
+
+.form-inline button,
+.form-inline input[type="submit"] {
+  flex-shrink: 0;
+  margin-top: 0;
+}
+
+/* Helper text onder velden */
+.form-help {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Error states */
+input.error,
+textarea.error,
+select.error {
+  border-color: #c44;
+}
+
+.form-error {
+  color: #c44;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+  display: block;
+}
+
+/* Required velden indicator */
+.required {
+  color: var(--primary);
+  margin-left: 0.2rem;
+}
+
+/* Checkbox en radio styling */
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.checkbox-group,
+.radio-group {
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-group label,
+.radio-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* Formulier binnen een sectie */
+.section-soft form,
+.hero-soft form,
+.home-contact form {
+  max-width: 550px;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 @media (max-width: 1200px) {
@@ -1127,10 +1378,30 @@ blockquote[id],
     margin-bottom: 1.5rem;
   }
 
+  /* Grid naar 1 kolom op tablets */
   .diensten,
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .dienst,
+  .card {
+    padding: 2.5rem 0;
+  }
+
+  .dienst:first-child,
+  .card:first-child {
+    padding-top: 3rem;
+  }
+
+  .dienst:last-child,
+  .card:last-child {
+    padding-bottom: 3rem;
+  }
+
   .ervaringen-grid,
   .pep-glance,
-  .cards,
   .essay-list,
   .begeleiders-grid {
     max-width: 100%;
@@ -1144,30 +1415,21 @@ blockquote[id],
     padding: 4rem 2.5rem;
   }
 
-  .dienst,
   .ervaring,
   .pep-box,
-  .card,
-  .essay-item,
-  .begeleider {
+  .essay-item {
     padding: 3rem 0;
   }
 
-  .dienst:first-child,
   .ervaring:first-child,
   .pep-box:first-child,
-  .card:first-child,
-  .essay-item:first-child,
-  .begeleider:first-child {
+  .essay-item:first-child {
     padding-top: 3.5rem;
   }
 
-  .dienst:last-child,
   .ervaring:last-child,
   .pep-box:last-child,
-  .card:last-child,
-  .essay-item:last-child,
-  .begeleider:last-child {
+  .essay-item:last-child {
     padding-bottom: 3.5rem;
   }
 
@@ -1184,9 +1446,45 @@ blockquote[id],
     gap: 2rem;
   }
 
+  /* Begeleider naar gestapeld op tablets */
+  .begeleider {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3.5rem 0;
+  }
+
+  .begeleider:first-child {
+    padding-top: 4rem;
+  }
+
+  .begeleider:last-child {
+    padding-bottom: 4rem;
+  }
+
   .begeleider-foto {
     width: 240px;
     height: 240px;
+    margin: 0 auto; /* Center op tablets */
+  }
+
+  .begeleider-content {
+    text-align: center; /* Center tekst op tablets */
+    margin: 0 auto;
+  }
+
+  /* Formulieren op tablets */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .form-row label {
+    padding-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  form {
+    max-width: 100%;
   }
 }
 
@@ -1197,7 +1495,7 @@ blockquote[id],
   }
   
   .nav-logo img {
-    height: 34px;
+    height: 42px; /* Was 34px - nu groter behouden */
   }
 }
 
@@ -1212,7 +1510,7 @@ blockquote[id],
   }
 
   .nav-logo img {
-    height: 30px;
+    height: 38px; /* Groter dan voorheen (was 30px) */
   }
 
   nav a {
@@ -1241,9 +1539,20 @@ blockquote[id],
   .ervaring,
   .pep-box,
   .card,
-  .essay-item,
-  .begeleider {
+  .essay-item {
     padding: 2.75rem 0;
+  }
+
+  .begeleider {
+    padding: 3rem 0;
+  }
+
+  .begeleider:first-child {
+    padding-top: 3.5rem;
+  }
+
+  .begeleider:last-child {
+    padding-bottom: 3.5rem;
   }
 
   .essay-card-link {
@@ -1261,6 +1570,34 @@ blockquote[id],
 
   footer {
     padding: 3rem 2rem;
+  }
+
+  /* Formulieren op mobiel */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="number"],
+  textarea,
+  select {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  input[type="submit"],
+  button[type="submit"],
+  .form-submit {
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .form-inline {
+    flex-direction: column;
+  }
+
+  .form-inline input,
+  .form-inline select {
+    width: 100%;
   }
 }
 
