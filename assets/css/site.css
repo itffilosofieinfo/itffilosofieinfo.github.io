@@ -1,83 +1,87 @@
 /* ==========================
    ITF – Instituut voor Toegepaste Filosofie
-   Warme, intellectuele uitstraling met ruimte
+   NIEUWE STIJL: Strak, typografisch, institutioneel
+   Geen cards, veel witruimte, serieus karakter
    ========================== */
 
-/* ===== CSS VARIABELEN =====
-   Centraal gedefinieerde kleuren en afmetingen
-   die je door de hele stylesheet kunt hergebruiken */
+/* ===== CSS VARIABELEN ===== */
 :root {
-  --primary: #1e2a38;      /* Diep blauw - hoofdkleur voor tekst en accenten */
-  --bg: #f4f1ec;           /* Zandkleurig beige - achtergrondkleur van de site */
-  --bg-card: #ffffff;      /* Wit - achtergrond voor cards en secties */
-  --accent: #d4a017;       /* Okergeel - accentkleur voor knoppen en highlights */
-  --text: #2d2d2d;         /* Donkergrijs - standaard tekstkleur */
-  --text-light: #5a5a5a;   /* Lichter grijs - voor secundaire tekst */
-  --text-muted: #888888;   /* Gedempte kleur - voor meta-informatie */
-  --line: #d4cfc4;         /* Beige lijn - voor borders en scheidingen */
-  --line-light: #e8e5df;   /* Lichtere lijn - voor subtielere scheidingen */
+  /* Kleuren - gereduceerd en strakker */
+  --primary: #1a1a1a;          /* Bijna zwart - voor tekst en koppen */
+  --bg: #ffffff;               /* Wit - hoofdachtergrond */
+  --bg-section: #fafafa;       /* Subtiel grijs - voor afwisselende secties */
+  --accent: #2d2d2d;           /* Donkergrijs - voor accenten */
+  --text: #2d2d2d;             /* Donkergrijs - standaard tekst */
+  --text-light: #6b6b6b;       /* Medium grijs - secundaire tekst */
+  --text-muted: #999999;       /* Licht grijs - meta-informatie */
+  --line: #e0e0e0;             /* Lichte lijn - subtiele scheidingen */
+  --line-strong: #cccccc;      /* Sterkere lijn - duidelijkere scheidingen */
   
-  --radius: 12px;          /* Standaard border-radius voor cards */
-  --radius-small: 8px;     /* Kleinere radius voor buttons */
-  --radius-pill: 999px;    /* Volledig ronde hoeken (pill-shape) */
-  --shadow-sm: 0 2px 12px rgba(30, 42, 56, 0.08);   /* Subtiele schaduw */
-  --shadow-md: 0 8px 24px rgba(30, 42, 56, 0.12);   /* Duidelijkere schaduw */
-  --transition: 200ms ease; /* Standaard animatieduur */
+  /* Geen radius meer - alles rechthoekig */
+  --radius: 0;
+  
+  /* Geen schaduwen */
+  --shadow: none;
+  
+  /* Snellere transitions - subtieler */
+  --transition: 150ms ease;
 }
 
-/* ===== RESET / BASIS =====
-   Basisinstellingen voor alle elementen */
+/* ===== RESET / BASIS ===== */
 * {
-  box-sizing: border-box; /* Padding en border tellen mee in breedte/hoogte */
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* NIEUW: Spectral serif - strakker en intellectueler dan Merriweather */
+  font-family: 'Spectral', 'Georgia', serif;
   font-size: 18px;
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased; /* Mooiere tekstweergave op Mac */
+  line-height: 2.0; /* Veel meer regelafstand voor luchtigheid */
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ===== TYPOGRAFIE =====
-   Lettertype en grootte voor koppen en tekst */
+/* ===== TYPOGRAFIE ===== */
 h1, h2, h3, h4 {
-  font-family: 'Merriweather', Georgia, serif; /* Serif font voor klassieke uitstraling */
-  line-height: 1.3;
-  letter-spacing: -0.02em; /* Iets dichter op elkaar voor strakker uiterlijk */
+  font-family: 'Spectral', 'Georgia', serif;
+  line-height: 1.15; /* Strakke koppen */
+  letter-spacing: -0.03em; /* Iets dichter voor moderniteit */
   color: var(--primary);
-  font-weight: 700;
+  font-weight: 600; /* Minder zwaar dan voorheen (was 700) */
+  margin: 0; /* Reset - we bepalen spacing bewust per context */
 }
 
 h1 { 
-  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive: tussen 2.5rem en 4rem */
-  margin: 0 0 1.5rem;
-  letter-spacing: -0.03em;
+  font-size: clamp(3rem, 7vw, 5rem); /* GROOT - monumentaal */
+  margin: 0 0 3rem; /* Veel ruimte onder */
+  letter-spacing: -0.04em;
+  font-weight: 600;
 }
 
 h2 { 
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  margin: 4rem 0 1.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Ook flink groter */
+  margin: 6rem 0 2rem; /* Enorme marge boven voor scheiding */
   font-weight: 600;
 }
 
 h3 { 
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
-  margin: 2rem 0 1rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 4rem 0 1.5rem;
   font-weight: 600;
 }
 
 h4 {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin: 1.5rem 0 0.75rem;
+  margin: 3rem 0 1rem;
 }
 
 p {
-  margin: 0 0 1.5rem;
+  margin: 0 0 2rem; /* Meer ruimte tussen paragrafen */
   color: var(--text);
+  max-width: 70ch; /* Optimale leesbreedte */
 }
 
 p.muted { 
@@ -85,19 +89,16 @@ p.muted {
   font-size: 0.95rem;
 }
 
-/* Links krijgen okergele onderstreping */
+/* Links - minimaal gestyled */
 a {
   color: var(--primary);
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 2px;
-  transition: color var(--transition), text-decoration-color var(--transition);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line-strong);
+  transition: border-color var(--transition);
 }
 
 a:hover {
-  color: var(--accent);
-  text-decoration-color: var(--primary);
+  border-bottom-color: var(--primary);
 }
 
 strong {
@@ -105,29 +106,26 @@ strong {
   color: var(--primary);
 }
 
-/* ===== HEADER / NAVIGATIE =====
-   Sticky header die bovenaan blijft plakken bij scrollen */
+/* ===== HEADER / NAVIGATIE ===== */
 header {
   position: sticky;
   top: 0;
-  background: rgba(244, 241, 236, 0.95); /* Semi-transparant voor glazen effect */
-  backdrop-filter: blur(10px); /* Wazig effect achter de header */
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
-  z-index: 50; /* Boven alle andere content */
+  z-index: 50;
 }
 
 nav {
-  max-width: 1200px;
+  max-width: 1400px; /* Iets breder voor meer lucht aan de zijkanten */
   margin: 0 auto;
-  padding: 0.75rem 2rem;
+  padding: 1.5rem 4rem; /* Meer padding voor ruimte */
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Logo links, menu rechts */
-  gap: 1rem;
-  flex-wrap: nowrap; /* Blijft op één regel */
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-/* Reset voor ul/li elements in nav */
 nav ul {
   list-style: none;
   margin: 0;
@@ -142,201 +140,177 @@ nav li::before {
   content: none !important; 
 }
 
-/* Styling voor menu links */
+/* Menu links - geen achtergrond, geen rondingen */
 nav a {
   text-decoration: none;
-  color: var(--primary);
-  padding: 0.4rem 0.7rem;
-  border-radius: var(--radius-small);
-  font-weight: 500;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  font-weight: 400; /* Lichter gewicht */
   font-size: 0.95rem;
-  transition: background var(--transition), color var(--transition);
+  letter-spacing: 0.02em; /* Iets meer ruimte tussen letters */
+  border-bottom: none; /* Override general link style */
+  transition: color var(--transition);
 }
 
 nav a:hover {
-  background: rgba(212, 160, 23, 0.1); /* Lichte gele achtergrond bij hover */
-  color: var(--accent);
+  color: var(--primary);
+  background: transparent; /* Geen achtergrondkleur meer */
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
   width: 100%;
   justify-content: space-between;
 }
 
 .nav-logo img {
-  height: 32px;
+  height: 36px;
   width: auto;
   display: block;
 }
 
 .nav-links {
   display: flex;
-  gap: 0.25rem;
-  flex-wrap: nowrap; /* Menu blijft op één regel */
-  overflow-x: auto; /* Horizontaal scrollen op kleine schermen */
-  -webkit-overflow-scrolling: touch; /* Soepel scrollen op iOS */
-  scrollbar-width: none; /* Verberg scrollbar in Firefox */
+  gap: 0.5rem;
+  flex-wrap: nowrap;
 }
 
-/* Verberg scrollbar in Chrome/Safari */
-.nav-links::-webkit-scrollbar {
-  display: none;
-}
-
-/* PEP nav item met accent onderstreping */
+/* PEP nav - subtiel anders */
 .nav-pep {
-  font-weight: 600;
-  position: relative;
-  color: var(--accent);
+  font-weight: 500;
+  color: var(--primary);
 }
 
 .nav-pep::after {
-  content: "";
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 0.4rem;
-  height: 2px;
-  background: var(--accent);
-  opacity: 0.4;
-  border-radius: 2px;
+  display: none; /* Geen speciale onderstreping meer */
 }
 
-nav a.nav-pep:hover::after {
-  opacity: 1;
-}
-
-/* ===== LAYOUT =====
-   Hoofdcontent container met maximale breedte */
+/* ===== LAYOUT ===== */
 main {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 5rem 3rem 7rem;
+  padding: 8rem 6rem 10rem; /* VEEL meer padding */
 }
 
-/* ===== FOOTER =====
-   Footer onderaan de pagina */
+/* ===== FOOTER ===== */
 footer {
   border-top: 1px solid var(--line);
-  background: rgba(30, 42, 56, 0.03);
+  background: var(--bg-section);
   color: var(--text-light);
-  font-size: 0.95rem;
-  padding: 2.5rem 2rem;
-  margin-top: 6rem;
+  font-size: 0.9rem;
+  padding: 4rem 4rem;
+  margin-top: 8rem;
 }
 
 footer p {
   margin: 0;
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   color: var(--text-light);
 }
 
-/* ===== HERO (homepage banner) =====
-   Grote header met achtergrondafbeelding en tekst overlay */
+/* ===== HERO (homepage banner) ===== */
 .hero{
   position: relative;
-  min-height: 520px; /* Voldoende hoogte om gezichten vrij te houden */
-  padding: clamp(24px, 4vw, 56px);
+  min-height: 600px; /* Hoger voor meer impact */
+  padding: clamp(32px, 6vw, 80px);
   display: grid;
-  align-items: end; /* Tekst onderaan positioneren */
+  align-items: end;
   overflow: hidden;
   background-image: url("/assets/img/foto-lacan-foucault-en-sloterdijk.png");
   background-size: cover;
   background-position: center;
 }
 
-/* Donker gradient van links naar rechts voor leesbaarheid */
 .hero__overlay{
   position: absolute;
   inset: 0;
-  pointer-events: none; /* Click events gaan door de overlay heen */
+  pointer-events: none;
   z-index: 0;
   background: linear-gradient(90deg,
-    rgba(0,0,0,.75) 0%,
-    rgba(0,0,0,.50) 25%,
-    rgba(0,0,0,.20) 50%,
-    rgba(0,0,0,0) 75%);
+    rgba(0,0,0,.70) 0%,
+    rgba(0,0,0,.45) 30%,
+    rgba(0,0,0,.15) 60%,
+    rgba(0,0,0,0) 80%);
 }
 
-/* Content container zonder glazen achtergrond */
 .hero__content{
   position: relative;
   z-index: 1;
-  max-width: 56ch; /* Max 56 karakters breed voor leesbaarheid */
+  max-width: 60ch;
   color: #fff;
-  text-shadow: 0 2px 12px rgba(0,0,0,.8); /* Schaduw voor contrast */
-  padding: 1.5rem 2rem;
+  text-shadow: 0 2px 16px rgba(0,0,0,.9);
+  padding: 2rem 3rem;
 }
 
 .hero h1{
-  margin: 0 0 .35rem 0;
-  font-size: clamp(28px, 3.2vw, 52px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #fff !important; /* Wit geforceerd, overschrijft standaard h1 kleur */
+  margin: 0 0 .5rem 0;
+  font-size: clamp(32px, 4vw, 64px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff !important;
 }
 
 .hero p{
   margin: 0;
-  font-size: clamp(16px, 1.4vw, 20px);
-  color: #fff !important; /* Wit geforceerd */
+  font-size: clamp(18px, 1.6vw, 22px);
+  color: #fff !important;
   opacity: .95;
+  line-height: 1.6;
 }
 
-/* Call-to-action knop in hero */
 .hero__cta{
   display: inline-block;
-  margin-top: 1rem;
-  padding: .7rem 1rem;
-  border: 1px solid rgba(255,255,255,.55);
-  border-radius: 999px;
+  margin-top: 1.5rem;
+  padding: .8rem 1.5rem;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 0; /* Geen ronde hoeken */
   color: #fff;
   text-decoration: none;
   backdrop-filter: blur(6px);
+  transition: border-color var(--transition), background var(--transition);
 }
 
 .hero__cta:hover{
-  border-color: rgba(255,255,255,.85);
+  border-color: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.05);
 }
 
-/* ===== HOMEPAGE SECTIES =====
-   Verschillende content blokken op de homepage */
+/* ===== HOMEPAGE SECTIES ===== */
 .home-logo {
   text-align: center;
-  margin: 3rem 0 2rem;
+  margin: 4rem 0 3rem;
 }
 
 .home-logo img {
-  width: 160px;
+  width: 180px;
   height: auto;
 }
 
-/* Witte kaart met zachte uitstraling */
+/* GEEN CARDS MEER - gewoon volle breedte secties */
 .section-soft {
-  background: var(--bg-card);
-  border: 1px solid var(--line-light);
-  border-radius: var(--radius);
-  padding: 3rem 2.5rem;
-  margin: 3rem 0;
+  background: var(--bg-section);
+  border: none; /* Geen border */
+  border-top: 1px solid var(--line); /* Alleen subtiele lijn boven */
+  border-bottom: 1px solid var(--line); /* En onder */
+  padding: 6rem 4rem; /* Veel padding */
+  margin: 6rem 0; /* Veel ruimte erboven en eronder */
   text-align: center;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none; /* Geen schaduw */
 }
 
 .section-soft p {
-  max-width: 800px;
+  max-width: 70ch;
   margin-left: auto;
   margin-right: auto;
-  color: var(--text-light);
-  font-size: 1.1rem;
-  line-height: 1.9;
+  color: var(--text);
+  font-size: 1.15rem;
+  line-height: 2.0;
 }
 
-/* Gecentreerde koppen */
 .section-soft h2,
 .ervaringen h2,
 .home-contact h2,
@@ -345,790 +319,608 @@ main > h2 {
   margin-top: 0;
 }
 
-/* ===== DIENSTEN GRID =====
-   3-koloms grid voor diensten op homepage */
+/* ===== DIENSTEN - GEEN GRID MEER, GESTAPELD ===== */
 .diensten {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 3rem 0 5rem;
+  display: block; /* Geen grid */
+  margin: 6rem 0 8rem;
+  max-width: 900px; /* Smaller voor focus */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .dienst {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  background: var(--bg-card);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  border: none; /* Geen border */
+  border-top: 1px solid var(--line); /* Alleen lijn boven */
+  padding: 4rem 0; /* Verticale padding, geen horizontale */
+  background: transparent; /* Geen achtergrond */
+  box-shadow: none;
+  transition: none; /* Geen hover-effect */
+  margin-bottom: 0;
 }
 
-/* Lift-effect bij hover */
+.dienst:last-child {
+  border-bottom: 1px solid var(--line); /* Laatste ook lijn onder */
+}
+
 .dienst:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent);
+  transform: none; /* Geen lift-effect */
+  box-shadow: none;
+  border-color: var(--line);
 }
 
 .dienst p {
-  color: var(--text-light);
-  line-height: 1.8;
+  color: var(--text);
+  line-height: 2.0;
+  max-width: 70ch;
 }
 
 .dienst h3 {
   color: var(--primary);
   margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 2rem; /* Grotere dienst-koppen */
 }
 
 .dienst-logo {
-  width: 64px;
+  width: 48px; /* Kleiner, subtieler */
   height: auto;
-  margin-bottom: 1.5rem;
-  opacity: 0.85;
+  margin-bottom: 2rem;
+  opacity: 0.6; /* Gedempter */
   display: block;
 }
 
 .dienst:hover .dienst-logo {
-  opacity: 1;
+  opacity: 0.8; /* Subtiele hover */
 }
 
 .dienst a {
   text-decoration: none;
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.7rem 1.3rem;
-  border-radius: var(--radius-pill);
-  border: 2px solid var(--line);
+  margin-top: 1.5rem;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--primary); /* Simpele onderstreping */
   background: transparent;
   color: var(--primary);
-  font-weight: 600;
-  transition: all var(--transition);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: border-color var(--transition);
 }
 
 .dienst a:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--bg-card);
-  transform: translateY(-1px);
-}
-
-/* ===== UNIVERSELE BUTTONS =====
-   Herbruikbare button styling door de hele site */
-.btn, .button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.9rem 1.8rem;
-  border-radius: var(--radius-pill);
-  border: 2px solid var(--accent);
-  background: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--bg-card);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
-}
-
-.btn:hover, .button:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-  color: var(--bg-card);
-}
-
-/* Ghost variant - alleen border, geen achtergrond */
-.btn-ghost, .button-ghost {
   background: transparent;
+  border-bottom-color: var(--text-light);
   color: var(--primary);
-  border-color: var(--primary);
+}
+
+/* ===== HERO SOFT (andere variant) ===== */
+.hero-soft {
+  background: var(--bg-section);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 6rem 4rem;
+  margin: 6rem 0;
+  text-align: center;
   box-shadow: none;
 }
 
-.btn-ghost:hover, .button-ghost:hover {
-  background: var(--primary);
-  color: var(--bg-card);
+.hero-soft h1 {
+  margin-bottom: 2rem;
 }
 
-.button.primary {
-  background: var(--primary);
-  color: var(--bg-card);
-  border-color: var(--primary);
+.hero-soft p {
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 2.0;
 }
 
-.button.primary:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
-/* ===== CARDS (algemeen) =====
-   Generieke card layout voor verschillende content types */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 3rem 0;
-}
-
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.card p {
-  color: var(--text-light);
-  line-height: 1.8;
-}
-
-.card h3 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: var(--primary);
-}
-
-/* ===== ERVARINGEN =====
-   Testimonials sectie met 3-koloms grid */
+/* ===== ERVARINGEN ===== */
 .ervaringen {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 4rem 3rem;
-  margin: 5rem 0;
-  box-shadow: var(--shadow-sm);
+  padding: 6rem 4rem;
+  background: var(--bg-section);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 6rem 0;
 }
 
 .ervaringen h2 {
-  margin-top: 0;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .ervaringen-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1100px;
+  display: block; /* Geen grid - gestapeld */
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .ervaring {
-  background: var(--bg);
-  border: 1px solid var(--line-light);
-  border-radius: var(--radius);
-  padding: 2rem 1.8rem;
+  border: none;
+  border-top: 1px solid var(--line);
+  padding: 3rem 0;
+  background: transparent;
+  box-shadow: none;
+  transition: none;
+}
+
+.ervaring:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.ervaring:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.ervaring p {
   font-style: italic;
-  color: var(--text-light);
-  line-height: 1.8;
+  color: var(--text);
+  line-height: 2.0;
+  margin-bottom: 1.5rem;
 }
 
-.ervaring span {
-  display: block;
-  margin-top: 1.5rem;
+.ervaring-naam {
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--primary);
+  font-size: 0.95rem;
 }
 
-.ervaringen-link {
-  text-align: center;
-  margin-top: 3rem;
+.ervaring-functie {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
 
-/* ===== CONTACT FORMULIER =====
-   Formulier styling voor contactpagina */
+/* ===== HOME CONTACT ===== */
 .home-contact {
-  margin-top: 5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 4rem 3rem;
-  box-shadow: var(--shadow-sm);
+  text-align: center;
+  margin: 8rem 0 6rem;
+  padding: 6rem 4rem;
+  background: var(--bg-section);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.contact-form {
+.home-contact h2 {
+  margin-bottom: 2rem;
+}
+
+.home-contact p {
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.15rem;
+  line-height: 2.0;
+}
+
+.home-contact a {
+  display: inline-block;
   margin-top: 2rem;
-  max-width: 700px;
+  padding: 1rem 2rem;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background var(--transition), color var(--transition);
+}
+
+.home-contact a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ===== PEP PAGINA ===== */
+.pep-glance {
+  display: block; /* Geen grid */
+  margin: 4rem 0;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.contact-form label {
-  display: block;
-  margin: 1.8rem 0 0.6rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--primary);
-}
-
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-  width: 100%;
-  padding: 0.9rem 1.2rem;
-  font-family: inherit;
-  font-size: 1rem;
-  border: 2px solid var(--line);
-  border-radius: var(--radius-small);
-  background: var(--bg);
-  color: var(--text);
-  transition: border-color var(--transition), box-shadow var(--transition);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15); /* Gele glow bij focus */
-}
-
-.contact-form button {
-  margin-top: 1.5rem;
-  padding: 1rem 2rem;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 600;
-  border: 2px solid var(--accent);
-  border-radius: var(--radius-pill);
-  background: var(--accent);
-  color: var(--bg-card);
-  cursor: pointer;
-  transition: all var(--transition);
-  box-shadow: var(--shadow-sm);
-}
-
-.contact-form button:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-/* ===== PEP PAGINA =====
-   Specifieke styling voor de PEP (Persoonlijkheid & Professionaliteit) pagina */
-.pep-hero {
-  margin-top: 2rem;
-}
-
-.pep-lead {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  margin: 2rem 0 3rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.pep-lead p {
-  color: var(--text-light);
-  font-size: 1.1rem;
-  line-height: 1.9;
-}
-
-/* 2-koloms layout: links info, rechts CTA */
-.pep-glance {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.pep-card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.pep-card h3 {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-}
-
-.pep-card ul {
-  margin: 0;
-  padding-left: 1.5rem;
-  color: var(--text-light);
-  line-height: 1.8;
-}
-
-.pep-card-cta p {
-  margin-bottom: 1.2rem;
-}
-
-.pep-section {
-  margin-top: 4rem;
-}
-
-.pep-section h2 {
-  margin-top: 0;
-}
-
 .pep-box {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  margin-bottom: 2rem;
-  box-shadow: var(--shadow-sm);
+  border: none;
+  border-top: 1px solid var(--line);
+  padding: 3rem 0;
+  background: transparent;
+  box-shadow: none;
 }
 
-.pep-box p {
-  color: var(--text-light);
-  line-height: 1.8;
+.pep-box:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.pep-box h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.pep-box p,
+.pep-box ul {
+  color: var(--text);
+  line-height: 2.0;
 }
 
 .pep-box ul {
-  color: var(--text-light);
-  line-height: 1.8;
-  margin-left: 1.5rem;
+  margin-left: 0;
+  padding-left: 1.5rem;
 }
 
-/* Gele accent box voor belangrijke CTA's */
-.pep-box-cta {
-  background: rgba(212, 160, 23, 0.05);
-  border-color: var(--accent);
+.pep-highlight {
+  background: var(--bg-section);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 4rem 3rem;
+  margin: 5rem 0;
+  text-align: center;
 }
 
-/* Quote styling met accent border */
-.pep-quote {
-  border-left: 4px solid var(--accent);
-  padding-left: 2rem;
-  margin: 2.5rem 0;
-  font-style: italic;
-  color: var(--text-light);
+.pep-highlight h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
 }
 
-.pep-ervaringen {
-  margin-top: 5rem;
+.pep-highlight p {
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.15rem;
+  line-height: 2.0;
+}
+
+/* ===== CARDS (algemeen) ===== */
+.cards {
+  display: block; /* Geen grid */
+  margin: 4rem 0;
   max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.pep-ervaringen h2 {
-  margin-bottom: 3rem;
+.card {
+  border: none;
+  border-top: 1px solid var(--line);
+  padding: 3rem 0;
+  background: transparent;
+  box-shadow: none;
+  transition: none;
 }
 
-.pep-ervaring {
-  margin-bottom: 3rem;
-  padding-left: 2rem;
-  border-left: 4px solid var(--accent);
+.card:last-child {
+  border-bottom: 1px solid var(--line);
 }
 
-.pep-ervaring p {
-  margin-bottom: 1rem;
-  color: var(--text-light);
-  line-height: 1.8;
+.card:hover {
+  transform: none;
+  box-shadow: none;
 }
 
-.pep-naam {
-  display: block;
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.card p {
+  color: var(--text);
+  line-height: 2.0;
+}
+
+.card a {
+  display: inline-block;
   margin-top: 1rem;
-  font-weight: 600;
-  color: var(--primary);
-}
-
-/* Quote styling voor werkwijze pagina */
-.pep-quote footer {
-  display: block;
-  margin-top: 1rem;
-  font-style: normal;
-  font-size: 0.95rem;
-}
-
-.pep-quote footer a {
-  color: var(--accent);
-  text-decoration: none;
   font-weight: 500;
 }
 
-.pep-quote footer a:hover {
-  text-decoration: underline;
+/* ===== BEGELEIDERS ===== */
+.begeleiders-intro {
+  text-align: center;
+  max-width: 70ch;
+  margin: 0 auto 6rem;
 }
 
-/* ===== BEGELEIDERS =====
-   Team overzicht met foto's */
+.begeleiders-intro p {
+  font-size: 1.15rem;
+  line-height: 2.0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .begeleiders-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem;
-  margin-bottom: 4rem;
+  display: block; /* Geen grid */
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.begeleider-card {
-  overflow: hidden;
+.begeleider {
+  border: none;
+  border-top: 1px solid var(--line);
+  padding: 4rem 0;
+  background: transparent;
+  margin-bottom: 0;
+}
+
+.begeleider:last-child {
+  border-bottom: 1px solid var(--line);
 }
 
 .begeleider-foto {
-  width: 100%;
-  height: 340px;
+  width: 200px; /* Kleiner, minder prominent */
+  height: 200px;
   object-fit: cover;
+  margin: 0 auto 2rem;
   display: block;
-  border-radius: var(--radius);
-  margin-bottom: 1.5rem;
-  box-shadow: var(--shadow-sm);
+  filter: grayscale(100%); /* Zwart-wit voor strakkere uitstraling */
+  opacity: 0.85;
 }
 
-.visie-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  max-width: 600px;
-  margin: 0 auto 4rem;
-}
-
-/* ===== ZINCAFÉ =====
-   Speciale styling voor Zincafé sectie met groen thema */
-.section-soft.zincafe {
-  background: linear-gradient(135deg, #4f6b3a 0%, #3d5430 100%); /* Groene gradient */
-  color: #f7f7f2;
+.begeleider-content {
   text-align: center;
-  padding: 4rem 3rem;
-  border: none;
-  box-shadow: var(--shadow-md);
 }
 
-.section-soft.zincafe .zincafe-logo {
-  display: block;
-  margin: 0 auto 2.5rem auto;
-  max-width: 180px;
-  height: auto;
-  padding: 1.3rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: var(--radius);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.begeleider h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
-.section-soft.zincafe h2 {
-  color: #f7f7f2;
-}
-
-.section-soft.zincafe p {
-  color: rgba(247, 247, 242, 0.95);
-  font-size: 1.1rem;
-}
-
-.section-soft.zincafe .btn.btn-ghost {
-  border-color: rgba(247, 247, 242, 0.9);
-  color: #f7f7f2;
-  background: transparent;
-}
-
-.section-soft.zincafe .btn.btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: #f7f7f2;
-}
-
-/* ===== ESSAYS / ARTIKELEN =====
-   Overzichtspagina en detail pagina's voor essays */
-.essay-index {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.essay-intro {
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-/* Featured artikel layout - grote cards met afbeelding */
-.essay-list-featured {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
-  margin-top: 3rem;
-}
-
-.essay-card {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-}
-
-.essay-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent);
-}
-
-.essay-card-link {
-  display: grid;
-  grid-template-columns: 380px 1fr; /* Afbeelding links, content rechts */
-  gap: 0;
-  text-decoration: none;
-  color: inherit;
-}
-
-.essay-card-image {
-  position: relative;
-  overflow: hidden;
-  background: var(--primary);
-}
-
-.essay-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.essay-card:hover .essay-card-image img {
-  transform: scale(1.05); /* Zoom effect bij hover */
-  opacity: 0.9;
-}
-
-.essay-card-content {
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.essay-card-content h2 {
-  margin: 0 0 1rem;
-  font-size: 1.8rem;
-  color: var(--primary);
-  line-height: 1.3;
-}
-
-.essay-card-excerpt {
-  flex: 1;
-  margin: 0 0 1.5rem;
-  color: var(--text-light);
-  font-size: 1.05rem;
-  line-height: 1.8;
-}
-
-.essay-card-meta {
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-  font-size: 0.95rem;
+.begeleider-rol {
   color: var(--text-muted);
-  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  display: block;
 }
 
-.essay-card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 1rem;
-  transition: gap 0.2s ease;
+.begeleider p {
+  color: var(--text);
+  line-height: 2.0;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.essay-card:hover .essay-card-cta {
-  gap: 0.8rem; /* Pijltje beweegt bij hover */
-}
-
-/* Compacte lijst layout (backup) */
+/* ===== ESSAY OVERZICHT ===== */
 .essay-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  display: block; /* Geen grid */
+  margin: 4rem 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.essay-list-featured {
+  margin-bottom: 6rem;
 }
 
 .essay-item {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 1.5rem;
-  align-items: center;
-  padding: 1.8rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--bg-card);
-  text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  border: none;
+  border-top: 1px solid var(--line);
+  padding: 3rem 0;
+  display: block; /* Geen grid layout */
+  background: transparent;
+  transition: none;
+}
+
+.essay-item:last-child {
+  border-bottom: 1px solid var(--line);
 }
 
 .essay-item:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent);
-}
-
-.essay-item h2 {
-  margin: 0 0 0.6rem;
-  font-size: 1.3rem;
-  color: var(--primary);
-}
-
-.essay-item p {
-  margin: 0;
-  color: var(--text-light);
-  line-height: 1.7;
+  background: transparent;
 }
 
 .essay-thumb {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: var(--radius-small);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: none; /* Geen thumbnails - alleen tekst */
 }
 
-/* ===== ESSAY DETAIL PAGINA =====
-   Styling voor individuele essay pagina's */
-.essay-page {
-  max-width: 1000px;
-  margin: 0 auto;
+.essay-content h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
 }
 
-.essay-header {
-  padding-bottom: 2rem;
-  border-bottom: 2px solid var(--line);
-  margin-bottom: 3rem;
+.essay-content h3 a {
+  text-decoration: none;
+  color: var(--primary);
+  border-bottom: none;
+  transition: color var(--transition);
 }
 
-.essay-subtitle {
-  font-size: 1.3rem;
+.essay-content h3 a:hover {
   color: var(--text-light);
-  margin-top: 1rem;
-  font-style: italic;
 }
 
 .essay-meta {
   color: var(--text-muted);
-  margin: 1.5rem 0 3rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 0.95rem;
-}
-
-.essay-hero {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 3rem 2.5rem;
-  margin: 2rem 0 4rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.essay-hero img {
-  width: 100%;
-  max-height: 450px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-}
-
-.essay-hero figcaption {
-  margin-top: 1rem;
   font-size: 0.9rem;
-  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.essay-content p {
+  color: var(--text);
+  line-height: 2.0;
+  margin-bottom: 1.5rem;
+}
+
+.essay-content a.read-more {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+/* Featured essay card */
+.essay-card-link {
+  display: block;
+  text-decoration: none;
+  border: none;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-section);
+  margin: 4rem 0;
+  transition: none;
+}
+
+.essay-card-link:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.essay-card-image {
+  display: none; /* Geen afbeeldingen */
+}
+
+.essay-card-content {
+  padding: 5rem 4rem;
   text-align: center;
-  font-style: italic;
 }
 
-.essay-hero p {
-  margin: 0.5rem 0;
-  color: var(--text-light);
+.essay-card-content .essay-meta {
+  margin-bottom: 1.5rem;
 }
 
-.essay-lead p {
-  font-size: 1.2rem;
-  line-height: 2;
-  margin-bottom: 3rem;
+.essay-card-content h2 {
+  margin: 0 0 2rem;
+  font-size: 2.5rem;
+  color: var(--primary);
+}
+
+.essay-card-content p {
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.15rem;
+  line-height: 2.0;
+  color: var(--text);
+}
+
+/* ===== INDIVIDUELE ESSAY PAGINA ===== */
+.essay-hero {
+  background: var(--bg-section);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 5rem 4rem;
+  margin-bottom: 5rem;
+  text-align: center;
+  box-shadow: none;
+}
+
+.essay-hero h1 {
+  margin-bottom: 2rem;
+  max-width: 20ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.essay-hero .essay-meta {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.essay-hero .essay-lead {
+  font-size: 1.25rem;
+  line-height: 1.9;
+  max-width: 70ch;
+  margin: 0 auto;
   color: var(--text);
 }
 
 .essay-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
   margin-top: 2rem;
-}
-
-.read-toggle {
-  display: inline-flex;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
   align-items: center;
-  gap: 0.5rem;
 }
 
-/* ===== PROSE / TEKST STYLING =====
-   Styling voor de hoofdtekst van essays */
+.essay-actions button {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  padding: 0.7rem 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.essay-actions button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Prose - essay content */
 .prose {
-  font-size: 1.1rem;
-  line-height: 1.9;
+  max-width: 70ch;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 2.1; /* Extra regelafstand voor essays */
   color: var(--text);
 }
 
 .prose h2 {
-  margin-top: 4rem;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  font-size: 2.25rem;
 }
 
 .prose h3 {
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .prose p {
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .prose p + h2 {
-  margin-top: 5rem;
+  margin-top: 6rem;
 }
 
 .prose ul {
-  margin: 0 0 1.8rem 2rem;
-  color: var(--text-light);
+  margin: 0 0 2rem 0;
+  padding-left: 2rem;
+  color: var(--text);
 }
 
 .prose li {
-  margin: 0.8rem 0;
-  line-height: 1.8;
+  margin: 1rem 0;
+  line-height: 2.0;
 }
 
-/* Blockquote met accent border */
 .prose blockquote {
-  background: var(--bg-card);
-  border-left: 4px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 2rem;
-  margin: 3rem 0;
+  background: var(--bg-section);
+  border-left: 2px solid var(--primary); /* Dunnere border */
+  border-radius: 0;
+  padding: 2.5rem 3rem;
+  margin: 4rem 0;
   font-style: italic;
-  color: var(--text-light);
-  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  box-shadow: none;
 }
 
-/* Drop cap - grote eerste letter */
 .dropcap:first-letter {
   float: left;
-  font-size: 4rem;
+  font-size: 4.5rem;
   line-height: 1;
-  padding-right: 0.5rem;
-  margin-top: 0.15rem;
-  font-weight: 700;
-  color: var(--accent);
+  padding-right: 0.75rem;
+  margin-top: 0.2rem;
+  font-weight: 600;
+  color: var(--primary);
 }
 
-/* Callout box voor belangrijke info */
 .callout {
-  background: rgba(212, 160, 23, 0.05);
-  border: 2px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 2rem;
-  margin: 3rem 0;
+  background: var(--bg-section);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 2.5rem 3rem;
+  margin: 4rem 0;
 }
 
 .callout p {
@@ -1136,302 +928,296 @@ main > h2 {
   color: var(--text);
 }
 
-/* Pull quote - uitgelichte quote */
 .pullquote {
-  background: var(--bg-card);
-  border-left: 4px solid var(--accent);
-  padding: 1.5rem 2rem;
-  border-radius: var(--radius);
-  margin: 3rem 0;
+  background: var(--bg-section);
+  border-left: 2px solid var(--primary);
+  padding: 2rem 3rem;
+  border-radius: 0;
+  margin: 4rem 0;
   color: var(--text);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
 .pullquote p {
   margin: 0;
   font-style: italic;
-  font-size: 1.15rem;
-  color: var(--text-light);
+  font-size: 1.2rem;
+  color: var(--text);
 }
 
-/* Note box voor extra informatie */
 .note {
-  background: var(--bg-card);
+  background: var(--bg-section);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 2rem;
-  margin: 3rem 0;
-  color: var(--text-light);
-  box-shadow: var(--shadow-sm);
+  border-radius: 0;
+  padding: 2.5rem;
+  margin: 4rem 0;
+  color: var(--text);
+  box-shadow: none;
 }
 
 /* Table of contents */
 .toc {
-  border: 2px solid var(--line);
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  padding: 2rem;
-  margin: 2rem 0 4rem;
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line);
+  background: var(--bg-section);
+  border-radius: 0;
+  padding: 3rem;
+  margin: 3rem 0 5rem;
+  box-shadow: none;
 }
 
 .toc strong {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--primary);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .toc a {
   text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  display: inline-block;
+  padding: 0.25rem 0;
 }
 
 .toc a:hover {
-  text-decoration: underline;
+  border-bottom-color: var(--primary);
 }
 
 /* Literatuurlijst */
 .literatuur {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 2px solid var(--line);
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
 }
 
 .literatuur ol {
-  margin: 1.5rem 0 0 2rem;
-  color: var(--text-light);
-  line-height: 1.8;
+  margin: 2rem 0 0 2rem;
+  color: var(--text);
+  line-height: 2.0;
 }
 
-/* ===== LEESMODUS =====
-   Betere leeservaring met grotere tekst en smallere kolom */
+/* ===== LEESMODUS ===== */
 .essay-page.reading .prose {
-  font-size: 1.15rem;
-  line-height: 2;
-  max-width: 70ch; /* 70 karakters breed voor optimale leesbaarheid */
+  font-size: 1.2rem;
+  line-height: 2.2;
+  max-width: 65ch;
   margin: 0 auto;
 }
 
 .essay-page.reading .essay-hero {
-  padding: 3.5rem 3rem;
+  padding: 6rem 4rem;
 }
 
 .essay-page.reading .toc {
-  max-width: 70ch;
+  max-width: 65ch;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* ===== ESSAY NAVIGATIE =====
-   Vorige/volgende knoppen tussen essays */
+/* ===== ESSAY NAVIGATIE ===== */
 .essay-nav {
-  margin-top: 4rem;
-  border-top: 2px solid var(--line);
-  padding-top: 2rem;
+  margin-top: 6rem;
+  border-top: 1px solid var(--line);
+  padding-top: 3rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .essay-nav a {
   display: block;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--bg-card);
-  padding: 1.8rem;
+  border-radius: 0;
+  background: transparent;
+  padding: 2.5rem 2rem;
   text-decoration: none;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  box-shadow: none;
+  transition: border-color var(--transition);
 }
 
 .essay-nav a:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent);
+  transform: none;
+  box-shadow: none;
+  border-color: var(--primary);
 }
 
 .essay-nav .label {
   display: block;
   color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
 }
 
 .essay-nav .title {
   display: block;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--primary);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
 }
 
-/* Scroll margin voor ankers - voorkomt dat content achter sticky header verdwijnt */
+/* Scroll margin voor ankers */
 blockquote[id],
 .note[id],
 .pullquote[id] {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 120px;
 }
 
-/* ===== RESPONSIVE DESIGN =====
-   Aanpassingen voor verschillende schermgroottes */
+/* ===== RESPONSIVE DESIGN ===== */
 
-/* Tablets en kleinere laptops (max 900px) */
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   main {
-    padding: 3rem 2rem 5rem;
+    padding: 6rem 4rem 8rem;
   }
 
-  h1 {
-    margin-bottom: 1.2rem;
-  }
-
-  h2 {
-    margin-top: 3rem;
-    margin-bottom: 1.2rem;
-  }
-
-  /* Van 3 kolommen naar 1 kolom */
-  .diensten {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .ervaringen {
-    padding: 3rem 2rem;
-  }
-  
-  .ervaringen-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .pep-glance {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .cards {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .essay-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .essay-list-featured {
-    gap: 2rem;
-  }
-
-  /* Essay cards worden gestapeld */
-  .essay-card-link {
-    grid-template-columns: 1fr;
-  }
-
-  .essay-card-image {
-    height: 240px;
-  }
-
-  .essay-card-content {
-    padding: 2rem 1.8rem;
-  }
-
-  .essay-card-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .essay-item {
-    grid-template-columns: 1fr;
-  }
-
-  .essay-thumb {
-    height: 200px;
-  }
-  
-  .essay-nav {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  nav {
+    padding: 1.25rem 3rem;
   }
 
   .section-soft,
   .hero-soft,
-  .pep-box,
-  .card {
-    padding: 2rem 1.5rem;
+  .ervaringen,
+  .home-contact {
+    padding: 5rem 3rem;
   }
 }
 
-/* Kleine tablets (max 800px) */
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+  main {
+    padding: 4rem 2.5rem 6rem;
+  }
+
+  nav {
+    padding: 1rem 2rem;
+  }
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .diensten,
+  .ervaringen-grid,
+  .pep-glance,
+  .cards,
+  .essay-list,
   .begeleiders-grid {
+    max-width: 100%;
+  }
+
+  .section-soft,
+  .hero-soft,
+  .ervaringen,
+  .home-contact,
+  .pep-highlight {
+    padding: 4rem 2rem;
+  }
+
+  .dienst,
+  .ervaring,
+  .pep-box,
+  .card,
+  .essay-item,
+  .begeleider {
+    padding: 3rem 0;
+  }
+
+  .essay-card-content {
+    padding: 4rem 2.5rem;
+  }
+
+  .essay-hero {
+    padding: 4rem 2.5rem;
+  }
+
+  .essay-nav {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 }
 
-/* Medium breakpoint voor compacter menu (max 750px) */
 @media (max-width: 750px) {
   nav a {
-    padding: 0.35rem 0.6rem;
-    font-size: 0.88rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
   }
   
   .nav-logo img {
-    height: 30px;
+    height: 32px;
   }
 }
 
-/* Mobiele telefoons (max 600px) */
 @media (max-width: 600px) {
   main {
-    padding: 2rem 1.5rem 4rem;
+    padding: 3rem 1.5rem 5rem;
   }
 
   nav {
-    padding: 0.6rem 1rem;
-    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
   }
 
   .nav-logo img {
-    height: 28px; /* Extra klein op mobiel */
+    height: 28px;
   }
 
   nav a {
-    padding: 0.35rem 0.5rem;
+    padding: 0.3rem 0.5rem;
     font-size: 0.85rem;
-  }
-  
-  .nav-links {
-    gap: 0.15rem;
-  }
-  
-  .begeleider-foto {
-    height: 220px;
-  }
-
-  .dienst,
-  .card,
-  .section-soft,
-  .hero-soft {
-    padding: 1.8rem 1.3rem;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 
   h2 {
-    font-size: 1.6rem;
-    margin-top: 2.5rem;
+    font-size: 1.75rem;
+    margin-top: 3rem;
+  }
+
+  .section-soft,
+  .hero-soft,
+  .ervaringen,
+  .home-contact,
+  .pep-highlight {
+    padding: 3rem 1.5rem;
+  }
+
+  .dienst,
+  .ervaring,
+  .pep-box,
+  .card,
+  .essay-item,
+  .begeleider {
+    padding: 2.5rem 0;
+  }
+
+  .essay-card-content {
+    padding: 3rem 1.5rem;
+  }
+
+  .essay-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .begeleider-foto {
+    width: 160px;
+    height: 160px;
+  }
+
+  footer {
+    padding: 3rem 1.5rem;
   }
 }
 
-/* ===== PRINT STYLING =====
-   Optimalisatie voor afdrukken */
+/* ===== PRINT STYLING ===== */
 @media print {
-  /* Verberg navigatie en footer bij printen */
   header,
   nav,
   footer {
@@ -1443,7 +1229,6 @@ blockquote[id],
     max-width: none !important;
   }
   
-  /* Verberg interactieve elementen */
   .essay-actions,
   .toc {
     display: none !important;
@@ -1456,19 +1241,18 @@ blockquote[id],
     box-shadow: none;
   }
   
-  /* Print-vriendelijke links */
   a {
     text-decoration: none;
     color: #000;
+    border-bottom: none;
   }
   
   a::after {
-    content: " (" attr(href) ")"; /* Toon URL na link */
+    content: " (" attr(href) ")";
     font-size: 0.85em;
     color: #666;
   }
 
-  /* Verwijder alle schaduwen */
   * {
     box-shadow: none !important;
   }
