@@ -3,7 +3,6 @@
 <!doctype html>
 <html lang="nl">
 <link rel="icon" href="/favicon-itf.png">
-
 <head>
   <meta charset="utf-8">
   <title>
@@ -12,20 +11,22 @@
   {% if page.description %}
 <meta name="description" content="{{ page.description }}">
 {% endif %}
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Google Fonts - Spectral -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="/assets/css/site.css">
 </head>
-
 <body>
-
 <header>
   <nav class="main-nav">
     <a class="nav-logo" href="/">
       <img src="/assets/img/itf-logo-zalm.png"
            alt="Instituut voor Toegepaste Filosofie">
     </a>
-
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="/over-ons/">Over ons</a>
@@ -36,16 +37,12 @@
     </div>
   </nav>
 </header>
-
-
 <main>
   {{ content }}
 </main>
-
 <footer>
   <p>© Instituut voor Toegepaste Filosofie</p>
   <a href="/privacy/">Privacyverklaring</a>
 </footer>
-
 </body>
 </html>
