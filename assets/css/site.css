@@ -1,29 +1,33 @@
 /* ==========================
    ITF – Instituut voor Toegepaste Filosofie
-   HERZIENE STIJL: Warm institutioneel
-   Bosgroen accent, subtiel grid, ritme, karakter
+   DEFINITIEVE STIJL: Inktblauw + Zalm
+   Klassiek intellectueel met warmte
    ========================== */
 
 /* ===== CSS VARIABELEN ===== */
 :root {
-  /* Kleuren - warm en gebalanceerd */
-  --primary: #1f2d1a;          /* Diep bosgroen - hoofdkleur instituut */
-  --primary-light: #3a5a2f;    /* Lichter bosgroen - voor hover/accenten */
-  --bg: #f7f6f2;               /* Warm off-white - zachte basis */
-  --bg-section: #ffffff;       /* Wit - voor afwisselende secties */
-  --bg-soft: #f0efe9;          /* Zacht beige - voor subtiele highlights */
-  --accent: #2d4a23;           /* Bosgroen accent - knoppen en focus */
-  --text: #2a2a2a;             /* Zachter zwart - hoofdtekst (niet #000) */
-  --text-light: #5a5a5a;       /* Medium grijs - secundaire tekst */
-  --text-muted: #888888;       /* Licht grijs - meta-informatie */
-  --line: #d8d6d0;             /* Warme lijn - subtiele scheidingen */
-  --line-strong: #bfbdb5;      /* Sterkere lijn - duidelijkere accenten */
+  /* Kleuren - Inktblauw + Zalm duo */
+  --ink-blue: #1e3a5f;           /* Hoofdkleur - inktblauw voor koppen, knoppen */
+  --ink-blue-dark: #0f1d30;      /* Donkerder blauw - voor hover states */
+  --salmon: #BC5A23;             /* Accentkleur - zalm voor highlights */
+  --salmon-light: #d4704d;       /* Lichtere zalm - voor subtiele accenten */
+  
+  --bg: #f8f6f1;                 /* Oud papier - hoofdachtergrond */
+  --bg-white: #ffffff;           /* Wit - voor afwisselende secties */
+  --bg-soft: #f0ede7;            /* Zacht beige - voor subtiele highlights */
+  
+  --text: #2a2a2a;               /* Donkergrijs - hoofdtekst */
+  --text-light: #5a5a5a;         /* Medium grijs - secundaire tekst */
+  --text-muted: #888888;         /* Licht grijs - meta-informatie */
+  
+  --line: #d8d6d0;               /* Warme lijn - subtiele scheidingen */
+  --line-strong: #bfbdb5;        /* Sterkere lijn - duidelijkere accenten */
   
   /* Geen radius - rechthoekig en strak */
   --radius: 0;
   
-  /* Subtiele schaduwen alleen waar het helpt */
-  --shadow-soft: 0 2px 8px rgba(31, 45, 26, 0.04);
+  /* Subtiele schaduwen */
+  --shadow-soft: 0 2px 8px rgba(30, 58, 95, 0.04);
   
   /* Transitions */
   --transition: 180ms ease;
@@ -40,38 +44,35 @@ body {
   color: var(--text);
   font-family: 'Spectral', 'Georgia', serif;
   font-size: 18px;
-  line-height: 1.8; /* Comfortabel leesritme */
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ===== TYPOGRAFIE - STERKE HIËRARCHIE ===== */
+/* ===== TYPOGRAFIE ===== */
 h1, h2, h3, h4 {
   font-family: 'Spectral', 'Georgia', serif;
   line-height: 1.2;
   letter-spacing: -0.025em;
-  color: var(--primary);
+  color: var(--ink-blue);
   font-weight: 600;
   margin: 0;
 }
 
-/* H1 - GROOT en karaktervol */
 h1 { 
-  font-size: clamp(2.75rem, 7vw, 5.5rem); /* Echt groot - durf tonen */
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
   margin: 0 0 2rem;
   letter-spacing: -0.035em;
   font-weight: 600;
   line-height: 1.1;
 }
 
-/* H2 - Duidelijk kleiner maar nog steeds prominent */
 h2 { 
   font-size: clamp(1.85rem, 4.5vw, 3rem);
-  margin: 5rem 0 2rem; /* Grote ruimte ervoor = nieuw thema */
+  margin: 5rem 0 2rem;
   font-weight: 600;
   line-height: 1.25;
 }
 
-/* H3 - Functioneel, bijna onopvallend */
 h3 { 
   font-size: clamp(1.35rem, 2.5vw, 1.85rem);
   margin: 3rem 0 1.25rem;
@@ -84,12 +85,11 @@ h4 {
   margin: 2.5rem 0 1rem;
 }
 
-/* Paragrafen - comfortabel leesbaar */
 p {
   margin: 0 0 1.75rem;
   color: var(--text);
-  max-width: 70ch; /* Max 70 karakters voor leesbaarheid */
-  line-height: 1.85; /* Iets ruimer dan body default */
+  max-width: 70ch;
+  line-height: 1.85;
 }
 
 p.muted { 
@@ -97,29 +97,29 @@ p.muted {
   font-size: 0.95rem;
 }
 
-/* Links - duidelijk maar subtiel */
+/* Links */
 a {
-  color: var(--primary);
+  color: var(--ink-blue);
   text-decoration: none;
-  border-bottom: 1px solid var(--primary-light);
+  border-bottom: 1px solid var(--salmon);
   transition: border-color var(--transition), color var(--transition);
 }
 
 a:hover {
-  color: var(--primary-light);
-  border-bottom-color: var(--primary);
+  color: var(--ink-blue-dark);
+  border-bottom-color: var(--ink-blue);
 }
 
 strong {
   font-weight: 600;
-  color: var(--primary);
+  color: var(--ink-blue);
 }
 
 /* ===== HEADER / NAVIGATIE ===== */
 header {
   position: sticky;
   top: 0;
-  background: rgba(247, 246, 242, 0.97); /* Subtiel transparant */
+  background: rgba(248, 246, 241, 0.97);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
   z-index: 50;
@@ -149,7 +149,6 @@ nav li::before {
   content: none !important; 
 }
 
-/* Menu links - subtiele hiërarchie */
 nav a {
   text-decoration: none;
   color: var(--text);
@@ -163,12 +162,12 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--primary);
+  color: var(--ink-blue);
 }
 
-/* Actieve menu state - duidelijk maar subtiel */
+/* Actieve menu state */
 nav a.active {
-  color: var(--primary);
+  color: var(--ink-blue);
   font-weight: 500;
 }
 
@@ -179,7 +178,7 @@ nav a.active::after {
   left: 1rem;
   right: 1rem;
   height: 2px;
-  background: var(--primary);
+  background: var(--salmon);
   border-radius: 1px;
 }
 
@@ -192,7 +191,7 @@ nav a.active::after {
 }
 
 .nav-logo img {
-  height: 48px; /* Was 38px - nu groter voor betere zichtbaarheid */
+  height: 48px;
   width: auto;
   display: block;
 }
@@ -203,26 +202,24 @@ nav a.active::after {
   flex-wrap: nowrap;
 }
 
-/* PEP nav - subtiel anders */
+/* PEP nav */
 .nav-pep {
   font-weight: 500;
-  color: var(--primary);
+  color: var(--ink-blue);
 }
 
-/* ===== LAYOUT - SUBTIEL GRID SYSTEEM ===== */
+/* ===== LAYOUT ===== */
 main {
   max-width: 1300px;
   margin: 0 auto;
   padding: 6rem 5rem 8rem;
 }
 
-/* Content container met vaste leesbreedte */
 .content-wrapper {
   max-width: 75ch;
   margin: 0 auto;
 }
 
-/* Bredere container voor asymmetrische layouts */
 .content-wide {
   max-width: 1100px;
   margin: 0 auto;
@@ -252,11 +249,11 @@ footer a {
 }
 
 footer a:hover {
-  color: var(--primary);
-  border-bottom-color: var(--primary);
+  color: var(--ink-blue);
+  border-bottom-color: var(--ink-blue);
 }
 
-/* ===== HERO (homepage banner) ===== */
+/* ===== HERO ===== */
 .hero{
   position: relative;
   min-height: 560px;
@@ -276,8 +273,8 @@ footer a:hover {
   pointer-events: none;
   z-index: 0;
   background: linear-gradient(90deg,
-    rgba(31, 45, 26, 0.75) 0%,
-    rgba(31, 45, 26, 0.45) 30%,
+    rgba(30, 58, 95, 0.80) 0%,
+    rgba(30, 58, 95, 0.50) 30%,
     rgba(0,0,0,.15) 60%,
     rgba(0,0,0,0) 80%);
 }
@@ -324,24 +321,23 @@ footer a:hover {
   background: rgba(255,255,255,.08);
 }
 
-/* ===== HOMEPAGE SECTIES - RITME IN SPACING ===== */
+/* ===== HOMEPAGE SECTIES ===== */
 .home-logo {
   text-align: center;
   margin: 3rem 0 2.5rem;
 }
 
 .home-logo img {
-  width: 220px; /* Was 170px - nu groter */
+  width: 220px;
   height: auto;
 }
 
-/* Witte sectie met subtiele scheiding */
 .section-soft {
-  background: var(--bg-section);
+  background: var(--bg-white);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 5rem 4rem; /* Niet te veel, niet te weinig */
-  margin: 4.5rem 0; /* Smaller dan H2 spacing = ondergeschikt */
+  padding: 5rem 4rem;
+  margin: 4.5rem 0;
   text-align: center;
 }
 
@@ -383,7 +379,7 @@ main > h2 {
 .dienst:first-child,
 .dienst:nth-child(2),
 .dienst:nth-child(3) {
-  padding-top: 3rem; /* Eerste rij krijgt meer ruimte */
+  padding-top: 3rem;
 }
 
 .dienst:last-child,
@@ -396,67 +392,69 @@ main > h2 {
 .dienst p {
   color: var(--text);
   line-height: 1.85;
-  max-width: 100%; /* Volle breedte binnen kolom */
+  max-width: 100%;
 }
 
 .dienst h3 {
-  color: var(--primary);
+  color: var(--ink-blue);
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 1.5rem; /* Iets kleiner voor grid */
+  font-size: 1.5rem;
 }
 
 .dienst-logo {
   width: 52px;
   height: auto;
   margin-bottom: 1.75rem;
-  opacity: 0.75; /* Subtiel aanwezig */
+  opacity: 0.75;
   display: block;
 }
 
-/* Knoppen - duidelijk maar ingetogen */
+/* ===== KNOPPEN ===== */
 .dienst a,
-.btn {
+.btn,
+.btn-primary {
   display: inline-block;
   margin-top: 1.5rem;
-  padding: 0.8rem 1.6rem;
-  background: var(--accent);
-  color: #fff;
-  border: 2px solid var(--accent);
+  padding: 0.9rem 2rem;
+  background: var(--ink-blue);
+  color: #ffffff; /* Expliciet wit voor betere leesbaarheid */
+  border: 2px solid var(--ink-blue);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
-  transition: background var(--transition), color var(--transition);
+  transition: background var(--transition), border-color var(--transition);
 }
 
 .dienst a:hover,
-.btn:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
+.btn:hover,
+.btn-primary:hover {
+  background: var(--ink-blue-dark);
+  border-color: var(--ink-blue-dark);
+  color: #ffffff;
 }
 
-/* Secundaire button variant */
+/* Secundaire button - zalm accent */
 .btn-secondary {
   background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--line-strong);
+  color: var(--salmon);
+  border: 2px solid var(--salmon);
 }
 
 .btn-secondary:hover {
-  background: var(--bg-soft);
-  border-color: var(--primary);
-  color: var(--primary);
+  background: var(--salmon);
+  border-color: var(--salmon);
+  color: #ffffff;
 }
 
-/* ===== HERO SOFT (intro secties) ===== */
+/* ===== HERO SOFT ===== */
 .hero-soft {
-  background: var(--bg-section);
+  background: var(--bg-white);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 5.5rem 4rem;
-  margin: 5rem 0; /* Grote ruimte = adempauze */
+  margin: 5rem 0;
   text-align: center;
 }
 
@@ -520,7 +518,7 @@ main > h2 {
 .ervaring-naam {
   font-style: normal;
   font-weight: 500;
-  color: var(--primary);
+  color: var(--ink-blue);
   font-size: 0.95rem;
 }
 
@@ -535,7 +533,7 @@ main > h2 {
   text-align: center;
   margin: 6rem 0 5rem;
   padding: 5.5rem 4rem;
-  background: var(--bg-section);
+  background: var(--bg-white);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -613,7 +611,7 @@ main > h2 {
   line-height: 1.9;
 }
 
-/* ===== CARDS (algemeen) - 3-KOLOMS GRID ===== */
+/* ===== CARDS - 3-KOLOMS GRID ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -696,18 +694,17 @@ main > h2 {
   padding-bottom: 5rem;
 }
 
-/* Foto's LINKS, in kleur, groter, expressiever */
 .begeleider-foto {
   width: 280px;
   height: 280px;
   object-fit: cover;
-  margin: 0; /* Geen center margin meer */
+  margin: 0;
   display: block;
   box-shadow: var(--shadow-soft);
 }
 
 .begeleider-content {
-  text-align: left; /* Links uitgelijnd ipv center */
+  text-align: left;
   max-width: 65ch;
   margin: 0;
 }
@@ -759,7 +756,7 @@ main > h2 {
 }
 
 .essay-thumb {
-  display: none; /* Geen thumbnails - focus op tekst */
+  display: none;
 }
 
 .essay-content h3 {
@@ -770,13 +767,13 @@ main > h2 {
 
 .essay-content h3 a {
   text-decoration: none;
-  color: var(--primary);
+  color: var(--ink-blue);
   border-bottom: none;
   transition: color var(--transition);
 }
 
 .essay-content h3 a:hover {
-  color: var(--primary-light);
+  color: var(--salmon);
 }
 
 .essay-meta {
@@ -796,13 +793,13 @@ main > h2 {
   font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
-  color: var(--primary);
-  border-bottom: 1px solid var(--primary-light);
+  color: var(--ink-blue);
+  border-bottom: 1px solid var(--salmon);
 }
 
 .essay-content a.read-more:hover {
-  color: var(--primary-light);
-  border-bottom-color: var(--primary);
+  color: var(--salmon);
+  border-bottom-color: var(--ink-blue);
 }
 
 /* Featured essay card */
@@ -820,7 +817,7 @@ main > h2 {
 }
 
 .essay-card-link:hover {
-  background: var(--bg-section);
+  background: var(--bg-white);
 }
 
 .essay-card-image {
@@ -834,7 +831,7 @@ main > h2 {
 .essay-card-content h2 {
   margin: 0 0 2rem;
   font-size: 2.5rem;
-  color: var(--primary);
+  color: var(--ink-blue);
 }
 
 .essay-card-content p {
@@ -874,6 +871,10 @@ main > h2 {
   max-width: 70ch;
   margin: 0 auto;
   color: var(--text);
+  font-style: italic;
+  background: var(--bg-white);
+  padding: 2rem 3rem;
+  border-left: 3px solid var(--salmon);
 }
 
 .essay-actions {
@@ -882,23 +883,29 @@ main > h2 {
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.essay-actions button {
+.essay-actions button,
+.essay-actions a {
   background: transparent;
-  border: 1px solid var(--line-strong);
+  border: 2px solid var(--line-strong);
   padding: 0.75rem 1.5rem;
   color: var(--text);
   cursor: pointer;
   font-size: 0.9rem;
   font-family: inherit;
   letter-spacing: 0.02em;
-  transition: border-color var(--transition), color var(--transition);
+  text-decoration: none;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+  display: inline-block;
 }
 
-.essay-actions button:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+.essay-actions button:hover,
+.essay-actions a:hover {
+  border-color: var(--ink-blue);
+  color: var(--ink-blue);
+  background: rgba(30, 58, 95, 0.03);
 }
 
 /* Prose - essay content */
@@ -906,12 +913,12 @@ main > h2 {
   max-width: 70ch;
   margin: 0 auto;
   font-size: 1.05rem;
-  line-height: 2.0; /* Ruim voor lang lezen */
+  line-height: 2.0;
   color: var(--text);
 }
 
 .prose h2 {
-  margin-top: 5rem; /* Grote ruimte = nieuw hoofdstuk */
+  margin-top: 5rem;
   margin-bottom: 2rem;
   font-size: 2.25rem;
 }
@@ -927,7 +934,7 @@ main > h2 {
 }
 
 .prose p + h2 {
-  margin-top: 6rem; /* Extra ruimte na paragraaf */
+  margin-top: 6rem;
 }
 
 .prose ul {
@@ -943,7 +950,7 @@ main > h2 {
 
 .prose blockquote {
   background: var(--bg-soft);
-  border-left: 3px solid var(--primary);
+  border-left: 4px solid var(--salmon);
   padding: 2.5rem 3rem;
   margin: 4rem 0;
   font-style: italic;
@@ -951,21 +958,34 @@ main > h2 {
   box-shadow: var(--shadow-soft);
 }
 
-.dropcap:first-letter {
+.prose blockquote p {
+  margin: 0;
+}
+
+/* Drop cap - zalm kleur */
+.dropcap:first-letter,
+.prose .dropcap:first-letter {
   float: left;
   font-size: 4.5rem;
   line-height: 0.9;
   padding-right: 0.75rem;
   margin-top: 0.25rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--salmon);
 }
 
+/* Callout box - zalm accent */
 .callout {
-  background: rgba(61, 90, 47, 0.06); /* Subtiel bosgroen tint */
-  border: 2px solid var(--primary-light);
+  background: rgba(188, 90, 35, 0.06);
+  border: 2px solid var(--salmon);
+  border-left-width: 4px;
   padding: 2.5rem 3rem;
   margin: 4rem 0;
+}
+
+.callout h3 {
+  color: var(--salmon);
+  margin-top: 0;
 }
 
 .callout p {
@@ -975,7 +995,7 @@ main > h2 {
 
 .pullquote {
   background: var(--bg-soft);
-  border-left: 3px solid var(--primary);
+  border-left: 4px solid var(--salmon);
   padding: 2rem 3rem;
   margin: 4rem 0;
   color: var(--text);
@@ -990,7 +1010,7 @@ main > h2 {
 }
 
 .note {
-  background: var(--bg-section);
+  background: var(--bg-white);
   border: 1px solid var(--line);
   padding: 2.5rem;
   margin: 4rem 0;
@@ -1000,8 +1020,8 @@ main > h2 {
 
 /* Table of contents */
 .toc {
-  border: 1px solid var(--line);
-  background: var(--bg-soft);
+  border: 2px solid var(--line);
+  background: var(--bg-white);
   padding: 3rem;
   margin: 3rem 0 5rem;
   box-shadow: var(--shadow-soft);
@@ -1010,7 +1030,7 @@ main > h2 {
 .toc strong {
   display: block;
   margin-bottom: 1.5rem;
-  color: var(--primary);
+  color: var(--ink-blue);
   font-size: 1.15rem;
 }
 
@@ -1023,8 +1043,45 @@ main > h2 {
 }
 
 .toc a:hover {
-  border-bottom-color: var(--primary);
-  color: var(--primary);
+  border-bottom-color: var(--salmon);
+  color: var(--ink-blue);
+}
+
+/* ===== TABELLEN - MOOIE STYLING ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2.5rem 0;
+  font-size: 0.95rem;
+  background: var(--bg-white);
+  box-shadow: var(--shadow-soft);
+}
+
+table thead {
+  background: var(--ink-blue);
+  color: #ffffff;
+}
+
+table th {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-weight: 500;
+  border-bottom: 3px solid var(--salmon);
+  color: #ffffff;
+}
+
+table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+}
+
+table tbody tr:hover {
+  background: rgba(188, 90, 35, 0.03);
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* Literatuurlijst */
@@ -1040,19 +1097,17 @@ main > h2 {
   line-height: 1.9;
 }
 
-/* ===== EXTERNE LOGO'S (bijv. Zincafé) ===== */
-/* Logo's in content die niet van ITF zijn - kleiner maken */
+/* Externe logo's kleiner maken */
 .content-wrapper img[src*="zincafe"],
 .content-wrapper img[src*="logo"]:not([src*="itf"]),
 main img[alt*="Zincafé"],
 main img[alt*="zincafe"] {
-  max-width: 200px; /* Klein houden */
+  max-width: 200px;
   height: auto;
   margin: 2rem auto;
   display: block;
 }
 
-/* Als het in een section staat */
 .section-soft img[src*="zincafe"],
 .section-soft img[alt*="Zincafé"] {
   max-width: 180px;
@@ -1097,7 +1152,7 @@ main img[alt*="zincafe"] {
 }
 
 .essay-nav a:hover {
-  border-color: var(--primary);
+  border-color: var(--salmon);
   background: var(--bg-soft);
 }
 
@@ -1113,7 +1168,7 @@ main img[alt*="zincafe"] {
 .essay-nav .title {
   display: block;
   font-weight: 500;
-  color: var(--primary);
+  color: var(--ink-blue);
   font-size: 1.15rem;
   line-height: 1.5;
 }
@@ -1127,7 +1182,6 @@ blockquote[id],
 
 /* ===== FORMULIEREN ===== */
 
-/* Labels */
 label {
   display: block;
   margin-bottom: 0.5rem;
@@ -1136,7 +1190,6 @@ label {
   font-size: 0.95rem;
 }
 
-/* Input fields en textareas */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -1147,7 +1200,7 @@ select {
   width: 100%;
   padding: 0.85rem 1rem;
   border: 1px solid var(--line-strong);
-  background: var(--bg-section);
+  background: var(--bg-white);
   color: var(--text);
   font-family: inherit;
   font-size: 1rem;
@@ -1156,7 +1209,6 @@ select {
   margin-bottom: 1.25rem;
 }
 
-/* Focus state */
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
@@ -1165,18 +1217,16 @@ input[type="number"]:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: var(--primary);
+  border-color: var(--ink-blue);
   background: var(--bg);
 }
 
-/* Textarea specifiek */
 textarea {
   min-height: 150px;
   resize: vertical;
   font-family: inherit;
 }
 
-/* Select dropdown */
 select {
   cursor: pointer;
   appearance: none;
@@ -1186,13 +1236,11 @@ select {
   padding-right: 3rem;
 }
 
-/* Formulier containers */
 form {
   max-width: 650px;
   margin: 2rem auto;
 }
 
-/* Formulier rijen (als je labels en inputs naast elkaar wilt) */
 .form-row {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -1212,7 +1260,6 @@ form {
   margin-bottom: 0;
 }
 
-/* Gestapelde formulier layout (standaard) */
 .form-group {
   margin-bottom: 1.75rem;
 }
@@ -1228,16 +1275,15 @@ form {
   margin-bottom: 0;
 }
 
-/* Submit buttons */
 input[type="submit"],
 button[type="submit"],
 .form-submit {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.85rem 2rem;
-  background: var(--accent);
-  color: #fff;
-  border: 2px solid var(--accent);
+  background: var(--ink-blue);
+  color: #ffffff;
+  border: 2px solid var(--ink-blue);
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -1250,17 +1296,15 @@ button[type="submit"],
 input[type="submit"]:hover,
 button[type="submit"]:hover,
 .form-submit:hover {
-  background: var(--primary);
-  border-color: var(--primary);
+  background: var(--ink-blue-dark);
+  border-color: var(--ink-blue-dark);
 }
 
-/* Placeholder styling */
 ::placeholder {
   color: var(--text-muted);
   opacity: 0.7;
 }
 
-/* Inline formulier elementen */
 .form-inline {
   display: flex;
   gap: 1rem;
@@ -1281,7 +1325,6 @@ button[type="submit"]:hover,
   margin-top: 0;
 }
 
-/* Helper text onder velden */
 .form-help {
   display: block;
   margin-top: 0.4rem;
@@ -1290,7 +1333,6 @@ button[type="submit"]:hover,
   line-height: 1.5;
 }
 
-/* Error states */
 input.error,
 textarea.error,
 select.error {
@@ -1304,13 +1346,11 @@ select.error {
   display: block;
 }
 
-/* Required velden indicator */
 .required {
-  color: var(--primary);
+  color: var(--salmon);
   margin-left: 0.2rem;
 }
 
-/* Checkbox en radio styling */
 input[type="checkbox"],
 input[type="radio"] {
   width: auto;
@@ -1333,7 +1373,6 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-/* Formulier binnen een sectie */
 .section-soft form,
 .hero-soft form,
 .home-contact form {
@@ -1378,7 +1417,7 @@ input[type="radio"] {
     margin-bottom: 1.5rem;
   }
 
-  /* Grid naar 1 kolom op tablets */
+  /* Grid naar 1 kolom */
   .diensten,
   .cards {
     grid-template-columns: 1fr;
@@ -1446,7 +1485,7 @@ input[type="radio"] {
     gap: 2rem;
   }
 
-  /* Begeleider naar gestapeld op tablets */
+  /* Begeleider naar gestapeld */
   .begeleider {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1464,11 +1503,11 @@ input[type="radio"] {
   .begeleider-foto {
     width: 240px;
     height: 240px;
-    margin: 0 auto; /* Center op tablets */
+    margin: 0 auto;
   }
 
   .begeleider-content {
-    text-align: center; /* Center tekst op tablets */
+    text-align: center;
     margin: 0 auto;
   }
 
@@ -1486,6 +1525,12 @@ input[type="radio"] {
   form {
     max-width: 100%;
   }
+  
+  /* Tabellen scrollbaar */
+  table {
+    display: block;
+    overflow-x: auto;
+  }
 }
 
 @media (max-width: 750px) {
@@ -1495,7 +1540,7 @@ input[type="radio"] {
   }
   
   .nav-logo img {
-    height: 42px; /* Was 34px - nu groter behouden */
+    height: 42px;
   }
 }
 
@@ -1510,7 +1555,7 @@ input[type="radio"] {
   }
 
   .nav-logo img {
-    height: 38px; /* Groter dan voorheen (was 30px) */
+    height: 38px;
   }
 
   nav a {
