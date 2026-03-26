@@ -1752,3 +1752,15 @@ input[type="radio"] {
   inset: 0;
   background: rgba(0,0,0,0.2);
 }
+.essay-hero {
+  position: relative;
+  height: 300px;       /* 👈 dit is de sleutel */
+  overflow: hidden;    /* 👈 snijdt de afbeelding af */
+}
+
+.essay-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 👈 voorkomt vervorming */
+  display: block;
+}
