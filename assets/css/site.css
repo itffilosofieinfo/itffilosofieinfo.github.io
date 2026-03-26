@@ -1754,7 +1754,7 @@ input[type="radio"] {
 }
 .essay-hero {
   position: relative;
-  height: 300px;       /* 👈 dit is de sleutel */
+  height: 400px;       /* 👈 dit is de sleutel */
   overflow: hidden;    /* 👈 snijdt de afbeelding af */
 }
 
