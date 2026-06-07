@@ -1,10 +1,24 @@
- · HTML
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Niet sneller — maar wijzer | Instituut voor Toegepaste Filosofie</title>
+---
+layout: post
+title: "Niet sneller — maar wijzer"
+subtitle: "Over AI, de adoptie-illusie en wat we eigenlijk zouden moeten meten"
+date: 2025-01-01
+author: Instituut voor Toegepaste Filosofie
+categories:
+  - AI
+  - werk
+  - organisatie
+tags:
+  - AI
+  - adoptie-illusie
+  - slow-ai
+  - verantwoorde-technologie
+  - organisatie
+  - HR
+excerpt: "Veel organisaties gebruiken AI. Maar bijna geen enkele organisatie weet of ze het ook goed doet. Dit artikel biedt een denkmodel voor HR-professionals en bestuurders die de regie willen houden over verantwoorde AI-adoptie — inclusief een dashboard met indicatoren en een meetbare vragenlijst voor de praktijk."
+reading_time: "18–22 min"
+---
+
 <style>
   :root {
     --sand: #f7f5f0;
@@ -26,46 +40,13 @@
     --rule: #e0ddd6;
     --white: #ffffff;
   }
- 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
- 
-  body {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 17px;
-    line-height: 1.75;
-    color: var(--ink);
-    background: var(--white);
-  }
- 
-  .page {
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem 5rem;
-  }
- 
-  /* ── Header ── */
-  .essay-header { margin-bottom: 2.5rem; }
-  h1 {
-    font-size: 2.4rem;
-    line-height: 1.15;
-    font-weight: 700;
-    letter-spacing: -.02em;
-    margin-bottom: .5rem;
-  }
-  .subtitle {
-    font-size: 1.15rem;
-    color: var(--ink-muted);
-    font-style: italic;
-    margin-bottom: .75rem;
-  }
-  .meta {
+  .article-meta {
     font-family: Arial, sans-serif;
     font-size: .82rem;
     color: var(--ink-light);
     letter-spacing: .03em;
+    margin-bottom: 2rem;
   }
- 
-  /* ── Lead ── */
   .lead {
     background: var(--sand);
     border-left: 4px solid var(--ink);
@@ -75,8 +56,6 @@
     font-style: italic;
     color: var(--ink-muted);
   }
- 
-  /* ── TOC ── */
   nav.toc {
     background: var(--sand);
     border: 1px solid var(--rule);
@@ -89,895 +68,424 @@
   nav.toc strong { display: block; margin-bottom: .4rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-light); }
   nav.toc a { color: var(--accent-blue); text-decoration: none; margin-right: .5rem; }
   nav.toc a:hover { text-decoration: underline; }
- 
-  /* ── Body ── */
-  h2 {
-    font-size: 1.45rem;
-    font-weight: 700;
-    margin: 2.8rem 0 .8rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--rule);
-    letter-spacing: -.01em;
-  }
-  h2:first-of-type { border-top: none; padding-top: 0; margin-top: 1.5rem; }
-  h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin: 1.8rem 0 .5rem;
-    color: var(--ink);
-  }
-  p { margin-bottom: 1.1rem; }
-  strong { font-weight: 700; }
-  em { font-style: italic; }
-  a { color: var(--accent-blue); }
- 
-  blockquote {
-    border-left: 3px solid var(--accent-blue);
-    margin: 2rem 0;
-    padding: .8rem 1.4rem;
-    background: var(--accent-blue-light);
-    border-radius: 0 6px 6px 0;
-    font-style: italic;
-    font-size: 1.05rem;
-    color: #0c3d72;
-  }
- 
-  ol, ul { padding-left: 1.5rem; margin-bottom: 1.1rem; }
-  li { margin-bottom: .4rem; }
- 
   figure { margin: 2rem 0; }
-  figcaption {
-    font-family: Arial, sans-serif;
-    font-size: .8rem;
-    color: var(--ink-light);
-    text-align: center;
-    margin-top: .5rem;
-  }
- 
-  /* ── Dashboard ── */
-  .dashboard {
-    background: #1a1f2e;
-    border-radius: 12px;
-    padding: 1.8rem;
-    margin: 2.5rem 0;
-    color: #e8eaf0;
-    font-family: Arial, sans-serif;
-  }
-  .dashboard-title {
-    font-size: .75rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: #7a8099;
-    margin-bottom: .25rem;
-  }
-  .dashboard-headline {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 1.5rem;
-  }
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: .75rem;
-    margin-bottom: 1.5rem;
-  }
-  .kpi {
-    background: #252b3d;
-    border-radius: 8px;
-    padding: .9rem 1rem;
-  }
-  .kpi-label {
-    font-size: .72rem;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: #7a8099;
-    margin-bottom: .3rem;
-  }
-  .kpi-value {
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: .2rem;
-  }
-  .kpi-status {
-    font-size: .75rem;
-    font-weight: 600;
-    padding: .15rem .5rem;
-    border-radius: 20px;
-    display: inline-block;
-  }
+  figcaption { font-family: Arial, sans-serif; font-size: .8rem; color: var(--ink-light); text-align: center; margin-top: .5rem; }
+  .dashboard { background: #1a1f2e; border-radius: 12px; padding: 1.8rem; margin: 2.5rem 0; color: #e8eaf0; font-family: Arial, sans-serif; }
+  .dashboard-title { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: #7a8099; margin-bottom: .25rem; }
+  .dashboard-headline { font-size: 1.2rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .75rem; margin-bottom: 1.5rem; }
+  .kpi { background: #252b3d; border-radius: 8px; padding: .9rem 1rem; }
+  .kpi-label { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: #7a8099; margin-bottom: .3rem; }
+  .kpi-value { font-size: 1.8rem; font-weight: 700; line-height: 1; margin-bottom: .2rem; }
+  .kpi-status { font-size: .75rem; font-weight: 600; padding: .15rem .5rem; border-radius: 20px; display: inline-block; }
   .status-ok { background: #0d3d2a; color: #34d399; }
   .status-warn { background: #3d2a00; color: #fbbf24; }
   .status-alert { background: #3d0d0d; color: #f87171; }
- 
-  .dash-section {
-    background: #252b3d;
-    border-radius: 8px;
-    padding: 1rem 1.2rem;
-    margin-bottom: .75rem;
-  }
-  .dash-section-title {
-    font-size: .72rem;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: #7a8099;
-    margin-bottom: .6rem;
-  }
-  .dash-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: .82rem;
-    padding: .2rem 0;
-    border-bottom: 1px solid #1a1f2e;
-  }
+  .dash-section { background: #252b3d; border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: .75rem; }
+  .dash-section-title { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: #7a8099; margin-bottom: .6rem; }
+  .dash-row { display: flex; justify-content: space-between; align-items: center; font-size: .82rem; padding: .2rem 0; border-bottom: 1px solid #1a1f2e; }
   .dash-row:last-child { border-bottom: none; }
   .dash-row-label { color: #b0b8cc; }
   .dash-row-val { font-weight: 600; color: #e8eaf0; }
   .dash-row-val.warn { color: #fbbf24; }
   .dash-row-val.alert { color: #f87171; }
   .dash-row-val.ok { color: #34d399; }
- 
-  .gate-row {
-    display: flex;
-    gap: .6rem;
-    flex-wrap: wrap;
-    margin-top: .4rem;
-  }
-  .gate {
-    display: flex;
-    align-items: center;
-    gap: .3rem;
-    font-size: .78rem;
-    background: #1a1f2e;
-    border-radius: 20px;
-    padding: .25rem .7rem;
-  }
+  .gate-row { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .4rem; }
+  .gate { display: flex; align-items: center; gap: .3rem; font-size: .78rem; background: #1a1f2e; border-radius: 20px; padding: .25rem .7rem; }
   .gate .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .gate .dot.ok { background: #34d399; }
   .gate .dot.warn { background: #fbbf24; }
   .gate .dot.alert { background: #f87171; }
- 
-  .dash-note {
-    font-size: .75rem;
-    color: #7a8099;
-    margin-top: 1rem;
-    font-style: italic;
-    line-height: 1.5;
-  }
- 
-  /* ── NEW: Missing metrics callout ── */
-  .missing-metrics {
-    background: var(--accent-amber-light);
-    border: 1px solid var(--accent-amber-border);
-    border-radius: 8px;
-    padding: 1.2rem 1.4rem;
-    margin: 2rem 0;
-  }
-  .missing-metrics h4 {
-    font-family: Arial, sans-serif;
-    font-size: .8rem;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--accent-amber);
-    margin-bottom: .6rem;
-  }
+  .dash-note { font-size: .75rem; color: #7a8099; margin-top: 1rem; font-style: italic; line-height: 1.5; }
+  .missing-metrics { background: var(--accent-amber-light); border: 1px solid var(--accent-amber-border); border-radius: 8px; padding: 1.2rem 1.4rem; margin: 2rem 0; }
+  .missing-metrics h4 { font-family: Arial, sans-serif; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-amber); margin-bottom: .6rem; }
   .missing-metrics p { margin-bottom: .5rem; font-size: .92rem; color: #3d2200; }
   .missing-metrics p:last-child { margin-bottom: 0; }
- 
-  /* ── Questionnaire ── */
-  .questionnaire {
-    background: var(--sand);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    padding: 1.8rem;
-    margin: 2.5rem 0;
-    font-family: Arial, sans-serif;
-  }
-  .q-header {
-    display: flex;
-    align-items: baseline;
-    gap: .75rem;
-    margin-bottom: 1.4rem;
-  }
-  .q-badge {
-    background: var(--ink);
-    color: var(--white);
-    font-size: .7rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    padding: .2rem .6rem;
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
+  .questionnaire { background: var(--sand); border: 1px solid var(--rule); border-radius: 12px; padding: 1.8rem; margin: 2.5rem 0; font-family: Arial, sans-serif; }
+  .q-header { display: flex; align-items: baseline; gap: .75rem; margin-bottom: 1.4rem; }
+  .q-badge { background: var(--ink); color: var(--white); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; padding: .2rem .6rem; border-radius: 4px; flex-shrink: 0; }
   .q-title { font-size: 1rem; font-weight: 700; color: var(--ink); }
- 
-  .q-domain {
-    margin-bottom: 1.5rem;
-  }
-  .q-domain-title {
-    font-size: .78rem;
-    font-weight: 700;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--ink-light);
-    margin-bottom: .7rem;
-    padding-bottom: .3rem;
-    border-bottom: 1px solid var(--rule);
-  }
-  .q-item {
-    display: flex;
-    gap: .8rem;
-    align-items: flex-start;
-    margin-bottom: .8rem;
-    font-size: .88rem;
-  }
-  .q-num {
-    flex-shrink: 0;
-    width: 1.4rem;
-    height: 1.4rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: .72rem;
-    font-weight: 700;
-    margin-top: .12rem;
-  }
+  .q-domain { margin-bottom: 1.5rem; }
+  .q-domain-title { font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-light); margin-bottom: .7rem; padding-bottom: .3rem; border-bottom: 1px solid var(--rule); }
+  .q-item { display: flex; gap: .8rem; align-items: flex-start; margin-bottom: .8rem; font-size: .88rem; }
+  .q-num { flex-shrink: 0; width: 1.4rem; height: 1.4rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .72rem; font-weight: 700; margin-top: .12rem; }
   .q-num.blue { background: var(--accent-blue-light); color: var(--accent-blue); border: 1px solid var(--accent-blue-border); }
   .q-num.green { background: var(--accent-green-light); color: var(--accent-green); border: 1px solid var(--accent-green-border); }
   .q-num.amber { background: var(--accent-amber-light); color: var(--accent-amber); border: 1px solid var(--accent-amber-border); }
   .q-num.red { background: var(--accent-red-light); color: var(--accent-red); border: 1px solid var(--accent-red-border); }
- 
   .q-text { color: var(--ink); line-height: 1.5; }
   .q-text em { font-style: normal; font-weight: 600; color: var(--ink-muted); font-size: .82rem; }
- 
-  .q-scale {
-    display: flex;
-    gap: .3rem;
-    margin-top: .4rem;
-  }
-  .q-scale span {
-    flex: 1;
-    text-align: center;
-    font-size: .72rem;
-    background: var(--white);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: .2rem .1rem;
-    color: var(--ink-muted);
-  }
- 
-  .q-scoring {
-    background: var(--white);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    padding: 1rem 1.2rem;
-    margin-top: 1.2rem;
-    font-size: .83rem;
-  }
+  .q-scale { display: flex; gap: .3rem; margin-top: .4rem; }
+  .q-scale span { flex: 1; text-align: center; font-size: .72rem; background: var(--white); border: 1px solid var(--rule); border-radius: 4px; padding: .2rem .1rem; color: var(--ink-muted); }
+  .q-scoring { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1.2rem; font-size: .83rem; }
   .q-scoring strong { display: block; margin-bottom: .5rem; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-light); }
-  .score-row {
-    display: flex;
-    justify-content: space-between;
-    padding: .25rem 0;
-    border-bottom: 1px solid #f0ede8;
-    color: var(--ink-muted);
-  }
+  .score-row { display: flex; justify-content: space-between; padding: .25rem 0; border-bottom: 1px solid #f0ede8; color: var(--ink-muted); }
   .score-row:last-child { border-bottom: none; }
- 
-  /* ── Lit ── */
-  .literature ol {
-    font-family: Arial, sans-serif;
-    font-size: .88rem;
-    color: var(--ink-muted);
-    line-height: 1.6;
-  }
+  .literature ol { font-family: Arial, sans-serif; font-size: .88rem; color: var(--ink-muted); line-height: 1.6; }
   .literature li { margin-bottom: .5rem; }
- 
-  /* ── Print ── */
-  @media print {
-    .dashboard { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .questionnaire { break-inside: avoid; }
-  }
-  @media (max-width: 600px) {
-    h1 { font-size: 1.7rem; }
-    .kpi-grid { grid-template-columns: 1fr 1fr; }
-  }
+  @media (max-width: 600px) { .kpi-grid { grid-template-columns: 1fr 1fr; } }
 </style>
-</head>
-<body>
-<div class="page">
- 
-  <header class="essay-header">
-    <h1>Niet sneller — maar wijzer</h1>
-    <p class="subtitle">Over AI, de adoptie-illusie en wat we eigenlijk zouden moeten meten</p>
-    <p class="meta">Instituut voor Toegepaste Filosofie &nbsp;·&nbsp; <strong>Thema:</strong> AI, werk &amp; organisatie &nbsp;·&nbsp; <strong>Leestijd:</strong> ± 18–22 min</p>
-  </header>
- 
-  <div class="lead">
-    <p>Veel organisaties gebruiken AI. Maar bijna geen enkele organisatie weet of ze het ook <em>goed</em> doet.
-    Niet efficiënter. Niet sneller. Maar goed.
-    Dit artikel biedt een denkmodel voor HR-professionals en bestuurders die de regie willen houden over verantwoorde AI-adoptie —
-    inclusief een dashboard met indicatoren en een meetbare vragenlijst voor de praktijk.</p>
-  </div>
- 
-  <nav class="toc">
-    <strong>In dit artikel</strong>
-    <a href="#adoptie-illusie">De adoptie-illusie</a> ·
-    <a href="#twee-reflexen">Twee reflexen</a> ·
-    <a href="#vier-niveaus">Vier niveaus</a> ·
-    <a href="#slow-ai">Slow AI</a> ·
-    <a href="#wat-ai-verandert">Wat AI werkelijk verandert</a> ·
-    <a href="#nieuwe-mechanismen">Nieuwe mechanismen</a> ·
-    <a href="#dashboard">Het dashboard</a> ·
-    <a href="#ontbrekende-dimensies">Drie ontbrekende dimensies</a> ·
-    <a href="#vragenlijst">De meetbare vragenlijst</a> ·
-    <a href="#vertragen">Vertragen</a> ·
-    <a href="#literatuur">Literatuur</a>
-  </nav>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="adoptie-illusie">De adoptie-illusie</h2>
- 
-  <p>Veel organisaties meten het succes van AI via gebruik: hoeveel mensen gebruiken het, hoe vaak, en hoeveel tijd besparen we? Dat lijkt logisch. Maar het is onvoldoende.</p>
- 
-  <p>In de praktijk — in ziekenhuizen, beleidsorganisaties en HR-afdelingen — zien we steeds hetzelfde patroon: adoptie is hoog, maar kritische evaluatie van AI-output blijft achter. Een groot deel van de professionals gebruikt de tools. Een aanzienlijk kleiner deel stelt de output actief ter discussie.</p>
- 
-  <p>Die kloof noem ik de <strong>adoptie-illusie</strong>. Hoe groter de adoptie zónder kritisch oordeel, hoe groter het risico. AI helpt dan niet meer — het vervangt ongemerkt het professioneel oordeel van mensen die het eigenlijk beter weten.</p>
- 
-  <figure>
-    <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-      <rect width="680" height="120" fill="#f7f5f0" rx="8"/>
-      <rect x="40" y="30" width="380" height="28" rx="4" fill="#c8e6fa"/>
-      <text x="56" y="49" font-family="Arial,sans-serif" font-size="12" fill="#185fa5" font-weight="500">Adoptie (gebruik AI-tools)</text>
-      <text x="428" y="49" font-family="Arial,sans-serif" font-size="13" fill="#185fa5" font-weight="600">hoog</text>
-      <rect x="40" y="70" width="220" height="28" rx="4" fill="#fde8a8"/>
-      <text x="56" y="89" font-family="Arial,sans-serif" font-size="12" fill="#854f0b" font-weight="500">Kritische evaluatie van output</text>
-      <text x="268" y="89" font-family="Arial,sans-serif" font-size="13" fill="#854f0b" font-weight="600">laag</text>
-      <line x1="260" y1="58" x2="260" y2="70" stroke="#e24b4a" stroke-width="1" stroke-dasharray="3 3"/>
-      <line x1="420" y1="58" x2="420" y2="70" stroke="#e24b4a" stroke-width="1" stroke-dasharray="3 3"/>
-      <line x1="265" y1="64" x2="415" y2="64" stroke="#e24b4a" stroke-width="1.5"/>
-      <text x="340" y="61" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#a32d2d" font-weight="600">de adoptie-illusie</text>
-    </svg>
-    <figcaption>De adoptie-illusie: gebruik en kritisch oordeel lopen uiteen — die kloof is het echte risico</figcaption>
-  </figure>
- 
-  <blockquote>Als je alleen meet wat makkelijk meetbaar is, organiseer je precies dat gedrag.</blockquote>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="twee-reflexen">Twee reflexen — en een keuze</h2>
- 
-  <p>Achter elk AI-initiatief schuilt een impliciete keuze. Organisaties kunnen AI inzetten om de dingen <em>sneller</em> te doen, of om de <em>goede</em> dingen te doen. Beide zijn nodig — maar zonder bewust tegenwicht wint bijna altijd de eerste.</p>
- 
-  <figure>
-    <svg viewBox="0 0 680 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-      <rect width="680" height="110" fill="#f7f5f0" rx="8"/>
-      <rect x="30" y="20" width="280" height="70" rx="8" fill="#e6f1fb" stroke="#b5d4f4" stroke-width="1"/>
-      <text x="170" y="46" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#185fa5">Operationele reflex</text>
-      <text x="170" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#0c447c">De dingen snel doen</text>
-      <text x="170" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#888">efficiëntie · tijdwinst · adoptie</text>
-      <text x="340" y="59" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#aaa">⇄</text>
-      <rect x="370" y="20" width="280" height="70" rx="8" fill="#e8f4ec" stroke="#9fe1cb" stroke-width="1"/>
-      <text x="510" y="46" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#0f6e56">Normatieve ambitie</text>
-      <text x="510" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#085041">De goede dingen doen</text>
-      <text x="510" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#888">menselijke maat · autonomie · rechtvaardigheid</text>
-    </svg>
-    <figcaption>Zonder bewust tegenwicht wint de operationele reflex bijna altijd</figcaption>
-  </figure>
- 
-  <p>Technologie versnelt wat er al is. Als snelheid de norm wordt, verschuift zorgvuldigheid naar de achtergrond. Als systemen leidend worden, verschuift verantwoordelijkheid. Als output centraal staat, raakt betekenis uit beeld.</p>
- 
-  <p>Een dashboard dat dit bewaakt is daarom geen technisch controlemiddel. Het is een manier om de <strong>morele ruimte van professionals te beschermen</strong> — de ruimte om te twijfelen, af te wijken, en verantwoording te nemen.</p>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="vier-niveaus">Vier niveaus: van symptoom naar betekenis</h2>
- 
-  <p>Om AI écht te beoordelen, moeten we anders meten. Niet alleen output — maar ook wat AI doet met professionals, met besluitvorming en met publieke waarden. Daarvoor helpt een denkmodel met vier niveaus. De meeste organisaties blijven hangen op het eerste. De echte vragen zitten daarboven.</p>
- 
-  <figure>
-    <svg viewBox="0 0 680 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-      <defs>
-        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-          <path d="M2 2L8 5L2 8" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
-        </marker>
-      </defs>
-      <rect width="680" height="100" fill="#f7f5f0" rx="8"/>
-      <rect x="20" y="22" width="140" height="56" rx="7" fill="#fcebeb" stroke="#f7c1c1" stroke-width="1"/>
-      <text x="90" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#a32d2d">OPERATIONEEL</text>
-      <text x="90" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#791f1f" font-style="italic">Wat gebeurt er?</text>
-      <line x1="162" y1="50" x2="182" y2="50" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
-      <rect x="185" y="22" width="140" height="56" rx="7" fill="#faeeda" stroke="#fac775" stroke-width="1"/>
-      <text x="255" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#854f0b">TACTISCH</text>
-      <text x="255" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#633806" font-style="italic">Blijft oordeel overeind?</text>
-      <line x1="327" y1="50" x2="347" y2="50" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
-      <rect x="350" y="22" width="140" height="56" rx="7" fill="#e6f1fb" stroke="#b5d4f4" stroke-width="1"/>
-      <text x="420" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#185fa5">STRATEGISCH</text>
-      <text x="420" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#0c447c" font-style="italic">Wat bouwen we op?</text>
-      <line x1="492" y1="50" x2="512" y2="50" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
-      <rect x="515" y="22" width="145" height="56" rx="7" fill="#e1f5ee" stroke="#9fe1cb" stroke-width="1"/>
-      <text x="592" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#0f6e56">NORMATIEF</text>
-      <text x="592" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#085041" font-style="italic">Doen we het goede?</text>
-    </svg>
-    <figcaption>Van directe output naar publieke waarde — de meeste organisaties stoppen bij het eerste niveau</figcaption>
-  </figure>
- 
-  <h3>1. Operationeel — wat gebeurt er nu?</h3>
-  <p>Werkt het systeem? Hoe vaak zitten er fouten in? Hoeveel tijd besparen we? Dit is wat organisaties al meten — en terecht. Maar een lage foutmarge is géén garantie voor veiligheid als tegelijkertijd het kritisch oordeel verdwijnt. Let ook op <em>workslop</em>: AI-output van onvoldoende kwaliteit die handmatige correctie vereist en zo de beloofde tijdwinst wegvreet.</p>
- 
-  <h3>2. Tactisch — blijft het professioneel oordeel overeind?</h3>
-  <p>Wijken mensen nog af van AI-advies? Durven ze te corrigeren? Waar gaat tijdwinst eigenlijk naartoe? Hier ontstaan de eerste sluipende risico's.</p>
-  <p><strong>Automation bias</strong>: bij twijfelgevallen gaan professionals zelden meer af van eigen oordeel — precies waar dat het meest nodig is. En de <strong>intensiveringsval</strong>: tijdwinst wordt niet omgezet in ruimte, maar in meer taken. Efficiëntie zonder beleid leidt zelden tot meer ademruimte.</p>
- 
-  <h3>3. Strategisch — wat bouwen we op, of af?</h3>
-  <p>Ontwikkelen professionals zich nog? Blijft er ruimte om het vak te leren? Versterkt AI het werk, of holt het het uit?</p>
-  <p>Een klassiek risico: AI neemt routinetaken over — maar dat zijn juist de taken waar mensen het vak leren. Wat vandaag efficiënt lijkt, kan morgen een tekort aan expertise zijn. De waarde van professionals verschuift intussen naar empathie, complex oordeel en verantwoording — vaardigheden die AI niet vervangt.</p>
- 
-  <h3>4. Normatief — doen we nog het goede?</h3>
-  <p>Dit niveau wordt het minst gemeten — en is tegelijk het belangrijkst. Draagt AI bij aan rechtvaardigheid? Blijft professioneel oordeel leidend? Vertrouwen mensen het systeem?</p>
-  <p><strong>Moral distress</strong> — weten wat goed is, maar het niet kunnen doen door systeembeperkingen — is de sterkste verborgen voorspeller van uitstroom. En algoritmische bias: historische data reproduceert bestaande ongelijkheden. Wie is verantwoordelijk als een algoritme systematisch onrechtvaardig uitpakt?</p>
- 
-  <blockquote>Een AI-dashboard is geen technisch instrument. Het is een manier om de morele ruimte van professionals te bewaken.</blockquote>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="slow-ai">Slow AI: weten wanneer je AI gebruikt — en wanneer niet</h2>
- 
-  <p>Er is een naam voor de houding die dit denkmodel vraagt: <strong>Slow AI</strong>. Het concept is ontwikkeld door de Schotse professor Sam Illingworth, die het omschrijft als: <em>knowing when to use AI and when to leave it the hell alone</em>. Illingworth is oprichter van de gelijknamige nieuwsbrief en een twaalf maanden durend curriculum voor kritische AI-geletterdheid, met inmiddels meer dan 16.000 abonnees wereldwijd.</p>
- 
-  <p>Slow AI is geen pleidooi voor het vermijden van AI. Het is een pleidooi voor <strong>bewuste keuze</strong>: welke taken versterken we met AI, en welke juist niet? Waar voegt automatisering waarde toe, en waar ondermijnt ze precies de capaciteit — het oordeel, de stem, de menselijkheid — die we willen bewaren?</p>
- 
-  <p>Illingworths werk raakt direct aan de adoptie-illusie. Hij wijst op het gevaar van <em>cognitieve uitbesteding</em>: hoe we door AI-gebruik geleidelijk verleren hoe we zelf redeneren, schrijven en oordelen. Niet door een bewuste keuze, maar door gemak en gewenning. Zijn antwoord: AI-geletterdheid is niet weten hoe je prompts schrijft, maar weten <em>wanneer</em> je dat doet — en wanneer je dat bewust laat.</p>
- 
-  <p>In dashboardtermen vertaalt Slow AI zich in concrete <em>decision gates</em>: momenten in het werkproces waarop de professional actief wordt uitgenodigd om AI-output te toetsen vóór die wordt overgenomen. Niet als vertraging — maar als kwaliteitsrem. Het dashboard meet dan niet alleen wat er gebeurt, maar ook of de juiste vragen worden gesteld.</p>
- 
-  <p>Meer lezen: <a href="https://theslowai.substack.com" target="_blank" rel="noopener">theslowai.substack.com</a></p>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="wat-ai-verandert">Wat AI werkelijk verandert</h2>
- 
-  <p>AI verandert niet alleen wat we doen. Het verandert wat we als <strong>goed werk gaan zien</strong>.</p>
- 
-  <p>Filosoof Charles Taylor zou dit een verschuiving in onze 'moral horizon' noemen: niet alleen ons gedrag verandert, maar onze maatstaf voor wat telt. Karl Weick zou het framen als een sensemaking-probleem: als het systeem altijd klopt, verleren we hoe we zelf betekenis geven aan complexe situaties. En Michel Foucault zou wijzen op de normaliserende werking van algoritmen: wat het systeem als normaal markeert, wordt gaandeweg de norm.</p>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="nieuwe-mechanismen">Nieuwe mechanismen</h2>
- 
-  <p>In HR-afdelingen, beleidsorganisaties en uitvoeringsinstanties zien we precies dezelfde mechanismen, onder andere namen.</p>
- 
-  <p><strong>Moral distress in HR en overheid:</strong> een HR-professional die tegen een AI-selectiescore in wil gaan, maar daarvoor geen ruimte voelt. Een beleidsmedewerker die twijfelt aan een modeluitkomst, maar geen taal heeft om dat te benoemen.</p>
- 
-  <p><strong>Automation bias in beleid:</strong> een beleidsadvies dat wordt overgenomen zonder tegenspraak omdat "het model het ook zegt". Een verzuimanalyse die als feit wordt behandeld terwijl het een voorspelling is.</p>
- 
-  <p><strong>De intensiveringsval in de publieke sector:</strong> AI maakt snellere verslaglegging mogelijk — maar de ruimte die vrijkomt, wordt gevuld met meer beleid, meer rapportages, meer verantwoording. Meer doen in plaats van beter doen.</p>
- 
-  <p>De vraag is niet of dit in jouw organisatie speelt. De vraag is: <em>zie je het al?</em></p>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="dashboard">Het Verantwoord AI-Adoptie Dashboard</h2>
- 
-  <p>Hieronder staat het dashboard zoals het er in de praktijk uit kan zien. Het toont niet hoeveel AI wordt gebruikt, maar <em>hoe</em>. De getallen zijn illustratief; de structuur is direct toepasbaar. Verderop in dit artikel staat de vragenlijst die deze indicatoren meetbaar maakt.</p>
- 
-  <div class="dashboard">
-    <div class="dashboard-title">Verantwoord AI-Adoptie Dashboard</div>
-    <div class="dashboard-headline">Niet hoeveel — maar hoe wordt AI gebruikt?</div>
- 
-    <div class="kpi-grid">
-      <div class="kpi">
-        <div class="kpi-label">AI-geletterdheid</div>
-        <div class="kpi-value" style="color:#34d399">61%</div>
-        <span class="kpi-status status-warn">drempel: &gt;70%</span>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Augmentatie-ratio</div>
-        <div class="kpi-value" style="color:#34d399">72%</div>
-        <span class="kpi-status status-ok">boven drempel</span>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Human override-rate</div>
-        <div class="kpi-value" style="color:#fbbf24">34%</div>
-        <span class="kpi-status status-warn">gezond: 20–50%</span>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Bias-alert</div>
-        <div class="kpi-value" style="color:#f87171; font-size:1.2rem; padding-top:.3rem">ACTIEF</div>
-        <span class="kpi-status status-alert">actie vereist</span>
-      </div>
-    </div>
- 
-    <div class="dash-section">
-      <div class="dash-section-title">Kwaliteit van gebruik</div>
-      <div class="dash-row"><span class="dash-row-label">Directe acceptatie (geen toets)</span><span class="dash-row-val alert">61% ↑</span></div>
-      <div class="dash-row"><span class="dash-row-label">Scaffolding (vraagt naar aannames)</span><span class="dash-row-val warn">27%</span></div>
-      <div class="dash-row"><span class="dash-row-label">Actieve verificatie</span><span class="dash-row-val ok">48%</span></div>
-      <div class="dash-row" style="font-size:.75rem; color:#7a8099; padding-top:.4rem"><span>Drempel: directe acceptatie &lt;40% · scaffolding &gt;50%</span></div>
-    </div>
- 
-    <div class="dash-section">
-      <div class="dash-section-title">Menselijk eigenaarschap</div>
-      <div class="dash-row"><span class="dash-row-label">Override-rate</span><span class="dash-row-val ok">34%</span></div>
-      <div class="dash-row"><span class="dash-row-label">Gedocumenteerde rationale bij override</span><span class="dash-row-val ok">79%</span></div>
-      <div class="dash-row"><span class="dash-row-label">Medewerkers die AI actief informeren</span><span class="dash-row-val warn">68%</span></div>
-    </div>
- 
-    <div class="dash-section">
-      <div class="dash-section-title">Professioneel oordeel</div>
-      <div class="dash-row"><span class="dash-row-label">Unaided baseline (zonder AI)</span><span class="dash-row-val warn">58%</span></div>
-      <div class="dash-row"><span class="dash-row-label">Metacognitie-kalibratie</span><span class="dash-row-val ok">71%</span></div>
-      <div class="dash-row" style="font-size:.75rem; color:#7a8099; padding-top:.4rem"><span>Alarm als unaided baseline &lt;50% — cognitieve uitholling</span></div>
-    </div>
- 
-    <div class="dash-section">
-      <div class="dash-section-title">Fairness &amp; bias</div>
-      <div class="dash-row"><span class="dash-row-label">Geslachtsdispariteit</span><span class="dash-row-val alert">18% ⚠</span></div>
-      <div class="dash-row"><span class="dash-row-label">Etnische dispariteit</span><span class="dash-row-val ok">11%</span></div>
-      <div class="dash-row"><span class="dash-row-label">Leeftijdsdispariteit</span><span class="dash-row-val ok">6%</span></div>
-      <div class="dash-row" style="font-size:.75rem; color:#7a8099; padding-top:.4rem"><span>Drempel: &gt;15% per dimensie = STOP</span></div>
-    </div>
- 
-    <div class="dash-section">
-      <div class="dash-section-title">Slow AI Gates</div>
-      <div class="gate-row">
-        <div class="gate"><div class="dot ok"></div>Gate 1 · Intentie</div>
-        <div class="gate"><div class="dot ok"></div>Gate 2 · Transparantie</div>
-        <div class="gate"><div class="dot warn"></div>Gate 3 · Accountability</div>
-        <div class="gate"><div class="dot alert"></div>Gate 4 · Normatieve review</div>
-      </div>
-      <div style="font-size:.75rem; color:#f87171; margin-top:.7rem;">⚠ Gate 4 niet uitgevoerd dit kwartaal — actie vereist</div>
-    </div>
- 
-    <div class="dash-note">Drempelwaarden gebaseerd op: Obermeyer et al. (bias 15%); Slow AI / Illingworth; Cognitive Agency Surrender, Xu et al. 2026; CSET automation bias (2024) — getallen illustratief</div>
-  </div>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="ontbrekende-dimensies">Drie ontbrekende dimensies</h2>
- 
-  <p>Het dashboard meet gedrag. Maar het artikel vraagt ook naar beleving en cultuur. Wie het dashboard eerlijk wil invullen, moet drie dimensies toevoegen die AI-tools zelf niet registreren — en die juist het verschil maken tussen een groene score en een gezonde organisatie.</p>
- 
-  <div class="missing-metrics">
-    <h4>Wat AI-tools je niet vertellen</h4>
-    <p><strong>1. De adoptie-illusie als zelfstandige indicator.</strong> Het dashboard meet directe acceptatie en scaffolding apart. Maar de kloof tussen die twee — de adoptie-illusie index — verdient een eigen plek. Een organisatie met 80% gebruik en 15% scaffolding heeft een groter probleem dan een organisatie met 50% gebruik en 45% scaffolding. Die verhouding is wat telt.</p>
-    <p><strong>2. Psychologische veiligheid om af te wijken.</strong> Een override-rate van 34% zegt niets als mensen zich niet veilig voelen om af te wijken. Voelen professionals dat ze zonder consequenties een AI-aanbeveling kunnen aanvechten? Dat is een cultuurvraag, geen systeemvraag — en precies daarom ontbreekt hij in elk dashboard.</p>
-    <p><strong>3. Moral distress als vroeg signaal.</strong> Weten wat goed is maar het niet kunnen doen door systeembeperkingen is de sterkste verborgen voorspeller van uitstroom. Geen enkel AI-platform registreert dit. Alleen een directe vraag aan professionals onthult waar de morele ruimte onder druk staat.</p>
-  </div>
- 
-  <p>Deze drie dimensies zijn niet meetbaar via logfiles of klikgedrag. Ze vragen om een andere methode: de vragenlijst hieronder.</p>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="vragenlijst">De meetbare vragenlijst: Verantwoord AI-gebruik</h2>
- 
-  <p>De vragenlijst hieronder vertaalt alle vijf domeinen van het dashboard — inclusief de drie ontbrekende dimensies — naar concrete vragen die je als organisatie kunt stellen aan professionals. De vragenlijst is ontworpen voor kwartaalse afname (10–15 minuten), anoniem in te vullen, en geeft per domein een score die direct vergelijkbaar is met de dashboarddrempels.</p>
- 
-  <div class="questionnaire">
-    <div class="q-header">
-      <span class="q-badge">Instrument</span>
-      <span class="q-title">Verantwoord AI-gebruik — Zelfevaluatie voor professionals</span>
-    </div>
- 
-    <p style="font-family:Arial,sans-serif;font-size:.85rem;color:#5a5650;margin-bottom:1.4rem;">
-      Beantwoord elke vraag op een schaal van 1 (nooit / helemaal niet) tot 5 (altijd / volledig). Er zijn geen goede of foute antwoorden. De uitkomst is bedoeld als teamgesprek, niet als beoordeling van individuen. Anonimiteit is gewaarborgd.
-    </p>
- 
-    <!-- DOMEIN A -->
-    <div class="q-domain">
-      <div class="q-domain-title">Domein A — Kwaliteit van gebruik <span style="font-weight:400;color:#aaa;">(adoptie-illusie index)</span></div>
- 
-      <div class="q-item">
-        <div class="q-num blue">A1</div>
-        <div class="q-text">
-          Wanneer ik een AI-tool gebruik voor een inhoudelijke taak, beoordeel ik de output kritisch voordat ik er iets mee doe.
-          <br><em>1 = nooit · 3 = soms · 5 = altijd</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num blue">A2</div>
-        <div class="q-text">
-          Ik vraag mij af welke aannames of patronen aan de basis liggen van een AI-aanbeveling, in plaats van alleen het eindadvies over te nemen.
-          <br><em>1 = nooit · 3 = soms · 5 = altijd</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num blue">A3</div>
-        <div class="q-text">
-          Als ik tijdwinst boek door AI-gebruik, gebruik ik die ruimte voor verdieping of reflectie — niet alleen voor méér taken.
-          <br><em>1 = nooit · 3 = soms · 5 = altijd</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num blue">A4</div>
-        <div class="q-text">
-          Ik kan aangeven bij welke typen taken ik AI <em>niet</em> inzet — en waarom.
-          <br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- DOMEIN B -->
-    <div class="q-domain">
-      <div class="q-domain-title">Domein B — Menselijk eigenaarschap <span style="font-weight:400;color:#aaa;">(override &amp; accountability)</span></div>
- 
-      <div class="q-item">
-        <div class="q-num amber">B1</div>
-        <div class="q-text">
-          Als ik het niet eens ben met een AI-aanbeveling, wijk ik er ook daadwerkelijk van af — en leg ik dat vast.
-          <br><em>1 = nooit · 3 = soms · 5 = altijd</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num amber">B2</div>
-        <div class="q-text">
-          Ik voel mij verantwoordelijk voor de uitkomst van een besluit dat (mede) door AI is ondersteund.
-          <br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num amber">B3</div>
-        <div class="q-text">
-          Ik weet wie in mijn organisatie aanspreekbaar is als een AI-systeem een fout maakt of een onrechtvaardig resultaat geeft.
-          <br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- DOMEIN C -->
-    <div class="q-domain">
-      <div class="q-domain-title">Domein C — Psychologische veiligheid <span style="font-weight:400;color:#aaa;">(ontbrekende dimensie 2)</span></div>
- 
-      <div class="q-item">
-        <div class="q-num red">C1</div>
-        <div class="q-text">
-          Ik voel mij vrij om een AI-aanbeveling te betwisten, ook als anderen in mijn team die al hebben overgenomen.
-          <br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num red">C2</div>
-        <div class="q-text">
-          In mijn team is het normaal om hardop te twijfelen aan een AI-uitkomst — zonder dat dit als traag of lastig wordt gezien.
-          <br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num red">C3</div>
-        <div class="q-text">
-          Mijn leidinggevende waardeert het als ik een AI-suggestie kritisch bevraag, ook als dit meer tijd kost.
-          <br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- DOMEIN D -->
-    <div class="q-domain">
-      <div class="q-domain-title">Domein D — Professioneel oordeel &amp; vakmanschap <span style="font-weight:400;color:#aaa;">(cognitieve uitholling)</span></div>
- 
-      <div class="q-item">
-        <div class="q-num blue">D1</div>
-        <div class="q-text">
-          Ik kan complexe analyses in mijn vakgebied nog zelfstandig uitvoeren — zonder AI — op het niveau dat ik twee jaar geleden ook kon.
-          <br><em>1 = sterk achteruitgegaan · 3 = gelijk · 5 = verbeterd</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num blue">D2</div>
-        <div class="q-text">
-          Ik weet wanneer mijn eigen oordeel betrouwbaarder is dan een AI-uitkomst — en durf daar ook op te handelen.
-          <br><em>1 = nooit · 3 = soms · 5 = altijd</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num blue">D3</div>
-        <div class="q-text">
-          Ik voer periodiek taken uit zonder AI-ondersteuning, bewust, om mijn eigen referentiekader scherp te houden.
-          <br><em>1 = nooit · 3 = soms · 5 = regelmatig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- DOMEIN E -->
-    <div class="q-domain">
-      <div class="q-domain-title">Domein E — Moral distress &amp; normatieve ruimte <span style="font-weight:400;color:#aaa;">(ontbrekende dimensie 3)</span></div>
- 
-      <div class="q-item">
-        <div class="q-num red">E1</div>
-        <div class="q-text">
-          Er zijn situaties in mijn werk waarbij ik weet wat de juiste beslissing is, maar het AI-systeem of de organisatiedruk mij verhindert dat te doen.
-          <br><em>1 = nooit · 3 = soms · 5 = regelmatig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num red">E2</div>
-        <div class="q-text">
-          Als ik het gevoel heb dat een AI-aanbeveling onrechtvaardig uitpakt voor een cliënt, medewerker of burger, heb ik de middelen om dat te adresseren.
-          <br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num red">E3</div>
-        <div class="q-text">
-          In mijn organisatie is er ruimte om normatieve vragen te stellen over AI — over rechtvaardigheid, waarden en wie het systeem dient.
-          <br><em>1 = helemaal niet · 3 = beperkt · 5 = volop</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- DOMEIN F -->
-    <div class="q-domain">
-      <div class="q-domain-title">Domein F — Slow AI Gates <span style="font-weight:400;color:#aaa;">(bewuste keuze)</span></div>
- 
-      <div class="q-item">
-        <div class="q-num green">F1</div>
-        <div class="q-text">
-          Voordat een nieuw AI-systeem in mijn team wordt ingezet, wordt expliciet besproken <em>waarvoor</em> we het inzetten — en waarvoor niet.
-          <br><em>1 = nooit · 3 = soms · 5 = altijd</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num green">F2</div>
-        <div class="q-text">
-          AI-output in mijn werkproces is uitlegbaar — ik kan (of weet wie kan) verklaren hoe een aanbeveling tot stand is gekomen.
-          <br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
- 
-      <div class="q-item">
-        <div class="q-num green">F3</div>
-        <div class="q-text">
-          Er zijn vaste momenten waarop mijn team de inzet van AI evalueert — niet alleen technisch, maar ook op waarden en effecten voor mensen.
-          <br><em>1 = nooit · 3 = ad hoc · 5 = structureel</em>
-          <div class="q-scale">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <!-- Scoring -->
-    <div class="q-scoring">
-      <strong>Scoringsgids — per domein (gemiddelde over vragen)</strong>
-      <div class="score-row"><span>4,0 – 5,0</span><span style="color:#0f6e56;font-weight:600">✓ Gezond — blijf monitoren</span></div>
-      <div class="score-row"><span>3,0 – 3,9</span><span style="color:#854f0b;font-weight:600">⚠ Aandacht — bespreek in team</span></div>
-      <div class="score-row"><span>2,0 – 2,9</span><span style="color:#a32d2d;font-weight:600">⚡ Risico — actie vereist</span></div>
-      <div class="score-row"><span>&lt; 2,0</span><span style="color:#a32d2d;font-weight:700">✗ Kritiek — stop en heroverweeg</span></div>
-      <p style="margin-top:.7rem;font-size:.8rem;color:#888;">
-        Adoptie-illusie index = (A1+A2) − (A3+A4) — hoe hoger het verschil, hoe groter de kloof tussen gebruik en kritisch oordeel.<br>
-        Moral distress alarm: E1 ≥ 3,5 gecombineerd met E2 ≤ 2,5 = verhoogd uitstroomrisico; direct bespreekbaar maken.
-      </p>
-    </div>
-  </div>
- 
-  <p>De vragenlijst geeft geen definitief oordeel — ze geeft <strong>gespreksstof</strong>. De scores zijn het startpunt voor een teamgesprek, niet het eindpunt. Wat telt, is niet de gemiddelde score maar de patronen: waar zit het verschil tussen domeinen? Wie geeft structureel lagere scores op moral distress? Welk team heeft een hoge override-rate maar lage psychologische veiligheid?</p>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2>Vier vragen die meer zeggen dan welke KPI ook</h2>
- 
-  <p>In plaats van direct een dashboard te bouwen, kun je beginnen met vier vragen. Ze zijn eenvoudig — maar het antwoord erop legt precies bloot waar de adoptie-illusie zit.</p>
- 
-  <ol>
-    <li>Waar meten we gebruik — en noemen we dat succes?</li>
-    <li>Waar verdampt tijdwinst in méér werk in plaats van meer ruimte?</li>
-    <li>Waar leren mensen hun vak minder goed — omdat AI het voor ze doet?</li>
-    <li>Waar komt de menselijke maat onder druk te staan — zonder dat iemand dat hardop zegt?</li>
-  </ol>
- 
-  <p>Deze vragen zijn soms confronterender dan cijfers. Dat is precies de bedoeling.</p>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="vertragen">Vertragen als professionele vaardigheid</h2>
- 
-  <p>AI nodigt uit tot versnelling. Meer doen, sneller beslissen, efficiënter werken. Maar juist daarom wordt iets anders cruciaal: het vermogen om te <strong>vertragen</strong>.</p>
- 
-  <p>Niet om minder te doen. Maar om beter te zien: wat er gebeurt, wat er verschuift, en wat we misschien verliezen.</p>
- 
-  <p>Een dashboard is daarin een hulpmiddel — geen doel. Het gaat er niet om een perfecte set KPI's te hebben. Het gaat erom dat de organisatie de vragen blijft stellen die het systeem niet stelt.</p>
- 
-  <p>Want als je alleen meet wat makkelijk meetbaar is, organiseer je precies dat gedrag. En de rest — zorgvuldigheid, autonomie, rechtvaardigheid — verdwijnt niet ineens. Het verdampt langzaam, onzichtbaar, terwijl de dashboards groen blijven.</p>
- 
-  <blockquote>De vraag is uiteindelijk niet wat AI kan. De vraag is: wat voor organisatie willen wij zijn?</blockquote>
- 
-  <h2>Wil je hiermee aan de slag?</h2>
- 
-  <p>Gebruik dit artikel als reflectiekader in je team of organisatie. Begin niet met technologie — begin met de vraag: <em>waar willen wij ruimte houden, en waarvoor?</em></p>
- 
-  <p>De vier vragen en de vragenlijst hierboven zijn een goede start. Niet als checklist, maar als gespreksopener.</p>
- 
- 
-  <!-- ═══════════════════════════════════════════════════ -->
-  <h2 id="literatuur" class="literature">Literatuur</h2>
-  <div class="literature">
-  <ol>
-    <li>Acemoglu, D. &amp; Restrepo, P. (2022). Tasks, automation, and the rise in US wage inequality. <em>Econometrica, 90</em>(5), 1973–2016.</li>
-    <li>Austin, W. et al. (2005). Moral distress in healthcare practice: The situation of nurses. <em>HEC Forum, 29</em>(1), 1–15.</li>
-    <li>Bucinca, Z. et al. (2021). To trust or to think: Cognitive forcing functions can reduce overreliance on AI in AI-assisted decision-making. <em>ACM CHI Conference.</em></li>
-    <li>CSET Georgetown (2024). AI Safety and Automation Bias.</li>
-    <li>Corley, M.C. (2002). Nurse moral distress: A proposed theory and research agenda. <em>Nursing Ethics, 9</em>(6), 636–650.</li>
-    <li>Foucault, M. (1977). <em>Discipline and Punish.</em> Pantheon Books.</li>
-    <li>Illingworth, S. (2023–heden). <em>Slow AI.</em> Nieuwsbrief en curriculum over kritische AI-geletterdheid. <a href="https://theslowai.substack.com" target="_blank" rel="noopener">theslowai.substack.com</a></li>
-    <li>Obermeyer, Z. et al. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. <em>Science, 366</em>(6464), 447–453.</li>
-    <li>Rosenthal-von der Pütten, A. &amp; Sach, M. (2024). Automation bias and AI-assisted decision-making. <em>Frontiers in Psychology.</em></li>
-    <li>Taylor, C. (1991). <em>The Ethics of Authenticity.</em> Harvard University Press.</li>
-    <li>Weick, K.E. (1995). <em>Sensemaking in Organizations.</em> SAGE Publications.</li>
-    <li>Xu, J. et al. (2026). Cognitive Agency Surrender. <em>arXiv preprint.</em></li>
-    <li>Ye &amp; Ranganathan / UC Berkeley Haas – HBR (2026). AI Doesn't Reduce Work, It Intensifies It.</li>
-  </ol>
-  </div>
- 
+
+<p class="article-meta">Instituut voor Toegepaste Filosofie &nbsp;·&nbsp; <strong>Thema:</strong> AI, werk &amp; organisatie &nbsp;·&nbsp; <strong>Leestijd:</strong> ± 18–22 min</p>
+
+<div class="lead">
+  <p>Veel organisaties gebruiken AI. Maar bijna geen enkele organisatie weet of ze het ook <em>goed</em> doet. Niet efficiënter. Niet sneller. Maar goed. Dit artikel biedt een denkmodel voor HR-professionals en bestuurders die de regie willen houden over verantwoorde AI-adoptie — inclusief een dashboard met indicatoren en een meetbare vragenlijst voor de praktijk.</p>
 </div>
-</body>
-</html>
+
+<nav class="toc">
+  <strong>In dit artikel</strong>
+  <a href="#adoptie-illusie">De adoptie-illusie</a> ·
+  <a href="#twee-reflexen">Twee reflexen</a> ·
+  <a href="#vier-niveaus">Vier niveaus</a> ·
+  <a href="#slow-ai">Slow AI</a> ·
+  <a href="#wat-ai-verandert">Wat AI werkelijk verandert</a> ·
+  <a href="#nieuwe-mechanismen">Nieuwe mechanismen</a> ·
+  <a href="#dashboard">Het dashboard</a> ·
+  <a href="#ontbrekende-dimensies">Drie ontbrekende dimensies</a> ·
+  <a href="#vragenlijst">De meetbare vragenlijst</a> ·
+  <a href="#vertragen">Vertragen</a> ·
+  <a href="#literatuur">Literatuur</a>
+</nav>
+
+## De adoptie-illusie
+{: #adoptie-illusie }
+
+Veel organisaties meten het succes van AI via gebruik: hoeveel mensen gebruiken het, hoe vaak, en hoeveel tijd besparen we? Dat lijkt logisch. Maar het is onvoldoende.
+
+In de praktijk — in ziekenhuizen, beleidsorganisaties en HR-afdelingen — zien we steeds hetzelfde patroon: adoptie is hoog, maar kritische evaluatie van AI-output blijft achter. Een groot deel van de professionals gebruikt de tools. Een aanzienlijk kleiner deel stelt de output actief ter discussie.
+
+Die kloof noem ik de **adoptie-illusie**. Hoe groter de adoptie zónder kritisch oordeel, hoe groter het risico. AI helpt dan niet meer — het vervangt ongemerkt het professioneel oordeel van mensen die het eigenlijk beter weten.
+
+<figure>
+  <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+    <rect width="680" height="120" fill="#f7f5f0" rx="8"/>
+    <rect x="40" y="30" width="380" height="28" rx="4" fill="#c8e6fa"/>
+    <text x="56" y="49" font-family="Arial,sans-serif" font-size="12" fill="#185fa5" font-weight="500">Adoptie (gebruik AI-tools)</text>
+    <text x="428" y="49" font-family="Arial,sans-serif" font-size="13" fill="#185fa5" font-weight="600">hoog</text>
+    <rect x="40" y="70" width="220" height="28" rx="4" fill="#fde8a8"/>
+    <text x="56" y="89" font-family="Arial,sans-serif" font-size="12" fill="#854f0b" font-weight="500">Kritische evaluatie van output</text>
+    <text x="268" y="89" font-family="Arial,sans-serif" font-size="13" fill="#854f0b" font-weight="600">laag</text>
+    <line x1="260" y1="58" x2="260" y2="70" stroke="#e24b4a" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="420" y1="58" x2="420" y2="70" stroke="#e24b4a" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="265" y1="64" x2="415" y2="64" stroke="#e24b4a" stroke-width="1.5"/>
+    <text x="340" y="61" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#a32d2d" font-weight="600">de adoptie-illusie</text>
+  </svg>
+  <figcaption>De adoptie-illusie: gebruik en kritisch oordeel lopen uiteen — die kloof is het echte risico</figcaption>
+</figure>
+
+> Als je alleen meet wat makkelijk meetbaar is, organiseer je precies dat gedrag.
+
+## Twee reflexen — en een keuze
+{: #twee-reflexen }
+
+Achter elk AI-initiatief schuilt een impliciete keuze. Organisaties kunnen AI inzetten om de dingen *sneller* te doen, of om de *goede* dingen te doen. Beide zijn nodig — maar zonder bewust tegenwicht wint bijna altijd de eerste.
+
+<figure>
+  <svg viewBox="0 0 680 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+    <rect width="680" height="110" fill="#f7f5f0" rx="8"/>
+    <rect x="30" y="20" width="280" height="70" rx="8" fill="#e6f1fb" stroke="#b5d4f4" stroke-width="1"/>
+    <text x="170" y="46" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#185fa5">Operationele reflex</text>
+    <text x="170" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#0c447c">De dingen snel doen</text>
+    <text x="170" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#888">efficiëntie · tijdwinst · adoptie</text>
+    <text x="340" y="59" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#aaa">⇄</text>
+    <rect x="370" y="20" width="280" height="70" rx="8" fill="#e8f4ec" stroke="#9fe1cb" stroke-width="1"/>
+    <text x="510" y="46" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#0f6e56">Normatieve ambitie</text>
+    <text x="510" y="64" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#085041">De goede dingen doen</text>
+    <text x="510" y="80" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#888">menselijke maat · autonomie · rechtvaardigheid</text>
+  </svg>
+  <figcaption>Zonder bewust tegenwicht wint de operationele reflex bijna altijd</figcaption>
+</figure>
+
+Technologie versnelt wat er al is. Als snelheid de norm wordt, verschuift zorgvuldigheid naar de achtergrond. Als systemen leidend worden, verschuift verantwoordelijkheid. Als output centraal staat, raakt betekenis uit beeld.
+
+Een dashboard dat dit bewaakt is daarom geen technisch controlemiddel. Het is een manier om de **morele ruimte van professionals te beschermen** — de ruimte om te twijfelen, af te wijken, en verantwoording te nemen.
+
+## Vier niveaus: van symptoom naar betekenis
+{: #vier-niveaus }
+
+Om AI écht te beoordelen, moeten we anders meten. Niet alleen output — maar ook wat AI doet met professionals, met besluitvorming en met publieke waarden. Daarvoor helpt een denkmodel met vier niveaus. De meeste organisaties blijven hangen op het eerste. De echte vragen zitten daarboven.
+
+<figure>
+  <svg viewBox="0 0 680 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+        <path d="M2 2L8 5L2 8" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round"/>
+      </marker>
+    </defs>
+    <rect width="680" height="100" fill="#f7f5f0" rx="8"/>
+    <rect x="20" y="22" width="140" height="56" rx="7" fill="#fcebeb" stroke="#f7c1c1" stroke-width="1"/>
+    <text x="90" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#a32d2d">OPERATIONEEL</text>
+    <text x="90" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#791f1f" font-style="italic">Wat gebeurt er?</text>
+    <line x1="162" y1="50" x2="182" y2="50" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="185" y="22" width="140" height="56" rx="7" fill="#faeeda" stroke="#fac775" stroke-width="1"/>
+    <text x="255" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#854f0b">TACTISCH</text>
+    <text x="255" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#633806" font-style="italic">Blijft oordeel overeind?</text>
+    <line x1="327" y1="50" x2="347" y2="50" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="350" y="22" width="140" height="56" rx="7" fill="#e6f1fb" stroke="#b5d4f4" stroke-width="1"/>
+    <text x="420" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#185fa5">STRATEGISCH</text>
+    <text x="420" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#0c447c" font-style="italic">Wat bouwen we op?</text>
+    <line x1="492" y1="50" x2="512" y2="50" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="515" y="22" width="145" height="56" rx="7" fill="#e1f5ee" stroke="#9fe1cb" stroke-width="1"/>
+    <text x="592" y="47" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="600" fill="#0f6e56">NORMATIEF</text>
+    <text x="592" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" fill="#085041" font-style="italic">Doen we het goede?</text>
+  </svg>
+  <figcaption>Van directe output naar publieke waarde — de meeste organisaties stoppen bij het eerste niveau</figcaption>
+</figure>
+
+### 1. Operationeel — wat gebeurt er nu?
+
+Werkt het systeem? Hoe vaak zitten er fouten in? Hoeveel tijd besparen we? Dit is wat organisaties al meten — en terecht. Maar een lage foutmarge is géén garantie voor veiligheid als tegelijkertijd het kritisch oordeel verdwijnt. Let ook op *workslop*: AI-output van onvoldoende kwaliteit die handmatige correctie vereist en zo de beloofde tijdwinst wegvreet.
+
+### 2. Tactisch — blijft het professioneel oordeel overeind?
+
+Wijken mensen nog af van AI-advies? Durven ze te corrigeren? Waar gaat tijdwinst eigenlijk naartoe? Hier ontstaan de eerste sluipende risico's.
+
+**Automation bias**: bij twijfelgevallen gaan professionals zelden meer af van eigen oordeel — precies waar dat het meest nodig is. En de **intensiveringsval**: tijdwinst wordt niet omgezet in ruimte, maar in meer taken. Efficiëntie zonder beleid leidt zelden tot meer ademruimte.
+
+### 3. Strategisch — wat bouwen we op, of af?
+
+Ontwikkelen professionals zich nog? Blijft er ruimte om het vak te leren? Versterkt AI het werk, of holt het het uit?
+
+Een klassiek risico: AI neemt routinetaken over — maar dat zijn juist de taken waar mensen het vak leren. Wat vandaag efficiënt lijkt, kan morgen een tekort aan expertise zijn. De waarde van professionals verschuift intussen naar empathie, complex oordeel en verantwoording — vaardigheden die AI niet vervangt.
+
+### 4. Normatief — doen we nog het goede?
+
+Dit niveau wordt het minst gemeten — en is tegelijk het belangrijkst. Draagt AI bij aan rechtvaardigheid? Blijft professioneel oordeel leidend? Vertrouwen mensen het systeem?
+
+**Moral distress** — weten wat goed is, maar het niet kunnen doen door systeembeperkingen — is de sterkste verborgen voorspeller van uitstroom. En algoritmische bias: historische data reproduceert bestaande ongelijkheden. Wie is verantwoordelijk als een algoritme systematisch onrechtvaardig uitpakt?
+
+> Een AI-dashboard is geen technisch instrument. Het is een manier om de morele ruimte van professionals te bewaken.
+
+## Slow AI: weten wanneer je AI gebruikt — en wanneer niet
+{: #slow-ai }
+
+Er is een naam voor de houding die dit denkmodel vraagt: **Slow AI**. Het concept is ontwikkeld door de Schotse professor Sam Illingworth, die het omschrijft als: *knowing when to use AI and when to leave it the hell alone*. Illingworth is oprichter van de gelijknamige nieuwsbrief en een twaalf maanden durend curriculum voor kritische AI-geletterdheid, met inmiddels meer dan 16.000 abonnees wereldwijd.
+
+Slow AI is geen pleidooi voor het vermijden van AI. Het is een pleidooi voor **bewuste keuze**: welke taken versterken we met AI, en welke juist niet? Waar voegt automatisering waarde toe, en waar ondermijnt ze precies de capaciteit — het oordeel, de stem, de menselijkheid — die we willen bewaren?
+
+Illingworths werk raakt direct aan de adoptie-illusie. Hij wijst op het gevaar van *cognitieve uitbesteding*: hoe we door AI-gebruik geleidelijk verleren hoe we zelf redeneren, schrijven en oordelen. Niet door een bewuste keuze, maar door gemak en gewenning. Zijn antwoord: AI-geletterdheid is niet weten hoe je prompts schrijft, maar weten *wanneer* je dat doet — en wanneer je dat bewust laat.
+
+In dashboardtermen vertaalt Slow AI zich in concrete *decision gates*: momenten in het werkproces waarop de professional actief wordt uitgenodigd om AI-output te toetsen vóór die wordt overgenomen. Niet als vertraging — maar als kwaliteitsrem. Het dashboard meet dan niet alleen wat er gebeurt, maar ook of de juiste vragen worden gesteld.
+
+Meer lezen: [theslowai.substack.com](https://theslowai.substack.com){:target="_blank" rel="noopener"}
+
+## Wat AI werkelijk verandert
+{: #wat-ai-verandert }
+
+AI verandert niet alleen wat we doen. Het verandert wat we als **goed werk gaan zien**.
+
+Filosoof Charles Taylor zou dit een verschuiving in onze 'moral horizon' noemen: niet alleen ons gedrag verandert, maar onze maatstaf voor wat telt. Karl Weick zou het framen als een sensemaking-probleem: als het systeem altijd klopt, verleren we hoe we zelf betekenis geven aan complexe situaties. En Michel Foucault zou wijzen op de normaliserende werking van algoritmen: wat het systeem als normaal markeert, wordt gaandeweg de norm.
+
+## Nieuwe mechanismen
+{: #nieuwe-mechanismen }
+
+In HR-afdelingen, beleidsorganisaties en uitvoeringsinstanties zien we precies dezelfde mechanismen, onder andere namen.
+
+**Moral distress in HR en overheid:** een HR-professional die tegen een AI-selectiescore in wil gaan, maar daarvoor geen ruimte voelt. Een beleidsmedewerker die twijfelt aan een modeluitkomst, maar geen taal heeft om dat te benoemen.
+
+**Automation bias in beleid:** een beleidsadvies dat wordt overgenomen zonder tegenspraak omdat "het model het ook zegt". Een verzuimanalyse die als feit wordt behandeld terwijl het een voorspelling is.
+
+**De intensiveringsval in de publieke sector:** AI maakt snellere verslaglegging mogelijk — maar de ruimte die vrijkomt, wordt gevuld met meer beleid, meer rapportages, meer verantwoording. Meer doen in plaats van beter doen.
+
+De vraag is niet of dit in jouw organisatie speelt. De vraag is: *zie je het al?*
+
+## Het Verantwoord AI-Adoptie Dashboard
+{: #dashboard }
+
+Hieronder staat het dashboard zoals het er in de praktijk uit kan zien. Het toont niet hoeveel AI wordt gebruikt, maar *hoe*. De getallen zijn illustratief; de structuur is direct toepasbaar. Verderop in dit artikel staat de vragenlijst die deze indicatoren meetbaar maakt.
+
+<div class="dashboard">
+  <div class="dashboard-title">Verantwoord AI-Adoptie Dashboard</div>
+  <div class="dashboard-headline">Niet hoeveel — maar hoe wordt AI gebruikt?</div>
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">AI-geletterdheid</div>
+      <div class="kpi-value" style="color:#34d399">61%</div>
+      <span class="kpi-status status-warn">drempel: &gt;70%</span>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Augmentatie-ratio</div>
+      <div class="kpi-value" style="color:#34d399">72%</div>
+      <span class="kpi-status status-ok">boven drempel</span>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Human override-rate</div>
+      <div class="kpi-value" style="color:#fbbf24">34%</div>
+      <span class="kpi-status status-warn">gezond: 20–50%</span>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Bias-alert</div>
+      <div class="kpi-value" style="color:#f87171; font-size:1.2rem; padding-top:.3rem">ACTIEF</div>
+      <span class="kpi-status status-alert">actie vereist</span>
+    </div>
+  </div>
+  <div class="dash-section">
+    <div class="dash-section-title">Kwaliteit van gebruik</div>
+    <div class="dash-row"><span class="dash-row-label">Directe acceptatie (geen toets)</span><span class="dash-row-val alert">61% ↑</span></div>
+    <div class="dash-row"><span class="dash-row-label">Scaffolding (vraagt naar aannames)</span><span class="dash-row-val warn">27%</span></div>
+    <div class="dash-row"><span class="dash-row-label">Actieve verificatie</span><span class="dash-row-val ok">48%</span></div>
+    <div class="dash-row" style="font-size:.75rem; color:#7a8099; padding-top:.4rem"><span>Drempel: directe acceptatie &lt;40% · scaffolding &gt;50%</span></div>
+  </div>
+  <div class="dash-section">
+    <div class="dash-section-title">Menselijk eigenaarschap</div>
+    <div class="dash-row"><span class="dash-row-label">Override-rate</span><span class="dash-row-val ok">34%</span></div>
+    <div class="dash-row"><span class="dash-row-label">Gedocumenteerde rationale bij override</span><span class="dash-row-val ok">79%</span></div>
+    <div class="dash-row"><span class="dash-row-label">Medewerkers die AI actief informeren</span><span class="dash-row-val warn">68%</span></div>
+  </div>
+  <div class="dash-section">
+    <div class="dash-section-title">Professioneel oordeel</div>
+    <div class="dash-row"><span class="dash-row-label">Unaided baseline (zonder AI)</span><span class="dash-row-val warn">58%</span></div>
+    <div class="dash-row"><span class="dash-row-label">Metacognitie-kalibratie</span><span class="dash-row-val ok">71%</span></div>
+    <div class="dash-row" style="font-size:.75rem; color:#7a8099; padding-top:.4rem"><span>Alarm als unaided baseline &lt;50% — cognitieve uitholling</span></div>
+  </div>
+  <div class="dash-section">
+    <div class="dash-section-title">Fairness &amp; bias</div>
+    <div class="dash-row"><span class="dash-row-label">Geslachtsdispariteit</span><span class="dash-row-val alert">18% ⚠</span></div>
+    <div class="dash-row"><span class="dash-row-label">Etnische dispariteit</span><span class="dash-row-val ok">11%</span></div>
+    <div class="dash-row"><span class="dash-row-label">Leeftijdsdispariteit</span><span class="dash-row-val ok">6%</span></div>
+    <div class="dash-row" style="font-size:.75rem; color:#7a8099; padding-top:.4rem"><span>Drempel: &gt;15% per dimensie = STOP</span></div>
+  </div>
+  <div class="dash-section">
+    <div class="dash-section-title">Slow AI Gates</div>
+    <div class="gate-row">
+      <div class="gate"><div class="dot ok"></div>Gate 1 · Intentie</div>
+      <div class="gate"><div class="dot ok"></div>Gate 2 · Transparantie</div>
+      <div class="gate"><div class="dot warn"></div>Gate 3 · Accountability</div>
+      <div class="gate"><div class="dot alert"></div>Gate 4 · Normatieve review</div>
+    </div>
+    <div style="font-size:.75rem; color:#f87171; margin-top:.7rem;">⚠ Gate 4 niet uitgevoerd dit kwartaal — actie vereist</div>
+  </div>
+  <div class="dash-note">Drempelwaarden gebaseerd op: Obermeyer et al. (bias 15%); Slow AI / Illingworth; Cognitive Agency Surrender, Xu et al. 2026; CSET automation bias (2024) — getallen illustratief</div>
+</div>
+
+## Drie ontbrekende dimensies
+{: #ontbrekende-dimensies }
+
+Het dashboard meet gedrag. Maar het artikel vraagt ook naar beleving en cultuur. Wie het dashboard eerlijk wil invullen, moet drie dimensies toevoegen die AI-tools zelf niet registreren — en die juist het verschil maken tussen een groene score en een gezonde organisatie.
+
+<div class="missing-metrics">
+  <h4>Wat AI-tools je niet vertellen</h4>
+  <p><strong>1. De adoptie-illusie als zelfstandige indicator.</strong> Het dashboard meet directe acceptatie en scaffolding apart. Maar de kloof tussen die twee — de adoptie-illusie index — verdient een eigen plek. Een organisatie met 80% gebruik en 15% scaffolding heeft een groter probleem dan een organisatie met 50% gebruik en 45% scaffolding. Die verhouding is wat telt.</p>
+  <p><strong>2. Psychologische veiligheid om af te wijken.</strong> Een override-rate van 34% zegt niets als mensen zich niet veilig voelen om af te wijken. Voelen professionals dat ze zonder consequenties een AI-aanbeveling kunnen aanvechten? Dat is een cultuurvraag, geen systeemvraag — en precies daarom ontbreekt hij in elk dashboard.</p>
+  <p><strong>3. Moral distress als vroeg signaal.</strong> Weten wat goed is maar het niet kunnen doen door systeembeperkingen is de sterkste verborgen voorspeller van uitstroom. Geen enkel AI-platform registreert dit. Alleen een directe vraag aan professionals onthult waar de morele ruimte onder druk staat.</p>
+</div>
+
+Deze drie dimensies zijn niet meetbaar via logfiles of klikgedrag. Ze vragen om een andere methode: de vragenlijst hieronder.
+
+## De meetbare vragenlijst: Verantwoord AI-gebruik
+{: #vragenlijst }
+
+De vragenlijst hieronder vertaalt alle vijf domeinen van het dashboard — inclusief de drie ontbrekende dimensies — naar concrete vragen die je als organisatie kunt stellen aan professionals. De vragenlijst is ontworpen voor kwartaalse afname (10–15 minuten), anoniem in te vullen, en geeft per domein een score die direct vergelijkbaar is met de dashboarddrempels.
+
+<div class="questionnaire">
+  <div class="q-header">
+    <span class="q-badge">Instrument</span>
+    <span class="q-title">Verantwoord AI-gebruik — Zelfevaluatie voor professionals</span>
+  </div>
+  <p style="font-family:Arial,sans-serif;font-size:.85rem;color:#5a5650;margin-bottom:1.4rem;">Beantwoord elke vraag op een schaal van 1 (nooit / helemaal niet) tot 5 (altijd / volledig). Er zijn geen goede of foute antwoorden. De uitkomst is bedoeld als teamgesprek, niet als beoordeling van individuen. Anonimiteit is gewaarborgd.</p>
+
+  <div class="q-domain">
+    <div class="q-domain-title">Domein A — Kwaliteit van gebruik <span style="font-weight:400;color:#aaa;">(adoptie-illusie index)</span></div>
+    <div class="q-item"><div class="q-num blue">A1</div><div class="q-text">Wanneer ik een AI-tool gebruik voor een inhoudelijke taak, beoordeel ik de output kritisch voordat ik er iets mee doe.<br><em>1 = nooit · 3 = soms · 5 = altijd</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num blue">A2</div><div class="q-text">Ik vraag mij af welke aannames of patronen aan de basis liggen van een AI-aanbeveling, in plaats van alleen het eindadvies over te nemen.<br><em>1 = nooit · 3 = soms · 5 = altijd</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num blue">A3</div><div class="q-text">Als ik tijdwinst boek door AI-gebruik, gebruik ik die ruimte voor verdieping of reflectie — niet alleen voor méér taken.<br><em>1 = nooit · 3 = soms · 5 = altijd</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num blue">A4</div><div class="q-text">Ik kan aangeven bij welke typen taken ik AI <em>niet</em> inzet — en waarom.<br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+  </div>
+
+  <div class="q-domain">
+    <div class="q-domain-title">Domein B — Menselijk eigenaarschap <span style="font-weight:400;color:#aaa;">(override &amp; accountability)</span></div>
+    <div class="q-item"><div class="q-num amber">B1</div><div class="q-text">Als ik het niet eens ben met een AI-aanbeveling, wijk ik er ook daadwerkelijk van af — en leg ik dat vast.<br><em>1 = nooit · 3 = soms · 5 = altijd</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num amber">B2</div><div class="q-text">Ik voel mij verantwoordelijk voor de uitkomst van een besluit dat (mede) door AI is ondersteund.<br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num amber">B3</div><div class="q-text">Ik weet wie in mijn organisatie aanspreekbaar is als een AI-systeem een fout maakt of een onrechtvaardig resultaat geeft.<br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+  </div>
+
+  <div class="q-domain">
+    <div class="q-domain-title">Domein C — Psychologische veiligheid <span style="font-weight:400;color:#aaa;">(ontbrekende dimensie 2)</span></div>
+    <div class="q-item"><div class="q-num red">C1</div><div class="q-text">Ik voel mij vrij om een AI-aanbeveling te betwisten, ook als anderen in mijn team die al hebben overgenomen.<br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num red">C2</div><div class="q-text">In mijn team is het normaal om hardop te twijfelen aan een AI-uitkomst — zonder dat dit als traag of lastig wordt gezien.<br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num red">C3</div><div class="q-text">Mijn leidinggevende waardeert het als ik een AI-suggestie kritisch bevraag, ook als dit meer tijd kost.<br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+  </div>
+
+  <div class="q-domain">
+    <div class="q-domain-title">Domein D — Professioneel oordeel &amp; vakmanschap <span style="font-weight:400;color:#aaa;">(cognitieve uitholling)</span></div>
+    <div class="q-item"><div class="q-num blue">D1</div><div class="q-text">Ik kan complexe analyses in mijn vakgebied nog zelfstandig uitvoeren — zonder AI — op het niveau dat ik twee jaar geleden ook kon.<br><em>1 = sterk achteruitgegaan · 3 = gelijk · 5 = verbeterd</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num blue">D2</div><div class="q-text">Ik weet wanneer mijn eigen oordeel betrouwbaarder is dan een AI-uitkomst — en durf daar ook op te handelen.<br><em>1 = nooit · 3 = soms · 5 = altijd</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num blue">D3</div><div class="q-text">Ik voer periodiek taken uit zonder AI-ondersteuning, bewust, om mijn eigen referentiekader scherp te houden.<br><em>1 = nooit · 3 = soms · 5 = regelmatig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+  </div>
+
+  <div class="q-domain">
+    <div class="q-domain-title">Domein E — Moral distress &amp; normatieve ruimte <span style="font-weight:400;color:#aaa;">(ontbrekende dimensie 3)</span></div>
+    <div class="q-item"><div class="q-num red">E1</div><div class="q-text">Er zijn situaties in mijn werk waarbij ik weet wat de juiste beslissing is, maar het AI-systeem of de organisatiedruk mij verhindert dat te doen.<br><em>1 = nooit · 3 = soms · 5 = regelmatig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num red">E2</div><div class="q-text">Als ik het gevoel heb dat een AI-aanbeveling onrechtvaardig uitpakt voor een cliënt, medewerker of burger, heb ik de middelen om dat te adresseren.<br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num red">E3</div><div class="q-text">In mijn organisatie is er ruimte om normatieve vragen te stellen over AI — over rechtvaardigheid, waarden en wie het systeem dient.<br><em>1 = helemaal niet · 3 = beperkt · 5 = volop</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+  </div>
+
+  <div class="q-domain">
+    <div class="q-domain-title">Domein F — Slow AI Gates <span style="font-weight:400;color:#aaa;">(bewuste keuze)</span></div>
+    <div class="q-item"><div class="q-num green">F1</div><div class="q-text">Voordat een nieuw AI-systeem in mijn team wordt ingezet, wordt expliciet besproken <em>waarvoor</em> we het inzetten — en waarvoor niet.<br><em>1 = nooit · 3 = soms · 5 = altijd</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num green">F2</div><div class="q-text">AI-output in mijn werkproces is uitlegbaar — ik kan (of weet wie kan) verklaren hoe een aanbeveling tot stand is gekomen.<br><em>1 = helemaal niet · 3 = deels · 5 = volledig</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+    <div class="q-item"><div class="q-num green">F3</div><div class="q-text">Er zijn vaste momenten waarop mijn team de inzet van AI evalueert — niet alleen technisch, maar ook op waarden en effecten voor mensen.<br><em>1 = nooit · 3 = ad hoc · 5 = structureel</em><div class="q-scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div></div></div>
+  </div>
+
+  <div class="q-scoring">
+    <strong>Scoringsgids — per domein (gemiddelde over vragen)</strong>
+    <div class="score-row"><span>4,0 – 5,0</span><span style="color:#0f6e56;font-weight:600">✓ Gezond — blijf monitoren</span></div>
+    <div class="score-row"><span>3,0 – 3,9</span><span style="color:#854f0b;font-weight:600">⚠ Aandacht — bespreek in team</span></div>
+    <div class="score-row"><span>2,0 – 2,9</span><span style="color:#a32d2d;font-weight:600">⚡ Risico — actie vereist</span></div>
+    <div class="score-row"><span>&lt; 2,0</span><span style="color:#a32d2d;font-weight:700">✗ Kritiek — stop en heroverweeg</span></div>
+    <p style="margin-top:.7rem;font-size:.8rem;color:#888;">Adoptie-illusie index = (A1+A2) − (A3+A4) — hoe hoger het verschil, hoe groter de kloof tussen gebruik en kritisch oordeel.<br>Moral distress alarm: E1 ≥ 3,5 gecombineerd met E2 ≤ 2,5 = verhoogd uitstroomrisico; direct bespreekbaar maken.</p>
+  </div>
+</div>
+
+De vragenlijst geeft geen definitief oordeel — ze geeft **gespreksstof**. De scores zijn het startpunt voor een teamgesprek, niet het eindpunt. Wat telt, is niet de gemiddelde score maar de patronen: waar zit het verschil tussen domeinen? Wie geeft structureel lagere scores op moral distress? Welk team heeft een hoge override-rate maar lage psychologische veiligheid?
+
+## Vier vragen die meer zeggen dan welke KPI ook
+
+In plaats van direct een dashboard te bouwen, kun je beginnen met vier vragen. Ze zijn eenvoudig — maar het antwoord erop legt precies bloot waar de adoptie-illusie zit.
+
+1. Waar meten we gebruik — en noemen we dat succes?
+2. Waar verdampt tijdwinst in méér werk in plaats van meer ruimte?
+3. Waar leren mensen hun vak minder goed — omdat AI het voor ze doet?
+4. Waar komt de menselijke maat onder druk te staan — zonder dat iemand dat hardop zegt?
+
+Deze vragen zijn soms confronterender dan cijfers. Dat is precies de bedoeling.
+
+## Vertragen als professionele vaardigheid
+{: #vertragen }
+
+AI nodigt uit tot versnelling. Meer doen, sneller beslissen, efficiënter werken. Maar juist daarom wordt iets anders cruciaal: het vermogen om te **vertragen**.
+
+Niet om minder te doen. Maar om beter te zien: wat er gebeurt, wat er verschuift, en wat we misschien verliezen.
+
+Een dashboard is daarin een hulpmiddel — geen doel. Het gaat er niet om een perfecte set KPI's te hebben. Het gaat erom dat de organisatie de vragen blijft stellen die het systeem niet stelt.
+
+Want als je alleen meet wat makkelijk meetbaar is, organiseer je precies dat gedrag. En de rest — zorgvuldigheid, autonomie, rechtvaardigheid — verdwijnt niet ineens. Het verdampt langzaam, onzichtbaar, terwijl de dashboards groen blijven.
+
+> De vraag is uiteindelijk niet wat AI kan. De vraag is: wat voor organisatie willen wij zijn?
+
+## Wil je hiermee aan de slag?
+
+Gebruik dit artikel als reflectiekader in je team of organisatie. Begin niet met technologie — begin met de vraag: *waar willen wij ruimte houden, en waarvoor?*
+
+De vier vragen en de vragenlijst hierboven zijn een goede start. Niet als checklist, maar als gespreksopener.
+
+## Literatuur
+{: #literatuur }
+
+<div class="literature">
+<ol>
+  <li>Acemoglu, D. &amp; Restrepo, P. (2022). Tasks, automation, and the rise in US wage inequality. <em>Econometrica, 90</em>(5), 1973–2016.</li>
+  <li>Austin, W. et al. (2005). Moral distress in healthcare practice: The situation of nurses. <em>HEC Forum, 29</em>(1), 1–15.</li>
+  <li>Bucinca, Z. et al. (2021). To trust or to think: Cognitive forcing functions can reduce overreliance on AI in AI-assisted decision-making. <em>ACM CHI Conference.</em></li>
+  <li>CSET Georgetown (2024). AI Safety and Automation Bias.</li>
+  <li>Corley, M.C. (2002). Nurse moral distress: A proposed theory and research agenda. <em>Nursing Ethics, 9</em>(6), 636–650.</li>
+  <li>Foucault, M. (1977). <em>Discipline and Punish.</em> Pantheon Books.</li>
+  <li>Illingworth, S. (2023–heden). <em>Slow AI.</em> Nieuwsbrief en curriculum over kritische AI-geletterdheid. <a href="https://theslowai.substack.com" target="_blank" rel="noopener">theslowai.substack.com</a></li>
+  <li>Obermeyer, Z. et al. (2019). Dissecting racial bias in an algorithm used to manage the health of populations. <em>Science, 366</em>(6464), 447–453.</li>
+  <li>Rosenthal-von der Pütten, A. &amp; Sach, M. (2024). Automation bias and AI-assisted decision-making. <em>Frontiers in Psychology.</em></li>
+  <li>Taylor, C. (1991). <em>The Ethics of Authenticity.</em> Harvard University Press.</li>
+  <li>Weick, K.E. (1995). <em>Sensemaking in Organizations.</em> SAGE Publications.</li>
+  <li>Xu, J. et al. (2026). Cognitive Agency Surrender. <em>arXiv preprint.</em></li>
+  <li>Ye &amp; Ranganathan / UC Berkeley Haas – HBR (2026). AI Doesn't Reduce Work, It Intensifies It.</li>
+</ol>
+</div>
