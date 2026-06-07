@@ -1,12 +1,116 @@
----
-layout: default
-title: "Niet sneller — maar wijzer | Instituut voor Toegepaste Filosofie"
-description: "AI wordt overal ingezet. Maar hoe weten we of het ook goed gaat? Over de adoptie-illusie, automation bias, Slow AI en wat we eigenlijk zouden moeten meten."
-permalink: /artikelen/niet-sneller-maar-wijzer/
----
-
-  
-
+ · HTML
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niet sneller — maar wijzer | Instituut voor Toegepaste Filosofie</title>
+<style>
+  :root {
+    --sand: #f7f5f0;
+    --ink: #1e1c19;
+    --ink-muted: #5a5650;
+    --ink-light: #888;
+    --accent-blue: #185fa5;
+    --accent-blue-light: #e6f1fb;
+    --accent-blue-border: #b5d4f4;
+    --accent-green: #0f6e56;
+    --accent-green-light: #e1f5ee;
+    --accent-green-border: #9fe1cb;
+    --accent-amber: #854f0b;
+    --accent-amber-light: #faeeda;
+    --accent-amber-border: #fac775;
+    --accent-red: #a32d2d;
+    --accent-red-light: #fcebeb;
+    --accent-red-border: #f7c1c1;
+    --rule: #e0ddd6;
+    --white: #ffffff;
+  }
+ 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--white);
+  }
+ 
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+ 
+  /* ── Header ── */
+  .essay-header { margin-bottom: 2.5rem; }
+  h1 {
+    font-size: 2.4rem;
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    margin-bottom: .5rem;
+  }
+  .subtitle {
+    font-size: 1.15rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-bottom: .75rem;
+  }
+  .meta {
+    font-family: Arial, sans-serif;
+    font-size: .82rem;
+    color: var(--ink-light);
+    letter-spacing: .03em;
+  }
+ 
+  /* ── Lead ── */
+  .lead {
+    background: var(--sand);
+    border-left: 4px solid var(--ink);
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 6px 6px 0;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--ink-muted);
+  }
+ 
+  /* ── TOC ── */
+  nav.toc {
+    background: var(--sand);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1rem 1.4rem;
+    margin: 2rem 0;
+    font-family: Arial, sans-serif;
+    font-size: .88rem;
+  }
+  nav.toc strong { display: block; margin-bottom: .4rem; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-light); }
+  nav.toc a { color: var(--accent-blue); text-decoration: none; margin-right: .5rem; }
+  nav.toc a:hover { text-decoration: underline; }
+ 
+  /* ── Body ── */
+  h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 2.8rem 0 .8rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    letter-spacing: -.01em;
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; margin-top: 1.5rem; }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 1.8rem 0 .5rem;
+    color: var(--ink);
+  }
+  p { margin-bottom: 1.1rem; }
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+  a { color: var(--accent-blue); }
+ 
   blockquote {
     border-left: 3px solid var(--accent-blue);
     margin: 2rem 0;
@@ -17,10 +121,10 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     font-size: 1.05rem;
     color: #0c3d72;
   }
-
+ 
   ol, ul { padding-left: 1.5rem; margin-bottom: 1.1rem; }
   li { margin-bottom: .4rem; }
-
+ 
   figure { margin: 2rem 0; }
   figcaption {
     font-family: Arial, sans-serif;
@@ -29,7 +133,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     text-align: center;
     margin-top: .5rem;
   }
-
+ 
   /* ── Dashboard ── */
   .dashboard {
     background: #1a1f2e;
@@ -86,7 +190,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
   .status-ok { background: #0d3d2a; color: #34d399; }
   .status-warn { background: #3d2a00; color: #fbbf24; }
   .status-alert { background: #3d0d0d; color: #f87171; }
-
+ 
   .dash-section {
     background: #252b3d;
     border-radius: 8px;
@@ -114,7 +218,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
   .dash-row-val.warn { color: #fbbf24; }
   .dash-row-val.alert { color: #f87171; }
   .dash-row-val.ok { color: #34d399; }
-
+ 
   .gate-row {
     display: flex;
     gap: .6rem;
@@ -134,7 +238,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
   .gate .dot.ok { background: #34d399; }
   .gate .dot.warn { background: #fbbf24; }
   .gate .dot.alert { background: #f87171; }
-
+ 
   .dash-note {
     font-size: .75rem;
     color: #7a8099;
@@ -142,7 +246,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     font-style: italic;
     line-height: 1.5;
   }
-
+ 
   /* ── NEW: Missing metrics callout ── */
   .missing-metrics {
     background: var(--accent-amber-light);
@@ -161,7 +265,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
   }
   .missing-metrics p { margin-bottom: .5rem; font-size: .92rem; color: #3d2200; }
   .missing-metrics p:last-child { margin-bottom: 0; }
-
+ 
   /* ── Questionnaire ── */
   .questionnaire {
     background: var(--sand);
@@ -188,7 +292,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     flex-shrink: 0;
   }
   .q-title { font-size: 1rem; font-weight: 700; color: var(--ink); }
-
+ 
   .q-domain {
     margin-bottom: 1.5rem;
   }
@@ -225,10 +329,10 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
   .q-num.green { background: var(--accent-green-light); color: var(--accent-green); border: 1px solid var(--accent-green-border); }
   .q-num.amber { background: var(--accent-amber-light); color: var(--accent-amber); border: 1px solid var(--accent-amber-border); }
   .q-num.red { background: var(--accent-red-light); color: var(--accent-red); border: 1px solid var(--accent-red-border); }
-
+ 
   .q-text { color: var(--ink); line-height: 1.5; }
   .q-text em { font-style: normal; font-weight: 600; color: var(--ink-muted); font-size: .82rem; }
-
+ 
   .q-scale {
     display: flex;
     gap: .3rem;
@@ -244,7 +348,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     padding: .2rem .1rem;
     color: var(--ink-muted);
   }
-
+ 
   .q-scoring {
     background: var(--white);
     border: 1px solid var(--rule);
@@ -262,7 +366,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     color: var(--ink-muted);
   }
   .score-row:last-child { border-bottom: none; }
-
+ 
   /* ── Lit ── */
   .literature ol {
     font-family: Arial, sans-serif;
@@ -271,7 +375,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     line-height: 1.6;
   }
   .literature li { margin-bottom: .5rem; }
-
+ 
   /* ── Print ── */
   @media print {
     .dashboard { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
@@ -285,21 +389,21 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
 </head>
 <body>
 <div class="page">
-
+ 
   <header class="essay-header">
     <h1>Niet sneller — maar wijzer</h1>
-    <p class="essay-subtitle">Over AI, de adoptie-illusie en wat we eigenlijk zouden moeten meten</p>
+    <p class="subtitle">Over AI, de adoptie-illusie en wat we eigenlijk zouden moeten meten</p>
     <p class="meta">Instituut voor Toegepaste Filosofie &nbsp;·&nbsp; <strong>Thema:</strong> AI, werk &amp; organisatie &nbsp;·&nbsp; <strong>Leestijd:</strong> ± 18–22 min</p>
   </header>
-
+ 
   <div class="lead">
     <p>Veel organisaties gebruiken AI. Maar bijna geen enkele organisatie weet of ze het ook <em>goed</em> doet.
     Niet efficiënter. Niet sneller. Maar goed.
     Dit artikel biedt een denkmodel voor HR-professionals en bestuurders die de regie willen houden over verantwoorde AI-adoptie —
     inclusief een dashboard met indicatoren en een meetbare vragenlijst voor de praktijk.</p>
   </div>
-
-  <nav class="essay-toc">
+ 
+  <nav class="toc">
     <strong>In dit artikel</strong>
     <a href="#adoptie-illusie">De adoptie-illusie</a> ·
     <a href="#twee-reflexen">Twee reflexen</a> ·
@@ -313,17 +417,17 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     <a href="#vertragen">Vertragen</a> ·
     <a href="#literatuur">Literatuur</a>
   </nav>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="adoptie-illusie">De adoptie-illusie</h2>
-
+ 
   <p>Veel organisaties meten het succes van AI via gebruik: hoeveel mensen gebruiken het, hoe vaak, en hoeveel tijd besparen we? Dat lijkt logisch. Maar het is onvoldoende.</p>
-
+ 
   <p>In de praktijk — in ziekenhuizen, beleidsorganisaties en HR-afdelingen — zien we steeds hetzelfde patroon: adoptie is hoog, maar kritische evaluatie van AI-output blijft achter. Een groot deel van de professionals gebruikt de tools. Een aanzienlijk kleiner deel stelt de output actief ter discussie.</p>
-
+ 
   <p>Die kloof noem ik de <strong>adoptie-illusie</strong>. Hoe groter de adoptie zónder kritisch oordeel, hoe groter het risico. AI helpt dan niet meer — het vervangt ongemerkt het professioneel oordeel van mensen die het eigenlijk beter weten.</p>
-
+ 
   <figure>
     <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
       <rect width="680" height="120" fill="#f7f5f0" rx="8"/>
@@ -340,15 +444,15 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     </svg>
     <figcaption>De adoptie-illusie: gebruik en kritisch oordeel lopen uiteen — die kloof is het echte risico</figcaption>
   </figure>
-
+ 
   <blockquote>Als je alleen meet wat makkelijk meetbaar is, organiseer je precies dat gedrag.</blockquote>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="twee-reflexen">Twee reflexen — en een keuze</h2>
-
+ 
   <p>Achter elk AI-initiatief schuilt een impliciete keuze. Organisaties kunnen AI inzetten om de dingen <em>sneller</em> te doen, of om de <em>goede</em> dingen te doen. Beide zijn nodig — maar zonder bewust tegenwicht wint bijna altijd de eerste.</p>
-
+ 
   <figure>
     <svg viewBox="0 0 680 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
       <rect width="680" height="110" fill="#f7f5f0" rx="8"/>
@@ -364,17 +468,17 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     </svg>
     <figcaption>Zonder bewust tegenwicht wint de operationele reflex bijna altijd</figcaption>
   </figure>
-
+ 
   <p>Technologie versnelt wat er al is. Als snelheid de norm wordt, verschuift zorgvuldigheid naar de achtergrond. Als systemen leidend worden, verschuift verantwoordelijkheid. Als output centraal staat, raakt betekenis uit beeld.</p>
-
+ 
   <p>Een dashboard dat dit bewaakt is daarom geen technisch controlemiddel. Het is een manier om de <strong>morele ruimte van professionals te beschermen</strong> — de ruimte om te twijfelen, af te wijken, en verantwoording te nemen.</p>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="vier-niveaus">Vier niveaus: van symptoom naar betekenis</h2>
-
+ 
   <p>Om AI écht te beoordelen, moeten we anders meten. Niet alleen output — maar ook wat AI doet met professionals, met besluitvorming en met publieke waarden. Daarvoor helpt een denkmodel met vier niveaus. De meeste organisaties blijven hangen op het eerste. De echte vragen zitten daarboven.</p>
-
+ 
   <figure>
     <svg viewBox="0 0 680 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
       <defs>
@@ -401,70 +505,70 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     </svg>
     <figcaption>Van directe output naar publieke waarde — de meeste organisaties stoppen bij het eerste niveau</figcaption>
   </figure>
-
+ 
   <h3>1. Operationeel — wat gebeurt er nu?</h3>
   <p>Werkt het systeem? Hoe vaak zitten er fouten in? Hoeveel tijd besparen we? Dit is wat organisaties al meten — en terecht. Maar een lage foutmarge is géén garantie voor veiligheid als tegelijkertijd het kritisch oordeel verdwijnt. Let ook op <em>workslop</em>: AI-output van onvoldoende kwaliteit die handmatige correctie vereist en zo de beloofde tijdwinst wegvreet.</p>
-
+ 
   <h3>2. Tactisch — blijft het professioneel oordeel overeind?</h3>
   <p>Wijken mensen nog af van AI-advies? Durven ze te corrigeren? Waar gaat tijdwinst eigenlijk naartoe? Hier ontstaan de eerste sluipende risico's.</p>
   <p><strong>Automation bias</strong>: bij twijfelgevallen gaan professionals zelden meer af van eigen oordeel — precies waar dat het meest nodig is. En de <strong>intensiveringsval</strong>: tijdwinst wordt niet omgezet in ruimte, maar in meer taken. Efficiëntie zonder beleid leidt zelden tot meer ademruimte.</p>
-
+ 
   <h3>3. Strategisch — wat bouwen we op, of af?</h3>
   <p>Ontwikkelen professionals zich nog? Blijft er ruimte om het vak te leren? Versterkt AI het werk, of holt het het uit?</p>
   <p>Een klassiek risico: AI neemt routinetaken over — maar dat zijn juist de taken waar mensen het vak leren. Wat vandaag efficiënt lijkt, kan morgen een tekort aan expertise zijn. De waarde van professionals verschuift intussen naar empathie, complex oordeel en verantwoording — vaardigheden die AI niet vervangt.</p>
-
+ 
   <h3>4. Normatief — doen we nog het goede?</h3>
   <p>Dit niveau wordt het minst gemeten — en is tegelijk het belangrijkst. Draagt AI bij aan rechtvaardigheid? Blijft professioneel oordeel leidend? Vertrouwen mensen het systeem?</p>
   <p><strong>Moral distress</strong> — weten wat goed is, maar het niet kunnen doen door systeembeperkingen — is de sterkste verborgen voorspeller van uitstroom. En algoritmische bias: historische data reproduceert bestaande ongelijkheden. Wie is verantwoordelijk als een algoritme systematisch onrechtvaardig uitpakt?</p>
-
+ 
   <blockquote>Een AI-dashboard is geen technisch instrument. Het is een manier om de morele ruimte van professionals te bewaken.</blockquote>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="slow-ai">Slow AI: weten wanneer je AI gebruikt — en wanneer niet</h2>
-
+ 
   <p>Er is een naam voor de houding die dit denkmodel vraagt: <strong>Slow AI</strong>. Het concept is ontwikkeld door de Schotse professor Sam Illingworth, die het omschrijft als: <em>knowing when to use AI and when to leave it the hell alone</em>. Illingworth is oprichter van de gelijknamige nieuwsbrief en een twaalf maanden durend curriculum voor kritische AI-geletterdheid, met inmiddels meer dan 16.000 abonnees wereldwijd.</p>
-
+ 
   <p>Slow AI is geen pleidooi voor het vermijden van AI. Het is een pleidooi voor <strong>bewuste keuze</strong>: welke taken versterken we met AI, en welke juist niet? Waar voegt automatisering waarde toe, en waar ondermijnt ze precies de capaciteit — het oordeel, de stem, de menselijkheid — die we willen bewaren?</p>
-
+ 
   <p>Illingworths werk raakt direct aan de adoptie-illusie. Hij wijst op het gevaar van <em>cognitieve uitbesteding</em>: hoe we door AI-gebruik geleidelijk verleren hoe we zelf redeneren, schrijven en oordelen. Niet door een bewuste keuze, maar door gemak en gewenning. Zijn antwoord: AI-geletterdheid is niet weten hoe je prompts schrijft, maar weten <em>wanneer</em> je dat doet — en wanneer je dat bewust laat.</p>
-
+ 
   <p>In dashboardtermen vertaalt Slow AI zich in concrete <em>decision gates</em>: momenten in het werkproces waarop de professional actief wordt uitgenodigd om AI-output te toetsen vóór die wordt overgenomen. Niet als vertraging — maar als kwaliteitsrem. Het dashboard meet dan niet alleen wat er gebeurt, maar ook of de juiste vragen worden gesteld.</p>
-
+ 
   <p>Meer lezen: <a href="https://theslowai.substack.com" target="_blank" rel="noopener">theslowai.substack.com</a></p>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="wat-ai-verandert">Wat AI werkelijk verandert</h2>
-
+ 
   <p>AI verandert niet alleen wat we doen. Het verandert wat we als <strong>goed werk gaan zien</strong>.</p>
-
+ 
   <p>Filosoof Charles Taylor zou dit een verschuiving in onze 'moral horizon' noemen: niet alleen ons gedrag verandert, maar onze maatstaf voor wat telt. Karl Weick zou het framen als een sensemaking-probleem: als het systeem altijd klopt, verleren we hoe we zelf betekenis geven aan complexe situaties. En Michel Foucault zou wijzen op de normaliserende werking van algoritmen: wat het systeem als normaal markeert, wordt gaandeweg de norm.</p>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="nieuwe-mechanismen">Nieuwe mechanismen</h2>
-
+ 
   <p>In HR-afdelingen, beleidsorganisaties en uitvoeringsinstanties zien we precies dezelfde mechanismen, onder andere namen.</p>
-
+ 
   <p><strong>Moral distress in HR en overheid:</strong> een HR-professional die tegen een AI-selectiescore in wil gaan, maar daarvoor geen ruimte voelt. Een beleidsmedewerker die twijfelt aan een modeluitkomst, maar geen taal heeft om dat te benoemen.</p>
-
+ 
   <p><strong>Automation bias in beleid:</strong> een beleidsadvies dat wordt overgenomen zonder tegenspraak omdat "het model het ook zegt". Een verzuimanalyse die als feit wordt behandeld terwijl het een voorspelling is.</p>
-
+ 
   <p><strong>De intensiveringsval in de publieke sector:</strong> AI maakt snellere verslaglegging mogelijk — maar de ruimte die vrijkomt, wordt gevuld met meer beleid, meer rapportages, meer verantwoording. Meer doen in plaats van beter doen.</p>
-
+ 
   <p>De vraag is niet of dit in jouw organisatie speelt. De vraag is: <em>zie je het al?</em></p>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="dashboard">Het Verantwoord AI-Adoptie Dashboard</h2>
-
+ 
   <p>Hieronder staat het dashboard zoals het er in de praktijk uit kan zien. Het toont niet hoeveel AI wordt gebruikt, maar <em>hoe</em>. De getallen zijn illustratief; de structuur is direct toepasbaar. Verderop in dit artikel staat de vragenlijst die deze indicatoren meetbaar maakt.</p>
-
+ 
   <div class="dashboard">
     <div class="dashboard-title">Verantwoord AI-Adoptie Dashboard</div>
     <div class="dashboard-headline">Niet hoeveel — maar hoe wordt AI gebruikt?</div>
-
+ 
     <div class="kpi-grid">
       <div class="kpi">
         <div class="kpi-label">AI-geletterdheid</div>
@@ -487,7 +591,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
         <span class="kpi-status status-alert">actie vereist</span>
       </div>
     </div>
-
+ 
     <div class="dash-section">
       <div class="dash-section-title">Kwaliteit van gebruik</div>
       <div class="dash-row"><span class="dash-row-label">Directe acceptatie (geen toets)</span><span class="dash-row-val alert">61% ↑</span></div>
@@ -495,21 +599,21 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
       <div class="dash-row"><span class="dash-row-label">Actieve verificatie</span><span class="dash-row-val ok">48%</span></div>
       <div class="dash-row" style="font-size:.75rem; color:#7a8099; padding-top:.4rem"><span>Drempel: directe acceptatie &lt;40% · scaffolding &gt;50%</span></div>
     </div>
-
+ 
     <div class="dash-section">
       <div class="dash-section-title">Menselijk eigenaarschap</div>
       <div class="dash-row"><span class="dash-row-label">Override-rate</span><span class="dash-row-val ok">34%</span></div>
       <div class="dash-row"><span class="dash-row-label">Gedocumenteerde rationale bij override</span><span class="dash-row-val ok">79%</span></div>
       <div class="dash-row"><span class="dash-row-label">Medewerkers die AI actief informeren</span><span class="dash-row-val warn">68%</span></div>
     </div>
-
+ 
     <div class="dash-section">
       <div class="dash-section-title">Professioneel oordeel</div>
       <div class="dash-row"><span class="dash-row-label">Unaided baseline (zonder AI)</span><span class="dash-row-val warn">58%</span></div>
       <div class="dash-row"><span class="dash-row-label">Metacognitie-kalibratie</span><span class="dash-row-val ok">71%</span></div>
       <div class="dash-row" style="font-size:.75rem; color:#7a8099; padding-top:.4rem"><span>Alarm als unaided baseline &lt;50% — cognitieve uitholling</span></div>
     </div>
-
+ 
     <div class="dash-section">
       <div class="dash-section-title">Fairness &amp; bias</div>
       <div class="dash-row"><span class="dash-row-label">Geslachtsdispariteit</span><span class="dash-row-val alert">18% ⚠</span></div>
@@ -517,7 +621,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
       <div class="dash-row"><span class="dash-row-label">Leeftijdsdispariteit</span><span class="dash-row-val ok">6%</span></div>
       <div class="dash-row" style="font-size:.75rem; color:#7a8099; padding-top:.4rem"><span>Drempel: &gt;15% per dimensie = STOP</span></div>
     </div>
-
+ 
     <div class="dash-section">
       <div class="dash-section-title">Slow AI Gates</div>
       <div class="gate-row">
@@ -528,45 +632,45 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
       </div>
       <div style="font-size:.75rem; color:#f87171; margin-top:.7rem;">⚠ Gate 4 niet uitgevoerd dit kwartaal — actie vereist</div>
     </div>
-
+ 
     <div class="dash-note">Drempelwaarden gebaseerd op: Obermeyer et al. (bias 15%); Slow AI / Illingworth; Cognitive Agency Surrender, Xu et al. 2026; CSET automation bias (2024) — getallen illustratief</div>
   </div>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="ontbrekende-dimensies">Drie ontbrekende dimensies</h2>
-
+ 
   <p>Het dashboard meet gedrag. Maar het artikel vraagt ook naar beleving en cultuur. Wie het dashboard eerlijk wil invullen, moet drie dimensies toevoegen die AI-tools zelf niet registreren — en die juist het verschil maken tussen een groene score en een gezonde organisatie.</p>
-
+ 
   <div class="missing-metrics">
     <h4>Wat AI-tools je niet vertellen</h4>
     <p><strong>1. De adoptie-illusie als zelfstandige indicator.</strong> Het dashboard meet directe acceptatie en scaffolding apart. Maar de kloof tussen die twee — de adoptie-illusie index — verdient een eigen plek. Een organisatie met 80% gebruik en 15% scaffolding heeft een groter probleem dan een organisatie met 50% gebruik en 45% scaffolding. Die verhouding is wat telt.</p>
     <p><strong>2. Psychologische veiligheid om af te wijken.</strong> Een override-rate van 34% zegt niets als mensen zich niet veilig voelen om af te wijken. Voelen professionals dat ze zonder consequenties een AI-aanbeveling kunnen aanvechten? Dat is een cultuurvraag, geen systeemvraag — en precies daarom ontbreekt hij in elk dashboard.</p>
     <p><strong>3. Moral distress als vroeg signaal.</strong> Weten wat goed is maar het niet kunnen doen door systeembeperkingen is de sterkste verborgen voorspeller van uitstroom. Geen enkel AI-platform registreert dit. Alleen een directe vraag aan professionals onthult waar de morele ruimte onder druk staat.</p>
   </div>
-
+ 
   <p>Deze drie dimensies zijn niet meetbaar via logfiles of klikgedrag. Ze vragen om een andere methode: de vragenlijst hieronder.</p>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="vragenlijst">De meetbare vragenlijst: Verantwoord AI-gebruik</h2>
-
+ 
   <p>De vragenlijst hieronder vertaalt alle vijf domeinen van het dashboard — inclusief de drie ontbrekende dimensies — naar concrete vragen die je als organisatie kunt stellen aan professionals. De vragenlijst is ontworpen voor kwartaalse afname (10–15 minuten), anoniem in te vullen, en geeft per domein een score die direct vergelijkbaar is met de dashboarddrempels.</p>
-
+ 
   <div class="questionnaire">
     <div class="q-header">
       <span class="q-badge">Instrument</span>
       <span class="q-title">Verantwoord AI-gebruik — Zelfevaluatie voor professionals</span>
     </div>
-
+ 
     <p style="font-family:Arial,sans-serif;font-size:.85rem;color:#5a5650;margin-bottom:1.4rem;">
       Beantwoord elke vraag op een schaal van 1 (nooit / helemaal niet) tot 5 (altijd / volledig). Er zijn geen goede of foute antwoorden. De uitkomst is bedoeld als teamgesprek, niet als beoordeling van individuen. Anonimiteit is gewaarborgd.
     </p>
-
+ 
     <!-- DOMEIN A -->
     <div class="q-domain">
       <div class="q-domain-title">Domein A — Kwaliteit van gebruik <span style="font-weight:400;color:#aaa;">(adoptie-illusie index)</span></div>
-
+ 
       <div class="q-item">
         <div class="q-num blue">A1</div>
         <div class="q-text">
@@ -577,7 +681,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num blue">A2</div>
         <div class="q-text">
@@ -588,7 +692,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num blue">A3</div>
         <div class="q-text">
@@ -599,7 +703,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num blue">A4</div>
         <div class="q-text">
@@ -611,11 +715,11 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
         </div>
       </div>
     </div>
-
+ 
     <!-- DOMEIN B -->
     <div class="q-domain">
       <div class="q-domain-title">Domein B — Menselijk eigenaarschap <span style="font-weight:400;color:#aaa;">(override &amp; accountability)</span></div>
-
+ 
       <div class="q-item">
         <div class="q-num amber">B1</div>
         <div class="q-text">
@@ -626,7 +730,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num amber">B2</div>
         <div class="q-text">
@@ -637,7 +741,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num amber">B3</div>
         <div class="q-text">
@@ -649,11 +753,11 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
         </div>
       </div>
     </div>
-
+ 
     <!-- DOMEIN C -->
     <div class="q-domain">
       <div class="q-domain-title">Domein C — Psychologische veiligheid <span style="font-weight:400;color:#aaa;">(ontbrekende dimensie 2)</span></div>
-
+ 
       <div class="q-item">
         <div class="q-num red">C1</div>
         <div class="q-text">
@@ -664,7 +768,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num red">C2</div>
         <div class="q-text">
@@ -675,7 +779,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num red">C3</div>
         <div class="q-text">
@@ -687,11 +791,11 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
         </div>
       </div>
     </div>
-
+ 
     <!-- DOMEIN D -->
     <div class="q-domain">
       <div class="q-domain-title">Domein D — Professioneel oordeel &amp; vakmanschap <span style="font-weight:400;color:#aaa;">(cognitieve uitholling)</span></div>
-
+ 
       <div class="q-item">
         <div class="q-num blue">D1</div>
         <div class="q-text">
@@ -702,7 +806,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num blue">D2</div>
         <div class="q-text">
@@ -713,7 +817,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num blue">D3</div>
         <div class="q-text">
@@ -725,11 +829,11 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
         </div>
       </div>
     </div>
-
+ 
     <!-- DOMEIN E -->
     <div class="q-domain">
       <div class="q-domain-title">Domein E — Moral distress &amp; normatieve ruimte <span style="font-weight:400;color:#aaa;">(ontbrekende dimensie 3)</span></div>
-
+ 
       <div class="q-item">
         <div class="q-num red">E1</div>
         <div class="q-text">
@@ -740,7 +844,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num red">E2</div>
         <div class="q-text">
@@ -751,7 +855,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num red">E3</div>
         <div class="q-text">
@@ -763,11 +867,11 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
         </div>
       </div>
     </div>
-
+ 
     <!-- DOMEIN F -->
     <div class="q-domain">
       <div class="q-domain-title">Domein F — Slow AI Gates <span style="font-weight:400;color:#aaa;">(bewuste keuze)</span></div>
-
+ 
       <div class="q-item">
         <div class="q-num green">F1</div>
         <div class="q-text">
@@ -778,7 +882,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num green">F2</div>
         <div class="q-text">
@@ -789,7 +893,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
           </div>
         </div>
       </div>
-
+ 
       <div class="q-item">
         <div class="q-num green">F3</div>
         <div class="q-text">
@@ -801,7 +905,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
         </div>
       </div>
     </div>
-
+ 
     <!-- Scoring -->
     <div class="q-scoring">
       <strong>Scoringsgids — per domein (gemiddelde over vragen)</strong>
@@ -815,45 +919,45 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
       </p>
     </div>
   </div>
-
+ 
   <p>De vragenlijst geeft geen definitief oordeel — ze geeft <strong>gespreksstof</strong>. De scores zijn het startpunt voor een teamgesprek, niet het eindpunt. Wat telt, is niet de gemiddelde score maar de patronen: waar zit het verschil tussen domeinen? Wie geeft structureel lagere scores op moral distress? Welk team heeft een hoge override-rate maar lage psychologische veiligheid?</p>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2>Vier vragen die meer zeggen dan welke KPI ook</h2>
-
+ 
   <p>In plaats van direct een dashboard te bouwen, kun je beginnen met vier vragen. Ze zijn eenvoudig — maar het antwoord erop legt precies bloot waar de adoptie-illusie zit.</p>
-
+ 
   <ol>
     <li>Waar meten we gebruik — en noemen we dat succes?</li>
     <li>Waar verdampt tijdwinst in méér werk in plaats van meer ruimte?</li>
     <li>Waar leren mensen hun vak minder goed — omdat AI het voor ze doet?</li>
     <li>Waar komt de menselijke maat onder druk te staan — zonder dat iemand dat hardop zegt?</li>
   </ol>
-
+ 
   <p>Deze vragen zijn soms confronterender dan cijfers. Dat is precies de bedoeling.</p>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="vertragen">Vertragen als professionele vaardigheid</h2>
-
+ 
   <p>AI nodigt uit tot versnelling. Meer doen, sneller beslissen, efficiënter werken. Maar juist daarom wordt iets anders cruciaal: het vermogen om te <strong>vertragen</strong>.</p>
-
+ 
   <p>Niet om minder te doen. Maar om beter te zien: wat er gebeurt, wat er verschuift, en wat we misschien verliezen.</p>
-
+ 
   <p>Een dashboard is daarin een hulpmiddel — geen doel. Het gaat er niet om een perfecte set KPI's te hebben. Het gaat erom dat de organisatie de vragen blijft stellen die het systeem niet stelt.</p>
-
+ 
   <p>Want als je alleen meet wat makkelijk meetbaar is, organiseer je precies dat gedrag. En de rest — zorgvuldigheid, autonomie, rechtvaardigheid — verdwijnt niet ineens. Het verdampt langzaam, onzichtbaar, terwijl de dashboards groen blijven.</p>
-
+ 
   <blockquote>De vraag is uiteindelijk niet wat AI kan. De vraag is: wat voor organisatie willen wij zijn?</blockquote>
-
+ 
   <h2>Wil je hiermee aan de slag?</h2>
-
+ 
   <p>Gebruik dit artikel als reflectiekader in je team of organisatie. Begin niet met technologie — begin met de vraag: <em>waar willen wij ruimte houden, en waarvoor?</em></p>
-
+ 
   <p>De vier vragen en de vragenlijst hierboven zijn een goede start. Niet als checklist, maar als gespreksopener.</p>
-
-
+ 
+ 
   <!-- ═══════════════════════════════════════════════════ -->
   <h2 id="literatuur" class="literature">Literatuur</h2>
   <div class="literature">
@@ -873,7 +977,7 @@ permalink: /artikelen/niet-sneller-maar-wijzer/
     <li>Ye &amp; Ranganathan / UC Berkeley Haas – HBR (2026). AI Doesn't Reduce Work, It Intensifies It.</li>
   </ol>
   </div>
-
+ 
 </div>
 </body>
 </html>
