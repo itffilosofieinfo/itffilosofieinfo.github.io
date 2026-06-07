@@ -1800,6 +1800,8 @@ input[type="radio"] {
 
 .essay-header h1 {
   margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .essay-header .subtitle {
@@ -1815,14 +1817,28 @@ input[type="radio"] {
 .essay-header .meta {
   font-size: 0.9rem;
   color: var(--text-muted);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Lead-alinea */
+/* Essay body: alle directe children op één kolom gecentreerd */
+.essay-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.essay-body > * {
+  width: 100%;
+  max-width: 70ch;
+}
+
+/* Lead-alinea — uitgelijnd met de proza-kolom */
 .essay-lead {
   background: var(--bg-soft);
   border-left: 4px solid var(--salmon);
   padding: 2rem 2.5rem;
-  margin: 2.5rem 0 3rem;
+  margin: 2.5rem auto 3rem;
   font-size: 1.1rem;
   font-style: italic;
   line-height: 1.85;
@@ -1834,20 +1850,21 @@ input[type="radio"] {
   color: var(--text);
 }
 
-/* Inhoudsopgave nav */
+/* Inhoudsopgave nav — links onder elkaar */
 .essay-toc {
   background: var(--bg-white);
   border: 1px solid var(--line);
+  border-left: 4px solid var(--salmon);
   padding: 1.5rem 2rem;
-  margin: 0 0 3.5rem;
+  margin: 0 auto 3.5rem;
   font-size: 0.9rem;
-  line-height: 2;
+  line-height: 1;
   max-width: 70ch;
 }
 
 .essay-toc strong {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: var(--ink-blue);
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -1855,13 +1872,21 @@ input[type="radio"] {
 }
 
 .essay-toc a {
+  display: block;
   color: var(--text);
   border-bottom: none;
-  white-space: nowrap;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.essay-toc a:last-child {
+  border-bottom: none;
 }
 
 .essay-toc a:hover {
   color: var(--salmon);
+  padding-left: 0.4rem;
+  transition: padding-left 0.15s ease, color 0.15s ease;
 }
 
 /* Figuren en SVG's */
