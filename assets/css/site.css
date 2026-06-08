@@ -1858,35 +1858,62 @@ input[type="radio"] {
   padding: 1.5rem 2rem;
   margin: 0 auto 3.5rem;
   font-size: 0.9rem;
-  line-height: 1;
   max-width: 70ch;
 }
 
 .essay-toc strong {
   display: block;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.9rem;
   color: var(--ink-blue);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
-.essay-toc a {
-  display: block;
-  color: var(--text);
-  border-bottom: none;
-  padding: 0.35rem 0;
+/* Links als nette lijst, puntjes uit HTML verwijderd */
+.essay-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.essay-toc ol li {
   border-bottom: 1px solid var(--line);
 }
 
-.essay-toc a:last-child {
+.essay-toc ol li:last-child {
   border-bottom: none;
 }
 
-.essay-toc a:hover {
+.essay-toc ol li a {
+  display: block;
+  color: var(--text);
+  border-bottom: none;
+  padding: 0.4rem 0;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.essay-toc ol li a:hover {
   color: var(--salmon);
   padding-left: 0.4rem;
-  transition: padding-left 0.15s ease, color 0.15s ease;
+}
+
+/* Fallback als links nog direct in nav staan (geen ol) */
+.essay-toc > a {
+  display: block;
+  color: var(--text);
+  border-bottom: 1px solid var(--line);
+  padding: 0.4rem 0;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.essay-toc > a:last-of-type {
+  border-bottom: none;
+}
+
+.essay-toc > a:hover {
+  color: var(--salmon);
+  padding-left: 0.4rem;
 }
 
 /* Figuren en SVG's */
