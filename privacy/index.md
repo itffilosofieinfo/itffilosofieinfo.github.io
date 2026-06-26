@@ -12,7 +12,7 @@ Op deze website worden zo min mogelijk persoonsgegevens verwerkt.
 
  1. Wie zijn wij
 Instituut voor Toegepaste Filosofie, Klooster 4, 7851 AJ  Zweeloo.  
-E-mail: info@instituutvoortoegepastefilosofie.nl
+E-mail: instituutfilosofie@proton.me
 
 2. Wij verwerken persoonsgegevens die je actief aan ons verstrekt wanneer je gebruikmaakt van ons contactformulier of je aanmeldt via het inschrijvingsformulier. Het gaat hierbij om:
 • Naam
